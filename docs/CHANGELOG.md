@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.1.0]] - 2022-03-23
+
+###### _([diff: 0.0.0-0.1.0])_
+
+**Frontend Dependencies & Packages.**
+
+Connected Frontend & Backend via webpack_loader.
+
+### Added:
+
+- React
+- Bootstrap
+- Redux
+- Lodash
+- Axios/Cookie
+- Prepared [`./frontend/sass`](../frontend/sass/) directory:
+    - `/sass/global/` for globally used styling
+    - `/sass/components/` for common components
+    - `/sass/pages/` for specific pages
+    - `/sass/vendor/` for bootstrap
+
+
 ## [[0.0.0]] - 2022-03-23
 
 **Project was initialized.**
@@ -40,5 +62,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
 
-
+[diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.1.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.1.0
 [0.0.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.0.0

@@ -1,32 +1,35 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const BundleTracker = require('webpack-bundle-tracker');
 
 const isProduction = process.env.NODE_ENV == "production";
 
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : "style-loader";
+const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : "style-loader";
 
 const config = {
-  entry: "./src/index.ts",
+  context: __dirname,
+  entry: {
+    main: "./src/index.tsx",
+    ts: "./src/index.tsx",
+  },
+  target: 'web',
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: 'http://localhost:3000/frontend/dist/',
+    filename: '[name].js',
   },
   devServer: {
     open: true,
     host: "localhost",
+    port: 3000,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
-
-    // Add your plugins here
-    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+    new BundleTracker({ filename: './webpack-stats.json' }),
   ],
   module: {
     rules: [
@@ -47,12 +50,10 @@ const config = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset",
       },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
     ],
   },
   resolve: {
+    modules: ['node_modules', path.resolve(__dirname, 'node_modules'), 'bower_components', path.resolve(__dirname, 'src')],
     extensions: [".tsx", ".ts", ".js"],
   },
 };

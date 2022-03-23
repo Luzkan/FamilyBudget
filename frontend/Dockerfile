@@ -7,4 +7,7 @@ ADD ./frontend/package.json /home/user/app/frontend/package.json
 RUN npm install
 ADD ./frontend/ /home/user/app/frontend/
 
-CMD npm run start
+ENV NODE_ENV=development
+EXPOSE 3000/tcp
+
+CMD npm run serve

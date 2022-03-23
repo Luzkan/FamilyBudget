@@ -2,9 +2,14 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
+    "jsx": "react",
     "module": "es6",
     "target": "es5",
-    "allowJs": true
+    "allowJs": true,
+    "moduleResolution": "node"
   },
-  "files": ["src/index.ts"]
+  "files": ["src/index.tsx"],
+  "exclude": [
+    "node_modules"
+  ],
 }

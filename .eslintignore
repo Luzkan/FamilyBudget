@@ -1,2 +1,2 @@
-frontend/bundles/
-frontend/webpack_bundles/
+frontend/dist/
+frontend/webpack_dist/

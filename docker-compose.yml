@@ -23,8 +23,8 @@ services:
       dockerfile: frontend/Dockerfile
       context: .
     volumes:
-      - .:/app/
-      - /app/frontend/node_modules
+      - ./:/home/user/app/
+      # - ./frontend/:/home/user/app/frontend/
     ports:
       - "3000:3000"
 
@@ -37,6 +37,7 @@ services:
       - "8800:8800"
     volumes:
       - ./:/home/user/app/
+      # - ./backend/:/home/user/app/backend/
     env_file: backend/.env
     depends_on:
       - db
@@ -48,7 +49,7 @@ services:
     build:
       dockerfile: backend/Dockerfile
       context: .
-    command: python manage.py celery
+    command: celery -A familybudget worker
     volumes:
       - .:/home/user/app/
     env_file: backend/.env

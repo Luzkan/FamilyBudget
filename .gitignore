@@ -20,9 +20,11 @@ node_modules/
 npm-debug.log
 
 # Webpack
-/frontend/bundles/*
-/frontend/webpack_bundles/*
-/webpack-stats.json
+/frontend/dist/*
+/frontend/webpack_dist/*
+/frontend/webpack-stats.json
+/frontend/dist/*
+/frontend/dist
 
 # Sass
 .sass-cache

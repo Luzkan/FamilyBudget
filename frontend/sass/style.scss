@@ -1,0 +1,22 @@
+@import "variables";
+@import "vendor/all";
+@import "global/all";
+@import "components/all";
+@import "pages/all";
+
+#django-background {
+    color: #e6e6e6;
+    font-size: 11pt;
+    background-repeat: no-repeat;
+    background-size: auto 200px;
+    background-position: center;
+    height: 300px;
+    background-image: url('../assets/img/django-logo-positive.png');
+}
+
+#django-logo-wrapper {
+    color: #e6e6e6;
+    & > img {
+        width: 100px;
+    }
+}

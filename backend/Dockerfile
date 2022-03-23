@@ -27,4 +27,5 @@ RUN apt-get purge libpq-dev -y && apt-get autoremove -y && \
 ADD backend/ /home/user/app/backend
 
 USER user
-CMD gunicorn familybudget.wsgi --log-file - -b 0.0.0.0:8800 --reload
+# CMD gunicorn familybudget.wsgi --log-file - -b 0.0.0.0:8800 --reload
+CMD python manage.py runserver 0.0.0.0:8000
