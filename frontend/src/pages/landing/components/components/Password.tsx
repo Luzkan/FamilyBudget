@@ -1,17 +1,18 @@
 import React from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
-import { Lock } from 'react-bootstrap-icons';
+import { Lock } from "react-bootstrap-icons";
 
-const Password = () => {
+interface Props {
+  hint: string;
+}
+
+const Password = ({ hint }: Props): JSX.Element => {
   return (
     <InputGroup>
       <InputGroup.Text>
-        <Lock/>
+        <Lock />
       </InputGroup.Text>
-      <FormControl
-        placeholder="Password"
-        type="text"
-      />
+      <FormControl placeholder={hint} type="text" />
     </InputGroup>
   );
 };
