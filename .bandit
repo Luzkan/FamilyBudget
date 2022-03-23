@@ -1,0 +1,2 @@
+[bandit]
+exclude: test_*.py,./venv/,./env/,./frontend/node_modules/,./cacheback/,./.env,./.venv

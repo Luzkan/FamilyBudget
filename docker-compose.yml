@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  db:
+    image: "postgres:alpine"
+    environment:
+      - POSTGRES_USER=familybudget
+      - POSTGRES_PASSWORD=tivix123
+      - POSTGRES_DB=familybudget
+    ports:
+      - "5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data:delegated
+
+  broker:
+    image: "rabbitmq:alpine"
+
+  result:
+    image: "redis:alpine"
+
+  frontend:
+    build:
+      dockerfile: frontend/Dockerfile
+      context: .
+    volumes:
+      - .:/app/
+      - /app/frontend/node_modules
+    ports:
+      - "3000:3000"
+
+  backend:
+    build:
+      dockerfile: backend/Dockerfile
+      context: .
+    ports:
+      - "8000:8000"
+      - "8800:8800"
+    volumes:
+      - ./:/home/user/app/
+    env_file: backend/.env
+    depends_on:
+      - db
+      - broker
+      - result
+      - frontend
+
+  celery:
+    build:
+      dockerfile: backend/Dockerfile
+      context: .
+    command: python manage.py celery
+    volumes:
+      - .:/home/user/app/
+    env_file: backend/.env
+    depends_on:
+      - db
+      - broker
+      - result
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  dbdata:
+    external:
+      name: familybudget_dbdata
