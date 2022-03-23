@@ -1,0 +1,13 @@
+.budget-pane {
+    p, h1, h2, h3, h4, h5, li, span, button, input, label {
+        color: $color-font-light-bg;
+    }
+}
+
+.budget-pane {
+  background-color: $color-paper;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #0000001a, 0 2px 4px 0 #00000033;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

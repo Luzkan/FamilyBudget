@@ -5,6 +5,7 @@
   transition: 0.5s ease-out;
   overflow: hidden;
   border-radius: 20%;
+  pointer-events: none;
 
   &.top-left {
     animation: 4s pulse infinite;
@@ -19,7 +20,7 @@
     animation: 6s wiggle infinite;
     height: 400px;
     width: 400px;
-    opacity: 0.4;
+    opacity: 0.3;
     right: -10%;
     top: -12%;
   }

@@ -6,10 +6,15 @@ $color-background: #331141;
 $color-background-on-top: #511c66d8;
 $color-background-on-top-hovered: #511c6693;
 
-$color-font: #ffffff;
-$color-font-hint: #cacaca;
-$color-font-accent: #923c67;
-$color-font-accent-bold: #c6538c;
+$color-font-dark-bg: #ffffff;
+$color-font-dark-bg-hint: #cacaca;
+$color-font-dark-bg-accent: #923c67;
+$color-font-dark-bg-accent-bold: #c6538c;
+
+$color-font-light-bg: #000000;
+$color-font-light-bg-hint: #3b3b3b;
+
+$color-paper: #ffffff;
 
 $theme-colors: (
   "primary": $color-main,

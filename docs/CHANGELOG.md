@@ -7,13 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.3.0]] - 2022-03-23
+
+###### _([diff: 0.2.2-0.3.0])_
+
+![](./img/v0_3_0_logged_page.png)
+
+### Added
+
+-   Frontpage Skeleton:
+    -   Side Tabs (Paginated) for various _Budgets_
+        -   Search Bar for _Budgets_
+        -   Add New Budget Button
+            -   Opens up a Modal
+    -   Main Panels
+        -   Openable via the Side Tabs
+        -   Contains a Table with structure:
+            | #   | Type    | Amount | User    |
+            | --- | ------- | ------ | ------- |
+            | 1   | Expense | 500    | Marcel  |
+            | 2   | Income  | 400    | Justyna |
+            | 3   | Expense | 900    | Marcin  |
+
 ## [[0.2.2]] - 2022-03-23
 
 ###### _([diff: 0.2.1-0.2.2])_
 
 ### Added
 
-- Register Form on Landing Page
+-   Register Form on Landing Page
 
 ## [[0.2.1]] - 2022-03-23
 
@@ -23,9 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
-- Login Form to Landing Page
-
+-   [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
+-   Login Form to Landing Page
 
 ## [[0.2.0]] - 2022-03-23
 
@@ -40,7 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Lack of type support for `history` (added `@types/history` to DevDependencies)
+-   Lack of type support for `history` (added `@types/history` to DevDependencies)
 
 ## [[0.1.1]] - 2022-03-23
 
@@ -110,11 +131,13 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
-[diff: 0.2.1-0.2.2]: https://github.com/Luzkan/FamilyBudget/compare/0.2.0...0.2.2
+[diff: 0.2.2-0.3.0]: https://github.com/Luzkan/FamilyBudget/compare/0.2.2...0.3.0
+[diff: 0.2.1-0.2.2]: https://github.com/Luzkan/FamilyBudget/compare/0.2.1...0.2.2
 [diff: 0.2.0-0.2.1]: https://github.com/Luzkan/FamilyBudget/compare/0.2.0...0.2.1
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.3.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.3.0
 [0.2.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.2.2
 [0.2.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.2.1
 [0.2.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.2.0

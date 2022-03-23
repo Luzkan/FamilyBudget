@@ -1,22 +1,22 @@
 body {
     font-family: "TT Norms Pro", "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 1.8em;
-    color: $color-font;
+    color: $color-font-dark-bg;
 }
 
 p, h1, h2, h3, h4, h5, li, span, button, input, label {
-    color: $color-font;
+    color: $color-font-dark-bg;
 }
 
 .text-hint {
-    color: $color-font-hint;
+    color: $color-font-dark-bg-hint;
 }
 
 .text-clickable {
     cursor: pointer;
-    color: $color-font-accent;
+    color: $color-font-dark-bg-accent;
 
     &:hover {
-        color: $color-font-accent-bold;
+        color: $color-font-dark-bg-accent-bold;
     }
 }

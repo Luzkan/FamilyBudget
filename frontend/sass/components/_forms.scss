@@ -5,7 +5,7 @@
     input {
       background-color: $color-background-on-top;
       border-color: $color-background-on-top;
-      color: $color-font-hint;
+      color: $color-font-dark-bg-hint;
 
       &:focus {
         border-color: $color-accent-opacity;
@@ -18,7 +18,7 @@
       background-color: $color-background-on-top;
       border-color: $color-background-on-top;
       svg {
-        fill: $color-font-hint;
+        fill: $color-font-dark-bg-hint;
       }
     }
   }
