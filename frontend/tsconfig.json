@@ -9,7 +9,13 @@
     "moduleResolution": "node"
   },
   "files": ["src/index.tsx"],
+  "include": [
+    "src",
+    "*.ts",
+    "*.tsx"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
 }

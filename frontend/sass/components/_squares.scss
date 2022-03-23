@@ -1,0 +1,84 @@
+.squares {
+  animation: wandern 1s infinite;
+  background: linear-gradient($color-main, $color-accent);
+  position: absolute;
+  transition: 0.5s ease-out;
+  overflow: hidden;
+  border-radius: 20%;
+
+  &.top-left {
+    animation: 4s pulse infinite;
+    height: 300px;
+    width: 300px;
+    opacity: 0.5;
+    left: 3%;
+    top: -17%;
+  }
+
+  &.top-right {
+    animation: 6s wiggle infinite;
+    height: 400px;
+    width: 400px;
+    opacity: 0.4;
+    right: -10%;
+    top: -12%;
+  }
+
+  &.bottom-left {
+    animation: 5s wiggle infinite;
+    height: 200px;
+    width: 200px;
+    opacity: 0.1;
+    left: -5%;
+    bottom: 0%;
+  }
+
+  &.center-bottom-left {
+    animation: 10s wiggle infinite;
+    height: 100px;
+    width: 100px;
+    opacity: 0.9;
+    right: 74%;
+    top: 70%;
+  }
+
+  &.center-bottom-right {
+    animation: 6s wiggle infinite;
+    height: 250px;
+    width: 250px;
+    opacity: 0.1;
+    left: 58%;
+    bottom: 29%;
+  }
+
+  &.center-top-right {
+    animation: 9s wiggle infinite;
+    left: 80%;
+    top: 35%;
+    height: 80px;
+    width: 80px;
+    opacity: 0.8;
+  }
+
+  &.bottom-right {
+    animation: 3s wiggle infinite;
+    width: 300px;
+    height: 300px;
+    right: -5%;
+    bottom: 0%;
+    opacity: 0.1;
+  }
+
+  @keyframes wiggle {
+    from {
+        transform: translate(-4%, 0%) scale(1);
+    }
+    50% {
+        transform: translate(0, -3%) scale(0.96);
+    }
+    to {
+      transform: translate(-4%, 0%) scale(1);
+    }
+  }
+
+}

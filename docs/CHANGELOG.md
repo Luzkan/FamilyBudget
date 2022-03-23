@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.2.0]] - 2022-03-23
+
+###### _([diff: 0.1.1-0.2.0])_
+
+![](./img/v0_2_0_landing_page.png)
+
+### Added
+
+-   Landing Page Background Stylizations
+-   Successfully Connected Frontend/Backend via Example API Call
+
+### Fixed
+
+- Lack of type support for `history` (added `@types/history` to DevDependencies)
+
 ## [[0.1.1]] - 2022-03-23
 
 ###### _([diff: 0.1.0-0.1.1])_
@@ -75,8 +90,10 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.2.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.2.0
 [0.1.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.1.1
 [0.1.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.1.0
 [0.0.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.0.0

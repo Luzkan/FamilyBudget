@@ -1,9 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import LandingPage from '../pages/landing';
+import configureStore from '../store';
+
+const store = configureStore({});
 
 const App = () => (
-  <div>
-      <h1>Hello from Frontend!</h1>
-  </div>
+  <Provider store={store}>
+    <LandingPage/>
+  </Provider>
 );
 
 export default App;

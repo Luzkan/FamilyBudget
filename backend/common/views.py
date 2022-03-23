@@ -19,6 +19,6 @@ class RestViewSet(viewsets.ViewSet):
     )
     def rest_check(self, request):
         return Response(
-            {"result": "If you're seeing this, the REST API is working!"},
+            {"result": "Hello from Backend!"},
             status=status.HTTP_200_OK,
         )
