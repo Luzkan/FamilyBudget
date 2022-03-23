@@ -1,6 +1,16 @@
 $color-main: #c6538c;
 $color-accent: #c6538c;
+$color-accent-opacity: #c6538cab;
 
 $color-background: #331141;
+$color-background-on-top: #511c66d8;
+$color-background-on-top-hovered: #511c6693;
 
 $color-font: #ffffff;
+$color-font-hint: #cacaca;
+$color-font-accent: #923c67;
+$color-font-accent-bold: #c6538c;
+
+$theme-colors: (
+  "primary": $color-main,
+);

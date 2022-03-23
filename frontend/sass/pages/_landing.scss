@@ -1,7 +1,6 @@
 .landing-page {
   height: 100vh;
 
-  
   > .content-center {
     .title {
       color: $white;
@@ -10,7 +9,7 @@
     }
     .subtitle {
       color: $white;
-      font-weight: 500;
+      font-weight: 300;
       text-transform: capitalize;
     }
   }
@@ -66,5 +65,21 @@
 
   &.header-filter:after {
     background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+form {
+  &.landing-page-login {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 27em;
+    display: inline-block;
+    justify-content: center;
+
+  }
+
+  .switch-form {
+    margin-top: 5px;
+    margin-bottom: 2em;
   }
 }

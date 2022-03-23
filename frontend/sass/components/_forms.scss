@@ -1,0 +1,25 @@
+.form {
+  font-size: $font-size-sm;
+
+  > .input-group {
+    input {
+      background-color: $color-background-on-top;
+      border-color: $color-background-on-top;
+      color: $color-font-hint;
+
+      &:focus {
+        border-color: $color-accent-opacity;
+        background-color: $color-background-on-top-hovered;
+        box-shadow: none;
+      }
+
+    }
+    span {
+      background-color: $color-background-on-top;
+      border-color: $color-background-on-top;
+      svg {
+        fill: $color-font-hint;
+      }
+    }
+  }
+}

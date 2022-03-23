@@ -7,3 +7,16 @@ body {
 p, h1, h2, h3, h4, h5, li, span, button, input, label {
     color: $color-font;
 }
+
+.text-hint {
+    color: $color-font-hint;
+}
+
+.text-clickable {
+    cursor: pointer;
+    color: $color-font-accent;
+
+    &:hover {
+        color: $color-font-accent-bold;
+    }
+}
