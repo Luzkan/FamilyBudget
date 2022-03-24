@@ -1,5 +1,5 @@
 import React from "react";
-import BMModal from "../../../../../../../common/components/button-modal/components/BMModal";
+import BMModal from "../../../../../../../common/components/button-modal/components/BMModal"; // TODO: Absolute import
 import AddBudgetButton from "./components/AddBudgetButton";
 
 const AddBudget = () => {
@@ -8,12 +8,17 @@ const AddBudget = () => {
   return (
     <>
       <AddBudgetButton showModal={() => setModalShow(true)} />
-      <BMModal show={modalShow} onHide={() => setModalShow(false)} headerTitle={""} bodyContent={
-        <>
-          <h4>Hey</h4>
-          <p>Ho</p>
-        </>
-      } />
+      <BMModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        headerTitle={""}
+        bodyContent={
+          <>
+            <h4>Hey</h4>
+            <p>Ho</p>
+          </>
+        }
+      />
     </>
   );
 };

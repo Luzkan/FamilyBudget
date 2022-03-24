@@ -10,6 +10,7 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : "style-loader
 
 const config = {
   context: __dirname,
+  devtool: "source-map",
   entry: {
     main: "./src/index.tsx",
     ts: "./src/index.tsx",

@@ -5,4 +5,5 @@ from . import views
 app_name = 'common'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('budgets', views.IndexView.as_view(), name='budgets'),
 ]
