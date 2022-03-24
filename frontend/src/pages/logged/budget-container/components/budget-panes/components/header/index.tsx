@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import AddTransaction from "./components/add-transaction";
+import ManageUsers from "./components/manage-users";
 
 interface Props {
   budgetName: string;
@@ -16,7 +17,7 @@ const Header = ({ budgetName }: Props) => {
         <AddTransaction />
       </Col>
       <Col xs={2}>
-        <button className="btn btn-primary">Add/Remove</button>
+        <ManageUsers />
       </Col>
     </Row>
   );

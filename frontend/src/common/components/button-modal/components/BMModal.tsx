@@ -4,9 +4,11 @@ import { Button, Modal } from "react-bootstrap";
 interface Props {
   show: boolean;
   onHide: () => void;
+  headerTitle: string;
+  bodyContent: JSX.Element;
 }
 
-const AddTransactionModal = ({ show, onHide }: Props): JSX.Element => {
+const BMModal = ({ show, onHide, headerTitle, bodyContent }: Props): JSX.Element => {
   return (
     <Modal
       show={show}
@@ -16,11 +18,10 @@ const AddTransactionModal = ({ show, onHide }: Props): JSX.Element => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">New Budget</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">{headerTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Something</h4>
-        <p>New Budget things</p>
+        {bodyContent}
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide}>Close</Button>
@@ -29,4 +30,4 @@ const AddTransactionModal = ({ show, onHide }: Props): JSX.Element => {
   );
 };
 
-export default AddTransactionModal;
+export default BMModal;

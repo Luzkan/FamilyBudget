@@ -1,6 +1,6 @@
 import React from "react";
 import { ListGroup, Pagination} from "react-bootstrap";
-import Add from "./components/add";
+import AddBudget from "./components/add";
 import BudgetTabItem from "./components/budget-tab-item";
 import Searchbar from "./components/searchbar";
 
@@ -20,7 +20,7 @@ const BudgetTabs = () => {
 
   return (
     <ListGroup>
-      <Add/>
+      <AddBudget/>
       <Searchbar/>
       {budgetsMock.map((_, index) => (
         <BudgetTabItem budgetItemIndex={index} key={index} />

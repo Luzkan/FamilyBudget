@@ -1,16 +1,16 @@
 import React from "react";
 import ButtonModal from "../../../../../../../../../common/components/button-modal";  // TODO: Absolute import
 
-const AddTransaction = () => {
+const ManageUsers = () => {
   return (
     <>
       <ButtonModal
-        buttonText="New Transaction"
-        modalHeaderTitle="New Budget"
+        buttonText="Manage Users"
+        modalHeaderTitle="Manage Users"
         modalBodyContent={
           <>
             <h4>Hey</h4>
-            <p>New Budget things</p>
+            <p>Manager Users</p>
           </>
         }
       />
@@ -18,4 +18,4 @@ const AddTransaction = () => {
   );
 };
 
-export default AddTransaction;
+export default ManageUsers;
