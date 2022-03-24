@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import AbsoluteBackground from "../../common/components/absolute-background";
-import { creators } from "../../store/rest_check";
+import { creators } from "../../api/rest_check";
 import Login from "./components/Login";
 import Register from "./components/Register";
 

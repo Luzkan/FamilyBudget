@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import AbsoluteBackground from "../../common/components/absolute-background";
-import { creators } from "../../store/rest_check";
+import { creators } from "../../api/rest_check";
 import BudgetContainer from "./budget-container";
 import BudgetTabs from "./budget-container/components/budget-tabs";
 

@@ -3,16 +3,24 @@ import { FormControl, InputGroup } from "react-bootstrap";
 import { Lock } from "react-bootstrap-icons";
 
 interface Props {
+  handleInput: any;
+  name: string;
   hint: string;
 }
 
-const Password = ({ hint }: Props): JSX.Element => {
+const Password = ({ handleInput, name, hint,  }: Props): JSX.Element => {
   return (
     <InputGroup>
       <InputGroup.Text>
         <Lock />
       </InputGroup.Text>
-      <FormControl placeholder={hint} type="text" />
+      <FormControl
+        placeholder={hint}
+        type="text"
+        id={name}
+        name={name}
+        {...handleInput(name, {required: true, maxLength: 80})}
+      />
     </InputGroup>
   );
 };
