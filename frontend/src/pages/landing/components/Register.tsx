@@ -2,19 +2,19 @@ import { generate } from "password-hash";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { registration } from "../../../api/auth/register";
 import Email from "./components/Email";
 import FormSwitch from "./components/FormSwitch";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import Password from "./components/Password";
+import { Navigate } from "react-router-dom";
+import { CredentialsData, RegisterCredentials } from "../../../types/user";
 
 interface Props {
   setLoginForm: (loginForm: boolean) => void;
 }
 
-type RegisterCredentials = {
-  email: string;
-  password: string;
-  passwordConfirm: string;
-};
+
 
 const Register = ({ setLoginForm }: Props) => {
   const {
@@ -23,6 +23,8 @@ const Register = ({ setLoginForm }: Props) => {
     formState: { errors },
   } = useForm<RegisterCredentials>();
 
+  const registerData: CredentialsData = useSelector((state: RootStateOrAny) => state.register);
+  const dispatch = useDispatch();
   const onSubmit = (data: RegisterCredentials) => {
     if (data.password !== data.passwordConfirm) {
       alert("Passwords do not match.");
@@ -37,8 +39,13 @@ const Register = ({ setLoginForm }: Props) => {
       saltLength: 8,
       iterations: 1
     });
-    console.log({ ...data, password: hashedPassword });
+    dispatch(registration.post({ ...data, password: hashedPassword }));
+    console.log('[DEV] End of Register');
   };
+
+  if (registerData.token) {
+    return <Navigate replace to="/budgets" />;
+  }
 
   return (
     <Form className="form landing-page-login" onSubmit={handleSubmit(onSubmit)}>
@@ -50,7 +57,7 @@ const Register = ({ setLoginForm }: Props) => {
         hint={"Confirm Password"}
       />
       <FormSwitch handleClick={() => setLoginForm(true)} isLoginForm={false} />
-      <Button className="btn-round" color="primary" size="lg">
+      <Button className="btn-round" color="primary" size="lg" type="submit">
         Register
       </Button>
     </Form>

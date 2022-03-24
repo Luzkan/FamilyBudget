@@ -10,9 +10,8 @@ const store = configureStore({});
 const App = () => (
   <BrowserRouter>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Router />
-      </ConnectedRouter>
+      <ConnectedRouter history={history}></ConnectedRouter>
+      <Router />
     </Provider>
   </BrowserRouter>
 );

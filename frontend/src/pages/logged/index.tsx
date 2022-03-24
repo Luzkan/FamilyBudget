@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import AbsoluteBackground from "../../common/components/absolute-background";
-import { creators } from "../../api/rest_check";
 import BudgetContainer from "./budget-container";
-import BudgetTabs from "./budget-container/components/budget-tabs";
 
 const LoggedPage = () => {
   
-  // const dispatch = useDispatch();
-  // const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
+  // const [user, setUser] = useState()
+
   // useEffect(() => {
-  //   const action = creators.fetchRestCheck();
-  //   dispatch(action);
-  // }, [dispatch]);
+  //   const loggedInUser = localStorage.getItem("user");
+  //   if (loggedInUser) {
+  //     const foundUser = JSON.parse(loggedInUser);
+  //     setUser(foundUser);
+  //   }
+  // }, []);
 
   return (
     <>

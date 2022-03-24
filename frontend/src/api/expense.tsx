@@ -17,7 +17,7 @@ export const creators = {
   }
 };
 
-export const restSendExpense = (state = {}, action: { type: string; data: any; }) => {
+export const expenseReducer = (state = {}, action: { type: string; data: any; }) => {
   if (action.type === types.FETCH_SUCCESS) return action.data;
   return state;
 };
