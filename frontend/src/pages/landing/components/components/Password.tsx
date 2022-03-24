@@ -19,7 +19,7 @@ const Password = ({ handleInput, name, hint,  }: Props): JSX.Element => {
         type="text"
         id={name}
         name={name}
-        {...handleInput(name, {required: true, maxLength: 80})}
+        {...handleInput(name, {required: true, maxLength: 80, min: 8})}
       />
     </InputGroup>
   );

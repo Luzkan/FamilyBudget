@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.3.4]] - 2022-03-24
+
+###### _([diff: 0.3.3-0.3.4])_
+
+### Added
+
+- Password Hashing
+- Password Verification API Call
+
 ## [[0.3.3]] - 2022-03-24
 
 ###### _([diff: 0.3.2-0.3.3])_
@@ -161,7 +170,8 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
-[diff: 0.3.1-0.3.2]: https://github.com/Luzkan/FamilyBudget/compare/0.3.2...0.3.3
+[diff: 0.3.3-0.3.4]: https://github.com/Luzkan/FamilyBudget/compare/0.3.3...0.3.4
+[diff: 0.3.2-0.3.3]: https://github.com/Luzkan/FamilyBudget/compare/0.3.2...0.3.3
 [diff: 0.3.1-0.3.2]: https://github.com/Luzkan/FamilyBudget/compare/0.3.1...0.3.2
 [diff: 0.3.0-0.3.1]: https://github.com/Luzkan/FamilyBudget/compare/0.3.0...0.3.1
 [diff: 0.2.2-0.3.0]: https://github.com/Luzkan/FamilyBudget/compare/0.2.2...0.3.0
@@ -170,6 +180,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.3.4]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.3.4
 [0.3.3]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.3.3
 [0.3.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.3.2
 [0.3.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.3.1

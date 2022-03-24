@@ -7,12 +7,13 @@ import BudgetContainer from "./budget-container";
 import BudgetTabs from "./budget-container/components/budget-tabs";
 
 const LoggedPage = () => {
-  const dispatch = useDispatch();
-  const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
-  useEffect(() => {
-    const action = creators.fetchRestCheck();
-    dispatch(action);
-  }, [dispatch]);
+  
+  // const dispatch = useDispatch();
+  // const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
+  // useEffect(() => {
+  //   const action = creators.fetchRestCheck();
+  //   dispatch(action);
+  // }, [dispatch]);
 
   return (
     <>

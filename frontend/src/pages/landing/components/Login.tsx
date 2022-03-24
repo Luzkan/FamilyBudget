@@ -1,18 +1,16 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { login, LoginCredentials } from "../../../api/login";
 import Email from "./components/Email";
 import FormSwitch from "./components/FormSwitch";
 import Password from "./components/Password";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 interface Props {
   setLoginForm: (loginForm: boolean) => void;
 }
-
-type LoginCredentials = {
-  email: string;
-  password: string;
-};
 
 const Login = ({ setLoginForm }: Props) => {
   const {
@@ -21,11 +19,18 @@ const Login = ({ setLoginForm }: Props) => {
     formState: { errors },
   } = useForm<LoginCredentials>();
 
-  const onSubmit = (data: LoginCredentials) => console.log(data);
+  const restLogin = useSelector((state: RootStateOrAny) => state.restLogin);
+  const dispatch = useDispatch();
 
-  // const onSubmit = handleSubmit((data: LoginCredentials) => {
-  //   console.log(JSON.stringify(data));
-  // });
+  const onSubmit = (data: LoginCredentials) => {
+    // Sending password in plaintext (even when SSL is used) is a questionable practice.
+    // https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
+    dispatch(login.post(data));
+  };
+
+  if (restLogin.verified) {
+    return <Navigate replace to="/budgets" />;
+  }
 
   return (
     <Form className="form landing-page-login" onSubmit={handleSubmit(onSubmit)}>

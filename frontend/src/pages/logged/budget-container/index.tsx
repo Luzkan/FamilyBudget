@@ -4,6 +4,14 @@ import BudgetPanes from "./components/budget-panes";
 import BudgetTabs from "./components/budget-tabs";
 
 const BudgetContainer = () => {
+
+  // const dispatch = useDispatch();
+  // const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
+  // useEffect(() => {
+  //   const action = creators.fetchRestCheck();
+  //   dispatch(action);
+  // }, [dispatch]);
+
   return (
     <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link0">
       <Row>

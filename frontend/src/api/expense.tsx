@@ -1,13 +1,8 @@
 import api from './api';
+import { fetchTypes } from './utils/Types';
 
-// Action types
-const types = {
-  FETCH_REQUESTED: 'expense/FETCH_REQUESTED',
-  FETCH_SUCCESS: 'expense/FETCH_SUCCESS',
-  FETCH_ERROR: 'expense/FETCH_ERROR',
-};
+const types = fetchTypes('expense');
 
-// Action creators
 export const creators = {
   postSendExpense: (number: number) => {
     return async (dispatch: (arg0: { type: string; data?: any; error?: any; }) => void) => {
@@ -22,7 +17,6 @@ export const creators = {
   }
 };
 
-// Reducer
 export const restSendExpense = (state = {}, action: { type: string; data: any; }) => {
   if (action.type === types.FETCH_SUCCESS) return action.data;
   return state;

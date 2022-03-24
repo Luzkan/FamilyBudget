@@ -1,3 +1,4 @@
+import { generate } from "password-hash";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -22,11 +23,22 @@ const Register = ({ setLoginForm }: Props) => {
     formState: { errors },
   } = useForm<RegisterCredentials>();
 
-  const onSubmit = (data: RegisterCredentials) => console.log(data);
+  const onSubmit = (data: RegisterCredentials) => {
+    if (data.password !== data.passwordConfirm) {
+      alert("Passwords do not match.");
+      return;
+    }
 
-  // const onSubmit = handleSubmit((data: RegisterCredentials) => {
-  //   console.log(JSON.stringify(data));
-  // })
+    // In real case scenario, according to OWASP, I should use Argon2id or bcrypt
+    // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+
+    const hashedPassword = generate(data.password, {
+      algorithm: "SHA256",  // This algorithm is not secure, RSA/DES/AES, preferable
+      saltLength: 8,
+      iterations: 1
+    });
+    console.log({ ...data, password: hashedPassword });
+  };
 
   return (
     <Form className="form landing-page-login" onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +50,7 @@ const Register = ({ setLoginForm }: Props) => {
         hint={"Confirm Password"}
       />
       <FormSwitch handleClick={() => setLoginForm(true)} isLoginForm={false} />
-      <Button className="btn-round" color="primary" size="lg" type="submit">
+      <Button className="btn-round" color="primary" size="lg">
         Register
       </Button>
     </Form>
