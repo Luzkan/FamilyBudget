@@ -55,6 +55,11 @@ class AuthService {
     const userStr = localStorage.getItem("user");
     return userStr ? JSON.parse(userStr) : null;
   }
+
+  getAuthToken(): string | null {
+    const user = this.getCurrentUser();
+    return user ? user.token : null;
+  }
 }
 
 export default new AuthService();

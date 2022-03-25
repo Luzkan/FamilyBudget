@@ -1,8 +1,8 @@
 from auth.views.login import LoginViewSet
 from auth.views.register import RegisterViewSet
 from auth.views.check_auth import CheckAuthViewSet
+from common.views.rest import RestViewSet
 from budget.views.add import BudgetViewSet
-from .views import RestViewSet
 
 routes = [
     {'regex': r'rest', 'viewset': RestViewSet, 'basename': 'Rest'},

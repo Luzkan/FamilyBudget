@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-from auth.views.common.requests.base import BaseRequest
+from common.views.common.requests.base import BaseRequest, Headers
 
 
 @dataclass(frozen=True)  # TODO: pydantic validation
@@ -20,6 +20,7 @@ class EmailTokenRequest(BaseRequest):
             user=str(request.user),
             content_type=str(request.content_type),
             auth=request.auth,
+            headers=Headers.init(request.headers),
         )
 
     @staticmethod

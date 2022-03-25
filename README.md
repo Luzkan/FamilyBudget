@@ -29,3 +29,10 @@ TBA. 🐈
 
 - Lot's of stuff is doing on behalves of currently logged in users. A ready-made solution for such tasks would be great. Here is a [django-crum](https://pypi.org/project/django-crum/) library that contains built-in tests, safe-checks and implementation, but unfortunately is not supported for Django 4.0.
 
+### Database
+
+- Budget-User optimizations:
+    - Each `user` can have `(0..*)` items of `budget`
+    - Each `budget` can have `(1..*)` items of `user`
+    - At this moment, when a user queries for his `budgets`, it is solved by `Budget.objects.filter(users=user.id)`
+    - I never had the chance to benchmark how does Django handle this situation, but depending on the most frequent use case scenario _(`select` for sure)_, there could be other solutions, like a new _Model_ with columns for foreign keys of `User` and `Budget` or giving `User` an extra column containing `Budgets`.

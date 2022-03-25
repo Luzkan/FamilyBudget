@@ -6,9 +6,9 @@ from budget.models import Budget
 
 class BudgetSerializer(serializers.ModelSerializer):
     users = UserSerializer(read_only=True, many=True)
-    expenses = ExpenseSerializer(read_only=True, many=True)
-    incomes = IncomeSerializer(read_only=True, many=True)
+    expenses = ExpenseSerializer(read_only=True, many=True, required=False)
+    incomes = IncomeSerializer(read_only=True, many=True, required=False)
 
     class Meta:
         model = Budget
-        fields = ['name', 'total_budget']
+        fields = ['name', 'total_budget', 'users', 'expenses', 'incomes']

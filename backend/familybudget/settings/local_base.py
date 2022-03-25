@@ -27,6 +27,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'mailhog'
 EMAIL_PORT = 1025
 
+
 # Logging
 LOGGING = {
     "version": 1,
@@ -48,7 +49,7 @@ LOGGING = {
         },
     },
     "loggers": {
-        "": {"handlers": ["console"], "level": "INFO"},
+        "": {"handlers": ["rich_console"], "level": "INFO"},
         "django": {"handlers": ["rich_console"], "level": "INFO"},
         "celery": {"handlers": ["console"], "level": "INFO"},
     },
