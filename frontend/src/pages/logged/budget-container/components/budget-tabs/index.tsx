@@ -18,7 +18,7 @@ const BudgetTabs = ({budgets, paginations}: Props) => {
       <AddBudget/>
       <Searchbar/>
       {budgets.map((budget: Budget, index: number) => (
-        <BudgetTabItem budgetItemIndex={index} key={index} />
+        <BudgetTabItem budget={budget} budgetItemIndex={index} key={index} />
       ))}
       <Pagination>{paginations}</Pagination>
     </ListGroup>

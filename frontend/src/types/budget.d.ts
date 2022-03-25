@@ -1,5 +1,4 @@
-import { Income } from "./income";
-import { Expense } from "./expense";
+import { Expense, Income } from "./transaction";
 import { User } from "./user";
 
 export type BudgetForm = {

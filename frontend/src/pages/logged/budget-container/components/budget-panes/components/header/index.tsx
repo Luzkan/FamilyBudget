@@ -4,14 +4,14 @@ import AddTransaction from "./components/add-transaction";
 import ManageUsers from "./components/manage-users";
 
 interface Props {
-  budgetName: string;
+  title: string;
 }
 
-const Header = ({ budgetName }: Props) => {
+const Header = ({ title }: Props) => {
   return (
     <Row>
       <Col xs={8}>
-        <h2>Turbośmieszki</h2>
+        <h2>{title}</h2>
       </Col>
       <Col xs={2}>
         <AddTransaction />

@@ -1,41 +1,36 @@
 import React from "react";
-import { Col, ListGroup, Row, Tab, Table } from "react-bootstrap";
-import Header from "../header";
+import { Table } from "react-bootstrap";
+import { Expense, ExpenseCategory, Income, IncomeCategory } from "../../../../../../../types/transaction";
+import TableHeader from "./components/TableHeader";
+import TableItem from "./components/TableItem";
 
 interface Props {
+  items: {
+    type: string;
+    id_user: number;
+    amount: number;
+    name: string;
+    category: ExpenseCategory | IncomeCategory;
+  }[];
   budgetItemIndex: number;
 }
 
-const BudgetPaneTable = ({ budgetItemIndex }: Props) => {
+const BudgetPaneTable = ({ items, budgetItemIndex }: Props) => {
+  const itemsToRender = items.map((item, index) => (
+    <TableItem
+      key={index}
+      type={item.type}
+      amount={item.amount}
+      user={item.name}
+      category={item.category}
+    />
+  ));
+
   return (
     <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>User</th>
-        </tr>
-      </thead>
+      <TableHeader />
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Expense</td>
-          <td>500</td>
-          <td>Marcel</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Income</td>
-          <td>400</td>
-          <td>Justyna</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Expense</td>
-          <td>900</td>
-          <td>Marcin</td>
-        </tr>
+        {itemsToRender}
       </tbody>
     </Table>
   );

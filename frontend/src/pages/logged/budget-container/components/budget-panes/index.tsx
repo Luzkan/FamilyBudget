@@ -8,12 +8,11 @@ interface Props {
 }
 
 const BudgetPanes = ({budgets}: Props) => {
-  const budgetsMock = Array(6).fill(0);
 
   return (
     <Tab.Content>
-      {budgetsMock.map((_, index) => (
-        <Transaction budgetItemIndex={index} key={index} />
+      {budgets.map((budget, index) => (
+        <Transaction budget={budget} budgetItemIndex={index} key={index} />
       ))}
     </Tab.Content>
   );

@@ -1,15 +1,14 @@
 import React from "react";
 import { Badge, ListGroup } from "react-bootstrap";
+import { Budget } from "../../../../../../../types/budget";
+import { User } from "../../../../../../../types/user";
 
 interface Props {
+  budget: Budget;
   budgetItemIndex: number;
 }
 
-const BudgetTabItem = ({budgetItemIndex}: Props) => {
-  const budgetMock = 20
-  const titleMock = "Turbośmieszki"
-  const usersMock = "Marcel, Justyna, Daniel, Marcin"
-
+const BudgetTabItem = ({budget, budgetItemIndex}: Props) => {
   return (
     <ListGroup.Item
       as="li"
@@ -18,11 +17,15 @@ const BudgetTabItem = ({budgetItemIndex}: Props) => {
       href={`#link${budgetItemIndex}`}
     >
       <div className="ms-2 me-auto">
-        <div className="fw-bold">{titleMock}</div>
-        {usersMock}
+        <div className="fw-bold">{budget.name}</div>
+        {budget.users.map((user: User, index: number) => (
+          <Badge pill className="mr-1" key={index}>
+            {user.email}
+          </Badge>
+        ))}
       </div>
       <Badge bg="primary" pill>
-        {budgetMock}
+        {budget.total_budget}
       </Badge>
     </ListGroup.Item>
   );

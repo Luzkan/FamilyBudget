@@ -5,7 +5,7 @@ const AddTransaction = () => {
   return (
     <>
       <ButtonModal
-        buttonText="New Transaction"
+        buttonText="Transaction"
         modalHeaderTitle="New Budget"
         modalBodyContent={
           <>
