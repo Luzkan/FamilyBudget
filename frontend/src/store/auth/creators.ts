@@ -1,8 +1,12 @@
-import AuthService from "../../services/auth.service";
-import { fetchTypes } from "../utils/Types";
-import { CredentialsData, LoginCredentials, RegisterCredentials } from "../../types/user";
-import { Dispatch } from "../../types/dispatch";
+import AuthService from "services/auth.service";
+import { Dispatch } from "types/dispatch";
+import {
+  CredentialsData,
+  LoginCredentials,
+  RegisterCredentials,
+} from "types/user";
 
+import { fetchTypes } from "../utils/types";
 
 export const creatorsAuth = {
   login: (loginCredentials: LoginCredentials) => {
@@ -22,7 +26,7 @@ export const creatorsAuth = {
   checkLoggedUserAuthorized: (credentialsData: CredentialsData) => {
     return async (dispatch: Dispatch) => {
       const types = fetchTypes("login");
-      dispatch({ type: types.FETCH_REQUESTED })
+      dispatch({ type: types.FETCH_REQUESTED });
 
       await AuthService.checkLoggedUserAuthorized(credentialsData)
         .then(() => {

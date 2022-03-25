@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
-import AbsoluteBackground from "../../common/components/absolute-background";
-import { creators } from "../../store/misc/creators";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 
-const LandingPage = () => {
+import AbsoluteBackground from "../../layout/absolute-background";
+import { creators } from "../../store/misc/creators";
+import LoginForm from "./credentials-form/login-form";
+import RegisterForm from "./credentials-form/register-form";
+
+const PageLanding = () => {
   const dispatch = useDispatch();
   const [loginForm, setLoginForm] = React.useState(true);
   const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
@@ -23,9 +24,9 @@ const LandingPage = () => {
           <h1 className="title">Family Budget</h1>
           <h3 className="subtitle">Gather your spendings.</h3>
           {loginForm ? (
-            <Login setLoginForm={setLoginForm} />
+            <LoginForm setLoginForm={setLoginForm} />
           ) : (
-            <Register setLoginForm={setLoginForm} />
+            <RegisterForm setLoginForm={setLoginForm} />
           )}
           <div>{restCheck.result}</div>
         </div>
@@ -34,4 +35,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default PageLanding;

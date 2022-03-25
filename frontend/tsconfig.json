@@ -6,7 +6,11 @@
     "module": "es6",
     "target": "es5",
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
   },
   "files": ["src/index.tsx"],
   "include": [

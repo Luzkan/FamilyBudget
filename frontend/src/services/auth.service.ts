@@ -1,11 +1,8 @@
 import { AxiosResponse } from "axios";
+
+import { ResponseConfig } from "../types/response_config";
+import { CredentialsData, LoginCredentials, RegisterCredentials } from "../types/user";
 import api from "./api";
-import { ResponseConfig } from "../types/response/config";
-import {
-  CredentialsData,
-  LoginCredentials,
-  RegisterCredentials,
-} from "../types/user";
 
 class AuthService {
   async login(

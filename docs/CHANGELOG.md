@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.5.0]] - 2022-03-25
+
+###### _([diff: 0.4.6-0.5.0])_
+
+**Frontend Structure & Naming Refactorization**
+
+### Added
+
+- Support in `tsconfig.json` and `webpack.config.js` for absolute imports.
+
+### Changed
+
+- Refactorization:
+    - Commonized [Register](../frontend/src/pages/landing/credentials-form/register-form/index.tsx) and [Login](../frontend/src/pages/landing/credentials-form/login-form/index.tsx) forms
+    - Removed `components` in all directories that are not leafs in the tree hierarchy (left only in the very last sub-modules)
+    - Tweaked imports, preferring the absolute in majority of them. Relative imports are separated by `\n`
+    - Commonized model related forms with new reusable [`common/modal-form`](../frontend/src/common/modal-form/) Modal-Form component.
+
 ## [[0.4.6]] - 2022-03-25
 
 ###### _([diff: 0.4.5-0.4.6])_
@@ -271,6 +289,7 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.4.6-0.5.0]: https://github.com/Luzkan/FamilyBudget/compare/0.4.6...0.5.0
 [diff: 0.4.5-0.4.6]: https://github.com/Luzkan/FamilyBudget/compare/0.4.5...0.4.6
 [diff: 0.4.4-0.4.5]: https://github.com/Luzkan/FamilyBudget/compare/0.4.4...0.4.5
 [diff: 0.4.3-0.4.4]: https://github.com/Luzkan/FamilyBudget/compare/0.4.3...0.4.4
@@ -290,6 +309,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.5.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.5.0
 [0.4.6]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.6
 [0.4.5]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.5
 [0.4.4]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.4

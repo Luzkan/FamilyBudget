@@ -1,11 +1,11 @@
-import api from "../../services/api";
-import { fetchTypes } from "../utils/Types";
+import api from "services/api";
+import { Dispatch } from "types/dispatch";
+
+import { fetchTypes } from "../utils/types";
 
 export const creators = {
   restCheck: () => {
-    return async (
-      dispatch: (arg0: { type: string; data?: any; error?: any }) => void
-    ) => {
+    return async (dispatch: Dispatch) => {
       const types = fetchTypes("rest_check");
       dispatch({ type: types.FETCH_REQUESTED });
       try {
@@ -18,9 +18,7 @@ export const creators = {
   },
 
   expenseIncrement: (number: number) => {
-    return async (
-      dispatch: (arg0: { type: string; data?: any; error?: any }) => void
-    ) => {
+    return async (dispatch: Dispatch) => {
       const types = fetchTypes("expense_increment");
       dispatch({ type: types.FETCH_REQUESTED });
       try {

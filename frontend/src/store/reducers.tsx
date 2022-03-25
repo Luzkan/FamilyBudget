@@ -2,7 +2,7 @@ import { connectRouter } from 'connected-react-router';
 import { BrowserHistory } from 'history';
 import { combineReducers } from 'redux';
 import { reducersAuth } from './auth/reducers';
-import { reducersBudgets } from './budgets/reducers';
+import { reducersBudgets } from './budget/reducers';
 import { reducersMisc } from './misc/reducers';
 
 export const createRootReducer = (history: BrowserHistory) => {

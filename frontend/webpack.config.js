@@ -54,7 +54,16 @@ const config = {
     ],
   },
   resolve: {
-    modules: ['node_modules', path.resolve(__dirname, 'node_modules'), 'bower_components', path.resolve(__dirname, 'src')],
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, 'src'),
+      // 'bower_components',
+      
+    ],
+    alias: {
+      src: path.resolve(__dirname, 'src')
+    },
     extensions: [".tsx", ".ts", ".js"],
     fallback: {
       "crypto": require.resolve("crypto-browserify"),

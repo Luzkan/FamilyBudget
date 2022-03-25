@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "../pages/landing";
-import LoggedPage from "../pages/logged";
+import PageLanding from "../pages/landing";
+import PageLogged from "../pages/logged";
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<LandingPage />} />
-    <Route path="budgets" element={<LoggedPage />} />
-    <Route path="*" element={<LandingPage />} />
+    <Route path="/" element={<PageLanding />} />
+    <Route path="budgets" element={<PageLogged />} />
+    <Route path="*" element={<PageLanding />} />
   </Routes>
 );
 
