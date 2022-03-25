@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from users.models import User
 from users.serializer import UserSerializer
-from auth.views.common.password_manager import PasswordManager
-from auth.views.common.requests.credential import CredentialRequest
+from auth.password_manager import PasswordManager
+from auth.requests.credential import CredentialRequest
 from rest_framework.authtoken.models import Token
 
 

@@ -1,5 +1,6 @@
 import ModalFormInputGroup from "common/modal-form/components/InputGroup";
 import React from "react";
+import { CardText, Cash } from "react-bootstrap-icons";
 import { UseFormRegister } from "react-hook-form";
 
 interface Props {
@@ -7,11 +8,14 @@ interface Props {
 }
 
 const AddBudgetBody = ({ register }: Props) => {
+  const IconCash = (): JSX.Element => <Cash />;
+  const IconCard = (): JSX.Element => <CardText />;
+
   return (
     <>
       <ModalFormInputGroup
         handleInput={register}
-        icon={undefined} // TODO: Icon
+        icon={IconCard}
         formControlProps={{
           placeholder: "Budget Name",
           type: "text",
@@ -21,7 +25,7 @@ const AddBudgetBody = ({ register }: Props) => {
       />
       <ModalFormInputGroup
         handleInput={register}
-        icon={undefined} // TODO: Icon
+        icon={IconCash}
         formControlProps={{
           placeholder: "Total Budget",
           type: "number",

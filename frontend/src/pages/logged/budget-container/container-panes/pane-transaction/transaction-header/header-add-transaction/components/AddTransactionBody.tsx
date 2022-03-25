@@ -1,5 +1,6 @@
 import ModalFormInputGroup from "common/modal-form/components/InputGroup";
 import React from "react";
+import { BoxSeam, CardText, Cash } from "react-bootstrap-icons";
 import { UseFormRegister } from "react-hook-form";
 
 interface Props {
@@ -7,11 +8,15 @@ interface Props {
 }
 
 const AddTransactionBody = ({ register }: Props) => {
+  const IconCash = (): JSX.Element => <Cash />;
+  const IconCard = (): JSX.Element => <CardText />;
+  const IconBox = (): JSX.Element => <BoxSeam />;
+
   return (
     <>
       <ModalFormInputGroup
         handleInput={register}
-        icon={undefined}
+        icon={IconCard}
         formControlProps={{
           placeholder: "Transaction Name",
           type: "text",
@@ -21,7 +26,7 @@ const AddTransactionBody = ({ register }: Props) => {
       />
       <ModalFormInputGroup
         handleInput={register}
-        icon={undefined}
+        icon={IconCash}
         formControlProps={{
           placeholder: "Amount",
           type: "number",
@@ -31,7 +36,7 @@ const AddTransactionBody = ({ register }: Props) => {
       />
       <ModalFormInputGroup
         handleInput={register}
-        icon={undefined}
+        icon={IconBox}
         formControlProps={{
           placeholder: "category",
           type: "text",

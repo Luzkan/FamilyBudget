@@ -7,7 +7,7 @@ from rest_framework.permissions import AllowAny
 from auth.serializer import RegisterSerializer
 from users.models import User
 from users.serializer import UserSerializer
-from auth.views.common.requests.credential import CredentialRequest
+from auth.requests.credential import CredentialRequest
 from rest_framework.authtoken.models import Token
 
 

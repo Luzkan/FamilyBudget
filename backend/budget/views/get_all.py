@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework import status
-from common.views.common.requests.empty import EmptyRequest
-from common.views.common.handlers.request_manager import RequestManager
+from budget.handlers.request_manager import GetBudgetRequestManager
+from common.requests.empty import EmptyRequest
 from users.models import User
 from budget.serializer import BudgetSerializer
 
@@ -20,7 +20,12 @@ class BudgetGetAllViewSet(viewsets.ViewSet):
         permission_classes=[IsAuthenticated],
         url_path='budget/all',
     )
-    def get_all_budgets(self, request: Request):
+    def get_all_budgets(self, request: Request) -> Response:
+        budget_request_manager = GetBudgetRequestManager(
+            _request=request,
+            _factory=EmptyRequest
+        )
+
         logging.info(request.headers)
 
         if isinstance(request_data := EmptyRequest.init(request), Response):
@@ -28,7 +33,7 @@ class BudgetGetAllViewSet(viewsets.ViewSet):
 
         logging.info(request_data)
 
-        user: User = RequestManager(request_data).user_via_token
+        user: User = budget_request_manager.user_via_token
         budgets = user.budgets.all()  # type: ignore
 
         if not budgets:

@@ -1,16 +1,16 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Optional
-from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.response import Response
+from common.responses.abstract_response import AbstractResponse
 from budget.models import Budget
 from budget.serializer import BudgetSerializer
 
 
 @dataclass
-class BudgetResponse:
+class BudgetResponse(AbstractResponse):
     budgets: list[Budget]
-    success: Optional[bool] = field(init=False)
+    success: bool = field(init=False)
 
     def __post_init__(self):
         self.success = self.budgets is not None
@@ -25,4 +25,3 @@ class BudgetResponse:
             "success": self.success,
             "budgets": [BudgetSerializer(budget).data for budget in self.budgets],
         }, status=self.get_status_code())
-

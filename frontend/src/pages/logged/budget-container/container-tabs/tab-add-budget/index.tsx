@@ -40,7 +40,7 @@ const BudgetContainerTabAddBudget = () => {
           headerTitle: "Add New Budget",
           bodyContent: <AddBudgetBody register={register} />,
           bodyFooter: [
-            <Button type="submit">Add Budget</Button>,
+            <Button type="submit" onClick={onHide}>Add Budget</Button>,
             <Button onClick={onHide}>Close</Button>,
           ],
         }}
