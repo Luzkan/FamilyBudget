@@ -71,15 +71,21 @@ LOGGING = {
     },
     "formatters": {
         "standard": {
-            "format": "%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s"
+            "format": "%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s",
+            "rich": {"datefmt": "[%X]", "rich_tracebacks": True}
         },
     },
     "handlers": {
-        "null": {"class": "logging.NullHandler",},
+        "null": {"class": "logging.NullHandler"},
         "mail_admins": {
             "level": "ERROR",
             "class": "django.utils.log.AdminEmailHandler",
             "filters": ["require_debug_false"],
+        },
+        "rich_console": {
+            "level": "DEBUG",
+            "class": "rich.logging.RichHandler",
+            "formatter": "rich",
         },
         "console": {
             "level": "DEBUG",
@@ -90,8 +96,8 @@ LOGGING = {
     },
     "loggers": {
         "": {"handlers": ["console"], "level": "INFO"},
-        "django.security.DisallowedHost": {"handlers": ["null"], "propagate": False,},
-        "django.request": {"handlers": ["mail_admins"], "level": "ERROR", "propagate": True,},
+        "django.security.DisallowedHost": {"handlers": ["null"], "propagate": False, },
+        "django.request": {"handlers": ["mail_admins"], "level": "ERROR", "propagate": True, },
         "log_request_id.middleware": {
             "handlers": ["console"],
             "level": "DEBUG",

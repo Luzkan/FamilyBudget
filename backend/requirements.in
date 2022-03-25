@@ -16,3 +16,4 @@ whitenoise
 psutil
 ipython
 sentry-sdk
+rich

@@ -39,6 +39,7 @@ services:
       - ./:/home/user/app/
       # - ./backend/:/home/user/app/backend/
     env_file: backend/.env
+    tty: true
     depends_on:
       - db
       - broker

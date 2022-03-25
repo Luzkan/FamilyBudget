@@ -31,12 +31,25 @@ EMAIL_PORT = 1025
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "formatters": {"standard": {"format": "%(levelname)-8s [%(asctime)s] %(name)s: %(message)s"},},
+    "formatters": {
+        "standard": {"format": "%(levelname)-8s [%(asctime)s] %(name)s: %(message)s"},
+        "rich": {"datefmt": "[%X]", "rich_tracebacks": True},
+    },
     "handlers": {
-        "console": {"level": "DEBUG", "class": "logging.StreamHandler", "formatter": "standard",},
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "standard",
+        },
+        "rich_console": {
+            "level": "DEBUG",
+            "class": "rich.logging.RichHandler",
+            "formatter": "rich",
+        },
     },
     "loggers": {
         "": {"handlers": ["console"], "level": "INFO"},
+        "django": {"handlers": ["rich_console"], "level": "INFO"},
         "celery": {"handlers": ["console"], "level": "INFO"},
     },
 }

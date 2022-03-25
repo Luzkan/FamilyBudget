@@ -1,10 +1,10 @@
 from __future__ import annotations
+import logging
 from rest_framework.request import Request
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-import logging
 from users.models import User
 from users.serializer import UserSerializer
 from auth.views.common.password_manager import PasswordManager

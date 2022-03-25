@@ -1,6 +1,7 @@
 FROM python:3.10.3-slim
 
 ENV PYTHONUNBUFFERED 1
+ENV TERM xterm-256color
 
 RUN groupadd user && useradd --create-home --home-dir /home/user -g user user
 WORKDIR /home/user/app/backend

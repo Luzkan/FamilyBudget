@@ -5,6 +5,7 @@ import BMModal from "../../../../../../../common/components/button-modal/compone
 import { BudgetForm } from "../../../../../../../types/budget";
 import AddBudgetButton from "./components/AddBudgetButton";
 import AddBudgetBody from "./components/AddBudgetBody";
+import budgetService from "../../../../../../../services/budget.service";
 
 const AddBudget = () => {
   const [modalShow, setModalShow] = React.useState(false);
@@ -17,7 +18,7 @@ const AddBudget = () => {
   } = useForm<BudgetForm>();
 
   const onSubmit = (data: BudgetForm) => {
-    // creatorsAuth.login(data)
+    budgetService.add(data)
   };
 
   return (
