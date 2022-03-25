@@ -1,8 +1,8 @@
 import AuthService from "../../services/auth.service";
 import { fetchTypes } from "../utils/Types";
 import { CredentialsData, LoginCredentials, RegisterCredentials } from "../../types/user";
+import { Dispatch } from "../../types/dispatch";
 
-type Dispatch = (arg0: { type: string; data?: any; error?: any }) => void;
 
 export const creatorsAuth = {
   login: (loginCredentials: LoginCredentials) => {

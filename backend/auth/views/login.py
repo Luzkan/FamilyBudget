@@ -17,7 +17,7 @@ class LoginViewSet(viewsets.ViewSet):
         detail=False,
         methods=['post'],
         permission_classes=[AllowAny],
-        url_path='login',
+        url_path='auth/login',
     )
     def login(self, request: Request):
         if isinstance(request_data := CredentialRequest.init(request), Response):

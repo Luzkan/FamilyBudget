@@ -11,7 +11,7 @@ class AuthService {
   async login(
     loginCredentials: LoginCredentials
   ): Promise<AxiosResponse<CredentialsData, ResponseConfig>> {
-    const response = await api.post("/api/rest/login/", {
+    const response = await api.post("/api/rest/auth/login/", {
       email: loginCredentials.email,
       password: loginCredentials.password,
     });
@@ -24,7 +24,7 @@ class AuthService {
   async register(
     registerCredentials: RegisterCredentials
   ): Promise<AxiosResponse<CredentialsData, ResponseConfig>> {
-    const response = await api.post("/api/rest/register/", {
+    const response = await api.post("/api/rest/auth/register/", {
       email: registerCredentials.email,
       password: registerCredentials.password,
     });
@@ -37,7 +37,7 @@ class AuthService {
   async checkLoggedUserAuthorized(
     credentialsData: CredentialsData
   ): Promise<AxiosResponse<{ verified: boolean }, ResponseConfig>> {
-    const response = await api.post("/api/rest/check-auth/", {
+    const response = await api.post("/api/rest/auth/check/", {
       token: credentialsData.token,
       email: credentialsData.user.email,
     });

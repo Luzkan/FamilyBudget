@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row, Tab } from "react-bootstrap";
+import budgetService from "../../../services/budget.service";
+import { creatorsBudgets } from "../../../store/budgets/creators";
 import BudgetPanes from "./components/budget-panes";
 import BudgetTabs from "./components/budget-tabs";
+import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 
 const BudgetContainer = () => {
+  const dispatch = useDispatch();
+  const budgets = useSelector((state: RootStateOrAny) => state.budgets);
 
-  // const dispatch = useDispatch();
-  // const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
-  // useEffect(() => {
-  //   const action = creators.fetchRestCheck();
-  //   dispatch(action);
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(creatorsBudgets.getAll());
+  }, [dispatch]);
+
+  console.log(budgets);
 
   return (
     <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link0">

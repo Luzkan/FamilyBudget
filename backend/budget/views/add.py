@@ -12,16 +12,16 @@ from budget.serializer import BudgetSerializer
 from budget.views.common.requests.budget import BudgetRequest
 
 
-class BudgetViewSet(viewsets.ViewSet):
+class BudgetAddViewSet(viewsets.ViewSet):
     permission_classes = (IsAuthenticated,)
 
     @action(
         detail=False,
         methods=['post'],
         permission_classes=[IsAuthenticated],
-        url_path='budget/add',
+        url_path='budget',
     )
-    def get_budgets(self, request: Request):
+    def add_budget(self, request: Request):
         if isinstance(request_data := BudgetRequest.init(request), Response):
             return request_data
 
@@ -34,7 +34,7 @@ class BudgetViewSet(viewsets.ViewSet):
         logging.info(f"New Budget {budget.name}, with {budget.total_budget}. Created by: {user}")
 
         if not budget:
-            return Response({"succcess": False}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"success": False}, status=status.HTTP_400_BAD_REQUEST)
         return Response({
             "success": True,
             "budget": BudgetSerializer(budget).data,

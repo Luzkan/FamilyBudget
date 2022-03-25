@@ -14,7 +14,7 @@ class CheckAuthViewSet(viewsets.ViewSet):
         detail=False,
         methods=['post'],
         permission_classes=[AllowAny],
-        url_path='check-auth',
+        url_path='auth/check',
     )
     def check_auth(self, request: Request):
         if isinstance(request_data := EmailTokenRequest.init(request), Response):

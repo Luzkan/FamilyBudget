@@ -6,11 +6,14 @@ class BudgetService {
   async add(
     budgetForm: BudgetForm
   ): Promise<AxiosResponse<any, any>> {
-    const response = await api.post("/api/rest/budget/add/", {
+    return api.post("/api/rest/budget/", {
       name: budgetForm.name,
       total_budget: budgetForm.totalBudget,
     });
-    return response
+  }
+
+  async getAll(): Promise<AxiosResponse<any, any>> {
+    return api.get("/api/rest/budget/all");
   }
 
 }

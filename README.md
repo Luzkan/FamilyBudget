@@ -11,9 +11,11 @@ TBA. 🐈
 ### Endpoints:
 
 
-- `rest/api/login/`
-- `rest/api/register/`
-- `rest/api/auth-check/`
+- `rest/api/auth/login/` (_post_)
+- `rest/api/auth/register/` (_post_)
+- `rest/api/auth/check/` (_post_)
+- `rest/api/budget/all` (_get_)
+- `rest/api/budget/` (_post_)
 
 
 ## Considerations:

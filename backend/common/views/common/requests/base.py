@@ -20,32 +20,35 @@ class BaseRequest(ABC):
 
 @dataclass(frozen=True)
 class Headers:
-    content_length: int = field(repr=False)
-    content_type: str = field(repr=False)
-    authorization: str
-    host: str
-    connection: str = field(repr=False)
-    accept: str = field(repr=False)
-    user_agent: str = field(repr=False)
-    x_csrftoken: str = field(repr=False)
-    origin: str = field(repr=False)
-    referer: str = field(repr=False)
+    content_length: Optional[int] = field(repr=False)
+    content_type: Optional[str] = field(repr=False)
+    authorization: Optional[str]
+    host: Optional[str]
+    connection: Optional[str] = field(repr=False)
+    accept: Optional[str] = field(repr=False)
+    user_agent: Optional[str] = field(repr=False)
+    x_csrftoken: Optional[str] = field(repr=False)
+    origin: Optional[str] = field(repr=False)
+    referer: Optional[str] = field(repr=False)
 
     @property
-    def get_django_token(self):
+    def get_django_token(self) -> str | None:
+        if not self.authorization:
+            return None
         return self.authorization.split(' ')[1]
 
     @staticmethod
     def init(headers: dict) -> 'Headers':
         return Headers(
-            content_length=headers['content_length'],
-            content_type=headers["content_type"],
-            authorization=headers["authorization"],
-            host=headers["host"],
-            connection=headers["connection"],
-            accept=headers["accept"],
-            user_agent=headers["user_agent"],
-            x_csrftoken=headers["x_csrftoken"],
-            origin=headers["origin"],
-            referer=headers["referer"],
+            content_length=headers.get('content_length', None),
+            content_type=headers.get("content_type", None),
+            authorization=headers.get("authorization", None),
+            host=headers.get("host", None),
+            connection=headers.get("connection", None),
+            accept=headers.get("accept", None),
+            user_agent=headers.get("user_agent", None),
+            x_csrftoken=headers.get("x_csrftoken", None),
+            origin=headers.get("origin", None),
+            referer=headers.get("referer", None),
         )
+

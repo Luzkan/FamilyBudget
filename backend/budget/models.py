@@ -7,7 +7,7 @@ from users.models import User
 class Budget(IndexedTimeStampedModel):
     name = models.CharField(max_length=128)
     total_budget = models.IntegerField()
-    users = models.ManyToManyField(User, blank=True)
+    users = models.ManyToManyField(User, blank=True, related_name='budgets')
     expenses = models.ManyToManyField(Expense, blank=True)
     incomes = models.ManyToManyField(Income, blank=True)
 

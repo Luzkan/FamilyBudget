@@ -16,7 +16,7 @@ class RegisterViewSet(viewsets.ViewSet):
         detail=False,
         methods=['post'],
         permission_classes=[AllowAny],
-        url_path='register',
+        url_path='auth/register',
     )
     def register(self, request: Request):
         if not isinstance(request_data := CredentialRequest.init(request), CredentialRequest):
