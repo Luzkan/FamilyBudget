@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonModal from "../../../../../../../../../common/components/button-modal";  // TODO: Absolute import
+import ButtonModal from "../../../../../../../../../common/components/button-modal"; // TODO: Absolute import
 
 const ManageUsers = () => {
   return (
@@ -13,6 +13,9 @@ const ManageUsers = () => {
             <p>Manager Users</p>
           </>
         }
+        onSubmit={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     </>
   );

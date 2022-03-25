@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonModal from "../../../../../../../../../common/components/button-modal";  // TODO: Absolute import
+import ButtonModal from "../../../../../../../../../common/components/button-modal"; // TODO: Absolute import
 
 const AddTransaction = () => {
   return (
@@ -13,6 +13,9 @@ const AddTransaction = () => {
             <p>New Budget things</p>
           </>
         }
+        onSubmit={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
     </>
   );

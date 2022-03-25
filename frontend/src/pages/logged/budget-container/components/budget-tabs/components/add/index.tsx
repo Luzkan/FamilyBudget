@@ -1,9 +1,24 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import BMModal from "../../../../../../../common/components/button-modal/components/BMModal"; // TODO: Absolute import
+import { BudgetForm } from "../../../../../../../types/budget";
 import AddBudgetButton from "./components/AddBudgetButton";
+import AddBudgetBody from "./components/AddBudgetBody";
 
 const AddBudget = () => {
   const [modalShow, setModalShow] = React.useState(false);
+  const onHide = () => setModalShow(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<BudgetForm>();
+
+  const onSubmit = (data: BudgetForm) => {
+    // creatorsAuth.login(data)
+  };
 
   return (
     <>
@@ -11,13 +26,15 @@ const AddBudget = () => {
       <BMModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        headerTitle={""}
-        bodyContent={
-          <>
-            <h4>Hey</h4>
-            <p>Ho</p>
-          </>
-        }
+        onSubmit={handleSubmit(onSubmit)}
+        headerTitle={"Add New Budget"}
+        bodyContent={<AddBudgetBody register={register} />}
+        bodyFooter={[
+          <Button type="submit">
+            Add Budget
+          </Button>,
+          <Button onClick={onHide}>Close</Button>,
+        ]}
       />
     </>
   );

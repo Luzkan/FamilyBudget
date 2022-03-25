@@ -1,14 +1,16 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 
 interface Props {
   show: boolean;
   onHide: () => void;
+  onSubmit: () => void;
   headerTitle: string;
   bodyContent: JSX.Element;
+  bodyFooter: JSX.Element[];
 }
 
-const BMModal = ({ show, onHide, headerTitle, bodyContent }: Props): JSX.Element => {
+const BMModal = ({ show, onHide, onSubmit, headerTitle, bodyContent, bodyFooter }: Props): JSX.Element => {
   return (
     <Modal
       show={show}
@@ -17,15 +19,17 @@ const BMModal = ({ show, onHide, headerTitle, bodyContent }: Props): JSX.Element
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">{headerTitle}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {bodyContent}
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={onHide}>Close</Button>
-      </Modal.Footer>
+      <Form className="" onSubmit={onSubmit}>
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">{headerTitle}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {bodyContent}
+        </Modal.Body>
+        <Modal.Footer>
+          {...bodyFooter}
+        </Modal.Footer>
+      </Form>
     </Modal>
   );
 };
