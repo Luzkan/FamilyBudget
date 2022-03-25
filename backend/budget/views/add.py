@@ -4,7 +4,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
-from rest_framework import status
+from budget.views.common.responses.budget import BudgetResponse
 from common.views.common.handlers.request_manager import RequestManager
 from users.models import User
 from budget.models import Budget
@@ -33,9 +33,4 @@ class BudgetAddViewSet(viewsets.ViewSet):
         })
         logging.info(f"New Budget {budget.name}, with {budget.total_budget}. Created by: {user}")
 
-        if not budget:
-            return Response({"success": False}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({
-            "success": True,
-            "budget": BudgetSerializer(budget).data,
-        }, status=status.HTTP_200_OK)
+        return BudgetResponse(budgets=[budget]).response()

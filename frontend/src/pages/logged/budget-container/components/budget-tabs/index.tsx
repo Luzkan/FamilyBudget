@@ -1,28 +1,23 @@
 import React from "react";
 import { ListGroup, Pagination} from "react-bootstrap";
+import { Budget } from "../../../../../types/budget";
 import AddBudget from "./components/add";
 import BudgetTabItem from "./components/budget-tab-item";
 import Searchbar from "./components/searchbar";
 
-const BudgetTabs = () => {
-  const budgetsMock = Array(6).fill(0);
 
-  let activePaginationTab: number = 1;
-  let paginations = [];
+interface Props {
+  budgets: Budget[];
+  paginations: any;
+}
 
-  for (let number = 1; number <= 5; number++) {
-    paginations.push(
-      <Pagination.Item key={number} active={number === activePaginationTab}>
-        {number}
-      </Pagination.Item>,
-    );
-  }
+const BudgetTabs = ({budgets, paginations}: Props) => {
 
   return (
     <ListGroup>
       <AddBudget/>
       <Searchbar/>
-      {budgetsMock.map((_, index) => (
+      {budgets.map((budget: Budget, index: number) => (
         <BudgetTabItem budgetItemIndex={index} key={index} />
       ))}
       <Pagination>{paginations}</Pagination>

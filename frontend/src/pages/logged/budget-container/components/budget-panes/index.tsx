@@ -1,8 +1,13 @@
 import React from "react";
 import { Tab } from "react-bootstrap";
+import { Budget } from "../../../../../types/budget";
 import Transaction from "./components/transaction";
 
-const BudgetPanes = () => {
+interface Props {
+  budgets: Budget[];
+}
+
+const BudgetPanes = ({budgets}: Props) => {
   const budgetsMock = Array(6).fill(0);
 
   return (

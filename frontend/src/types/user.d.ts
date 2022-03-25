@@ -1,11 +1,11 @@
-type UserData = {
+export type User = {
   id: number;
   email: string;
 };
 
 export type CredentialsData = {
   token: string;
-  user: UserData;
+  user: User;
 };
 
 export type LoginCredentials = {

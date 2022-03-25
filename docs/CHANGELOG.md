@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.4.5]] - 2022-03-25
+
+###### _([diff: 0.4.4-0.4.5])_
+
+### Added
+
+- Displaying the Budgets on frontend UI
+- Handling situation when a new `Budget` is added to currently existing _BudgetList_ (appending to current state in redux)
+
+#### Note:
+
+I was fighting for a long time with unexpected behaviour, and as it turns out, the quick rename betrayed me and the logic flew to different condition block, thus making me a fool 🤡.
+
 ## [[0.4.4]] - 2022-03-25
 
 ###### _([diff: 0.4.3-0.4.4])_
@@ -250,6 +263,7 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.4.4-0.4.5]: https://github.com/Luzkan/FamilyBudget/compare/0.4.4...0.4.5
 [diff: 0.4.3-0.4.4]: https://github.com/Luzkan/FamilyBudget/compare/0.4.3...0.4.4
 [diff: 0.4.2-0.4.3]: https://github.com/Luzkan/FamilyBudget/compare/0.4.2...0.4.3
 [diff: 0.4.1-0.4.2]: https://github.com/Luzkan/FamilyBudget/compare/0.4.1...0.4.2
@@ -267,6 +281,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.4.5]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.5
 [0.4.4]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.4
 [0.4.3]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.3
 [0.4.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.4.2

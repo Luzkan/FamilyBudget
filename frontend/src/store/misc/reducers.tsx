@@ -6,7 +6,7 @@ export const reducersMisc = {
     action: { type: string; data: any }
   ) => {
     const types = fetchTypes("rest_check");
-    if (action.type === types.FETCH_SUCCESS) return action.data;
+    if (action.type === types.FETCH_SUCCESS_NEW) return action.data;
     return state;
   },
 
@@ -15,7 +15,7 @@ export const reducersMisc = {
     action: { type: string; data: any }
   ) => {
     const types = fetchTypes("expense_increment");
-    if (action.type === types.FETCH_SUCCESS) return action.data;
+    if (action.type === types.FETCH_SUCCESS_NEW) return action.data;
     return state;
   }
 }

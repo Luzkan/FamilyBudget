@@ -1,12 +1,21 @@
+import { BudgetResponse } from "../../types/budget";
 import { fetchTypes } from "../utils/Types";
 
 export const reducersBudgets = {
   budgets: (
-    state = {},
-    action: { type: string; data: any }
+    state: BudgetResponse = { budgets: [] },
+    action: { type: string; data: BudgetResponse }
   ) => {
     const types = fetchTypes("budgets");
-    if (action.type === types.FETCH_SUCCESS) return action.data;
-    return state;
+    switch (action.type) {
+      case types.FETCH_SUCCESS_NEW:
+        return action.data;
+      case types.FETCH_SUCCESS_APPEND:
+        return {
+          budgets: [...state.budgets, action.data.budgets[0]],
+        };
+      default:
+        return state;
+    }
   },
 };

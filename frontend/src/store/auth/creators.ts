@@ -12,7 +12,7 @@ export const creatorsAuth = {
 
       await AuthService.login(loginCredentials)
         .then((response) => {
-          dispatch({ type: types.FETCH_SUCCESS, data: response.data });
+          dispatch({ type: types.FETCH_SUCCESS_NEW, data: response.data });
         })
         .catch((error) => {
           dispatch({ type: types.FETCH_ERROR, error });
@@ -26,7 +26,7 @@ export const creatorsAuth = {
 
       await AuthService.checkLoggedUserAuthorized(credentialsData)
         .then(() => {
-          dispatch({ type: types.FETCH_SUCCESS, data: credentialsData });
+          dispatch({ type: types.FETCH_SUCCESS_NEW, data: credentialsData });
         })
         .catch((error) => {
           dispatch({ type: types.FETCH_ERROR, error });
@@ -40,7 +40,7 @@ export const creatorsAuth = {
 
       await AuthService.register(registerCredentials)
         .then((response) => {
-          dispatch({ type: types.FETCH_SUCCESS, data: response.data });
+          dispatch({ type: types.FETCH_SUCCESS_NEW, data: response.data });
         })
         .catch((error) => {
           dispatch({ type: types.FETCH_ERROR, error });

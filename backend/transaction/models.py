@@ -27,7 +27,7 @@ class Income(Transaction):
     class IncomeCategoryType(models.TextChoices):
         JOB = 'JOB', _('Job')
         GIFT = 'GIFT', _('Gift')
-        THEFT = 'Theft', _('Theft')
+        THEFT = 'THEFT', _('Theft')
         OTHER = 'OTHER', _('Other')
     category = models.CharField(
         max_length=5,
