@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import AbsoluteBackground from "../../common/components/absolute-background";
-import { creators } from "../../api/rest_check";
+import { creators } from "../../store/misc/creators";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
@@ -11,7 +11,7 @@ const LandingPage = () => {
   const [loginForm, setLoginForm] = React.useState(true);
   const restCheck = useSelector((state: RootStateOrAny) => state.restCheck);
   useEffect(() => {
-    const action = creators.fetchRestCheck();
+    const action = creators.restCheck();
     dispatch(action);
   }, [dispatch]);
 

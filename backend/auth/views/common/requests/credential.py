@@ -1,22 +1,9 @@
 from __future__ import annotations
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Optional
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-
-
-@dataclass(frozen=True)
-class BaseRequest(ABC):
-    user: str
-    content_type: str
-    auth: Optional[str]
-
-    @staticmethod
-    @abstractmethod
-    def init(request: Request) -> 'BaseRequest':
-        """ """
+from auth.views.common.requests.base import BaseRequest
 
 
 @dataclass(frozen=True)  # TODO: pydantic validation

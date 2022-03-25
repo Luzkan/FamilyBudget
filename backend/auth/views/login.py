@@ -5,11 +5,11 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 import logging
+from users.models import User
 from users.serializer import UserSerializer
-from users.views.common.password_manager import PasswordManager
-from users.views.common.credential_request import CredentialRequest
+from auth.views.common.password_manager import PasswordManager
+from auth.views.common.requests.credential import CredentialRequest
 from rest_framework.authtoken.models import Token
-from ..models import User
 
 
 class LoginViewSet(viewsets.ViewSet):

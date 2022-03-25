@@ -2,19 +2,17 @@ import { generate } from "password-hash";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { registration } from "../../../api/auth/register";
 import Email from "./components/Email";
 import FormSwitch from "./components/FormSwitch";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import Password from "./components/Password";
 import { Navigate } from "react-router-dom";
 import { CredentialsData, RegisterCredentials } from "../../../types/user";
+import { creatorsAuth } from "../../../store/auth/creators";
 
 interface Props {
   setLoginForm: (loginForm: boolean) => void;
 }
-
-
 
 const Register = ({ setLoginForm }: Props) => {
   const {
@@ -23,7 +21,9 @@ const Register = ({ setLoginForm }: Props) => {
     formState: { errors },
   } = useForm<RegisterCredentials>();
 
-  const registerData: CredentialsData = useSelector((state: RootStateOrAny) => state.register);
+  const registerData: CredentialsData = useSelector(
+    (state: RootStateOrAny) => state.register
+  );
   const dispatch = useDispatch();
   const onSubmit = (data: RegisterCredentials) => {
     if (data.password !== data.passwordConfirm) {
@@ -35,12 +35,12 @@ const Register = ({ setLoginForm }: Props) => {
     // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 
     const hashedPassword = generate(data.password, {
-      algorithm: "SHA256",  // This algorithm is not secure, RSA/DES/AES, preferable
+      algorithm: "SHA256", // This algorithm is not secure, RSA/DES/AES, preferable
       saltLength: 8,
-      iterations: 1
+      iterations: 1,
     });
-    dispatch(registration.post({ ...data, password: hashedPassword }));
-    console.log('[DEV] End of Register');
+    dispatch(creatorsAuth.register({ ...data, password: hashedPassword }));
+    console.log("[DEV] End of Register");
   };
 
   if (registerData.token) {

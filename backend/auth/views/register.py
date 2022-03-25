@@ -4,9 +4,10 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-from users.serializer import RegisterSerializer, UserSerializer
-from users.views.common.credential_request import CredentialRequest
-from ..models import User
+from auth.serializer import RegisterSerializer
+from users.models import User
+from users.serializer import UserSerializer
+from auth.views.common.requests.credential import CredentialRequest
 from rest_framework.authtoken.models import Token
 
 
