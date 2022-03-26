@@ -2,12 +2,13 @@ import logging
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Optional, Type
-from common.responses.bad_request_response import BadRequestResponse
-from common.responses.abstract_response import AbstractResponse
+
 from common.requests.base import BaseRequest
+from common.responses.abstract_response import AbstractResponse
+from common.responses.bad_request_response import BadRequestResponse
 from rest_framework.authtoken.models import Token
-from users.models import User
 from rest_framework.request import Request
+from users.models import User
 
 
 @dataclass

@@ -1,7 +1,9 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
-from rest_framework.request import Request
+
 from common.requests.base import BaseRequest, Headers, Misc
+from rest_framework.request import Request
 
 
 @dataclass(frozen=True)  # TODO: pydantic validation

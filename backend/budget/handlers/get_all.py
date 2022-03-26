@@ -1,10 +1,12 @@
 
 from __future__ import annotations
+
 from dataclasses import dataclass, field
-from common.requests.empty import EmptyRequest
-from common.responses.bad_request_response import BadRequestResponse
+
 from budget.responses.budget import BudgetResponse
 from common.handlers.request_manager import RequestManager
+from common.requests.empty import EmptyRequest
+from common.responses.bad_request_response import BadRequestResponse
 from users.models import User
 
 
@@ -19,4 +21,3 @@ class GetAllBudgetRequestManager(RequestManager):
         user: User = self.user_via_token
         budgets = user.budgets.all()  # type: ignore
         return BudgetResponse(budgets)
-

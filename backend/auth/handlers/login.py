@@ -1,14 +1,17 @@
 
 from __future__ import annotations
+
 from dataclasses import dataclass, field
+
+from auth.password_manager import PasswordManager
 from auth.requests.credential import CredentialRequest
 from auth.responses.user_does_not_exist import UserDoesNotExistResponse
-from auth.password_manager import PasswordManager
 from auth.responses.user_logged import UserLoggedResponse
 from auth.responses.user_unverified.user_unverified_password import UserUnverifiedPasswordResponse
-from common.responses.bad_request_response import BadRequestResponse
 from common.handlers.request_manager import RequestManager
+from common.responses.bad_request_response import BadRequestResponse
 from users.models import User
+
 
 LoginProcessReturnTypes = UserDoesNotExistResponse | UserUnverifiedPasswordResponse | UserLoggedResponse
 

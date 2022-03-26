@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from typing import Optional
-from rest_framework.response import Response
-from rest_framework import status
 
 from common.responses.abstract_response import AbstractResponse
+from rest_framework import status
+from rest_framework.response import Response
 
 
 @dataclass
@@ -19,7 +19,7 @@ class BaseResponse(AbstractResponse):
 
     def response(self) -> Response:
         return Response({
-                "text": self.text if self.text else None,
-            },
+            "text": self.text if self.text else None,
+        },
             status=self.get_status_code() if self.status is None else self.status
         )

@@ -1,5 +1,6 @@
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
+
 from auth.responses.user_unverified.user_unverified import UserUnverifiedResponse
 from rest_framework.authtoken.models import Token
 

@@ -1,10 +1,11 @@
 from __future__ import annotations
-from rest_framework.request import Request
+
+from auth.handlers.check_auth import CheckAuthRequestManager
+from auth.requests.email_token import EmailTokenRequest
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
-from auth.requests.email_token import EmailTokenRequest
-from auth.handlers.check_auth import CheckAuthRequestManager
+from rest_framework.request import Request
 
 
 class CheckAuthViewSet(viewsets.ViewSet):

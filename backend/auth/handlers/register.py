@@ -1,11 +1,13 @@
 
 from __future__ import annotations
+
 from dataclasses import dataclass, field
+
 from auth.requests.credential import CredentialRequest
 from auth.responses.user_register import UserRegisterResponse
 from auth.serializer import RegisterSerializer
-from common.responses.bad_request_response import BadRequestResponse
 from common.handlers.request_manager import RequestManager
+from common.responses.bad_request_response import BadRequestResponse
 from users.models import User
 
 

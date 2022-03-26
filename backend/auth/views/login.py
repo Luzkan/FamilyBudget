@@ -1,10 +1,11 @@
 from __future__ import annotations
-from rest_framework.request import Request
+
+from auth.handlers.login import LoginRequestManager
+from auth.requests.credential import CredentialRequest
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
-from auth.handlers.login import LoginRequestManager
-from auth.requests.credential import CredentialRequest
+from rest_framework.request import Request
 
 
 class LoginViewSet(viewsets.ViewSet):

@@ -1,7 +1,7 @@
 from django.urls import path
 
-
 from .views.index import IndexView
+
 
 app_name = 'common'
 urlpatterns = [

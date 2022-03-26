@@ -1,7 +1,9 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
+
+from common.requests.base import BaseRequest, Headers, Misc
 from rest_framework.request import Request
-from common.requests.base import Misc, BaseRequest, Headers
 
 
 @dataclass(frozen=True)

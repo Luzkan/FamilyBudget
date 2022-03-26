@@ -1,13 +1,15 @@
 from __future__ import annotations
+
 from dataclasses import dataclass, field
+
 from auth.requests.email_token import EmailTokenRequest
 from auth.responses.user_token_not_exist import UserTokenNotExistResponse
-from auth.responses.user_verified import UserVerifiedResponse
 from auth.responses.user_unverified.user_unverified_token import UserUnverifiedTokenResponse
-from users.models import User
-from common.responses.bad_request_response import BadRequestResponse
+from auth.responses.user_verified import UserVerifiedResponse
 from common.handlers.request_manager import RequestManager
+from common.responses.bad_request_response import BadRequestResponse
 from rest_framework.authtoken.models import Token
+from users.models import User
 
 
 CheckAuthReturnTypes = UserTokenNotExistResponse | UserUnverifiedTokenResponse | UserVerifiedResponse

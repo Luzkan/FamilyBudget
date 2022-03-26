@@ -1,12 +1,13 @@
-from dataclasses import dataclass, field
 import logging
+from dataclasses import dataclass, field
 from typing import Optional
-from rest_framework.response import Response
+
+from common.responses.abstract_response import AbstractResponse
 from rest_framework import status
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
 from users.models import User
 from users.serializer import UserSerializer
-from rest_framework.authtoken.models import Token
-from common.responses.abstract_response import AbstractResponse
 
 
 @dataclass

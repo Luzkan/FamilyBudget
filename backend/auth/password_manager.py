@@ -1,12 +1,11 @@
 from __future__ import annotations
-from dataclasses import dataclass
-import random
-import string
-from typing import Callable
+
 import hashlib
 import hmac
-
-
+import random
+import string
+from dataclasses import dataclass
+from typing import Callable
 
 
 @dataclass
@@ -15,7 +14,7 @@ class DatabasePassword:
     salt: str
     iterations: int
     hashed: str
-    
+
     @staticmethod
     def init(database_password: str):
         algorithm, salt, iterations, hashed = database_password.split('$')
@@ -25,7 +24,7 @@ class DatabasePassword:
             iterations=int(iterations),
             hashed=hashed,
         )
-        
+
 
 @dataclass
 class PasswordManager:
