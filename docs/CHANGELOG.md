@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.8.0]] - 2022-03-26
+
+###### _([diff: 0.7.2-0.8.0])_
+
+![](../docs/img/v0_8_0_functionality.gif)
+
+### Added
+
+- Manging Users Functionality (_[frontend](../frontend/src/pages/logged/budget-container/container-panes/pane-transaction/transaction-header/header-manage-users/_ and [_backend_](../backend/budget/views/update_budget_with_users.py))
+    - New endpoint: `/api/rest/budget/users/` _(post)_
+    - New endpoint: `/api/rest/users/all/` _(get)_
+
+### Fixed
+
+- No longer trying to log out response which was not parsed
+
 ## [[0.7.2]] - 2022-03-26
 
 ###### _([diff: 0.7.1-0.7.2])_
@@ -400,6 +416,7 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.7.2-0.8.0]: https://github.com/Luzkan/FamilyBudget/compare/0.7.2...0.8.0
 [diff: 0.7.1-0.7.2]: https://github.com/Luzkan/FamilyBudget/compare/0.7.1...0.7.2
 [diff: 0.7.0-0.7.1]: https://github.com/Luzkan/FamilyBudget/compare/0.7.0...0.7.1
 [diff: 0.6.3a-0.7.0]: https://github.com/Luzkan/FamilyBudget/compare/0.6.3a...0.7.0
@@ -429,6 +446,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.8.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.8.0
 [0.7.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.7.2
 [0.7.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.7.1
 [0.7.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.7.0

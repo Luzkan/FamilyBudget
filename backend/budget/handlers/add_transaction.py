@@ -25,7 +25,7 @@ class AddTransactionRequestManager(RequestManager):
     request: AddTransactionRequest = field(init=False)
 
     def safe_process(self) -> ADD_EXPENSE_REQUEST_TYPES | BadRequestResponse:
-        return super().safe_process()  # type: ignore
+        return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> ADD_EXPENSE_REQUEST_TYPES:
         user: User = self.user_via_token

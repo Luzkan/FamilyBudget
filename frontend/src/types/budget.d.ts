@@ -20,3 +20,8 @@ export type BudgetResponse = {
   budgets: Budget[];
   success?: boolean;
 };
+
+export type BudgetUsersForm = {
+  budgetId: number;
+  users: User[];
+}

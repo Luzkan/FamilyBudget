@@ -3,6 +3,10 @@ export type User = {
   email: string;
 };
 
+export type UserGetAllResponse = {
+  users: User[];
+};
+
 export type CredentialsData = {
   token: string;
   user: User;

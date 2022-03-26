@@ -22,7 +22,7 @@ class LoginRequestManager(RequestManager):
     request: CredentialRequest = field(init=False)
 
     def safe_process(self) -> BadRequestResponse | LoginProcessReturnTypes:
-        return super().safe_process()  # type: ignore
+        return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> LoginProcessReturnTypes:
         if isinstance(user := self.retrieve_user(self.request), UserDoesNotExistResponse):

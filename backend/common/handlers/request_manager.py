@@ -20,13 +20,14 @@ class RequestManager(ABC):
 
     def __post_init__(self):
         self.__parse_request()
-        logging.info(self)
 
     def __parse_request(self):
         try:
             self.request = self.factory.init(self.rest_request)
+            logging.info(self)
         except TypeError:
             self.init_bad_request_response = BadRequestResponse()
+            logging.warn('Bad Request: ', self.rest_request)
 
     def __has_failed_during_initialization(self) -> bool:
         return self.init_bad_request_response is not None

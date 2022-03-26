@@ -7,7 +7,7 @@ export const reducersAuth = {
     action: { type: string; data: CredentialsData }
   ) => {
     const types = fetchTypes("login");
-    if (action.type === types.FETCH_SUCCESS_NEW) return action.data;
+    if (action.type === types.FETCH_SUCCESS) return action.data;
     return state;
   },
 
@@ -15,7 +15,7 @@ export const reducersAuth = {
     state: CredentialsData = {token: undefined, user: undefined},
     action: { type: string; data: CredentialsData }
   ) => {
-    if (action.type === fetchTypes("login").FETCH_SUCCESS_NEW) return action.data;
+    if (action.type === fetchTypes("login").FETCH_SUCCESS) return action.data;
     return state;
   }
 };

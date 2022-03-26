@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import { reducersAuth } from './auth/reducers';
 import { reducersBudgets } from './budget/reducers';
 import { reducersMisc } from './misc/reducers';
+import { reducersUsers } from './users/reducers';
 
 export const createRootReducer = (history: BrowserHistory) => {
   return combineReducers({
@@ -13,5 +14,6 @@ export const createRootReducer = (history: BrowserHistory) => {
     restCheck: reducersMisc.restCheck,
     expense: reducersMisc.expenseIncrement,
     budgets: reducersBudgets.budgets,
+    users: reducersUsers.users,
   });
 };

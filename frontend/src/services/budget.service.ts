@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 
-import { BudgetForm } from "../types/budget";
+import { BudgetForm, BudgetUsersForm } from "types/budget";
 import api from "./api";
 
 class BudgetService {
@@ -8,6 +8,13 @@ class BudgetService {
     return api.post("/api/rest/budget/", {
       name: budgetForm.name,
       total_budget: budgetForm.totalBudget,
+    });
+  }
+
+  async updateUsers(budgetUsersForm: BudgetUsersForm): Promise<AxiosResponse<any, any>> {
+    return api.post("/api/rest/budget/users/", {  // TODO: budget/<int:budget_id>/users/
+      budget_id: budgetUsersForm.budgetId,
+      users: budgetUsersForm.users,
     });
   }
 

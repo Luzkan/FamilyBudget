@@ -19,7 +19,7 @@ const BudgetContainerPaneHeader = ({ budget }: Props) => {
         <BudgetContainerPaneHeaderAddTransaction budgetId={budget.id} />
       </Col>
       <Col xs={2}>
-        <BudgetContainerPaneHeaderManageUsers />
+        <BudgetContainerPaneHeaderManageUsers budgetId={budget.id} budgetUsers={budget.users} />
       </Col>
     </Row>
   );

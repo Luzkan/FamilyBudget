@@ -19,7 +19,7 @@ class AddBudgetRequestManager(RequestManager):
     request: BudgetRequest = field(init=False)
 
     def safe_process(self) -> AddedBudgetResponse | BadRequestResponse:
-        return super().safe_process()  # type: ignore
+        return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> AddedBudgetResponse:
         user: User = self.user_via_token

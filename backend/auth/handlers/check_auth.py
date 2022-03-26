@@ -21,7 +21,7 @@ class CheckAuthRequestManager(RequestManager):
     request: EmailTokenRequest = field(init=False)
 
     def safe_process(self) -> BadRequestResponse | CheckAuthReturnTypes:
-        return super().safe_process()  # type: ignore
+        return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> CheckAuthReturnTypes:
         if isinstance(token := self.retrieve_token(), UserTokenNotExistResponse):
