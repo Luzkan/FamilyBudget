@@ -4,8 +4,8 @@ from auth.views.register import RegisterViewSet
 from budget.views.add import BudgetAddViewSet
 from budget.views.get_all import BudgetGetAllViewSet
 from common.views.rest import RestViewSet
-from transaction.views.expense.add import ExpenseAddViewSet
-from transaction.views.income.add import IncomeAddViewSet
+from budget.views.expense.add import ExpenseAddViewSet
+from budget.views.income.add import IncomeAddViewSet
 
 
 routes = [

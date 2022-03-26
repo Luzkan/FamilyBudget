@@ -15,8 +15,16 @@ export const reducersBudgets = {
         return {
           budgets: [...state.budgets, action.data.budgets[0]],
         };
+      case types.FETCH_SUCCESS_TRANSACTION:
+        return {
+          budgets: state.budgets.map((budget) =>
+            budget.id === action.data.budgets[0].id
+              ? action.data.budgets[0]
+              : budget
+          ),
+        };
       default:
         return state;
     }
-  },
+  }
 };

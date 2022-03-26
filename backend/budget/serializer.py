@@ -1,7 +1,20 @@
+from budget.models import Income
+from budget.models import Expense
 from budget.models import Budget
 from rest_framework import serializers
-from transaction.serializer import ExpenseSerializer, IncomeSerializer
 from users.serializer import UserSerializer
+
+
+class ExpenseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Expense
+        fields = ['id', 'id_user', 'amount', 'name', 'category']
+
+
+class IncomeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Income
+        fields = ['id', 'id_user', 'amount', 'name', 'category']
 
 
 class BudgetSerializer(serializers.ModelSerializer):

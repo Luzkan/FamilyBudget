@@ -15,6 +15,7 @@ interface Props {
   additionalFields: JSX.Element[] | null;
   handleFormSwitch: () => void;
   buttonText: string;
+  isLoginForm: boolean;
 }
 
 const AbstractCredentialsForm = ({
@@ -23,6 +24,7 @@ const AbstractCredentialsForm = ({
   additionalFields,
   handleFormSwitch,
   buttonText,
+  isLoginForm,
 }: Props) => {
   const loginData: CredentialsData = useSelector(
     (state: RootStateOrAny) => state.login
@@ -55,8 +57,8 @@ const AbstractCredentialsForm = ({
           name: "password",
         }}
       />
-      {additionalFields && additionalFields.map((field) => ({ field }))}
-      <FormSwitch handleClick={handleFormSwitch} isLoginForm={true} />
+      {additionalFields && additionalFields.map((field, index) => <div key={index}>{field}</div>)}
+      <FormSwitch handleClick={handleFormSwitch} isLoginForm={isLoginForm} />
       <Button className="btn-round" color="primary" size="lg" type="submit">
         {buttonText}
       </Button>

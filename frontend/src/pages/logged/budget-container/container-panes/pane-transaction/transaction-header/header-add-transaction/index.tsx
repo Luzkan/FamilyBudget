@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { creatorsTransaction } from "store/transaction/creators";
+import { creatorsTransaction } from "store/budget/creators";
 import { TransactionForm } from "types/transaction_form";
 
 import AddTransactionBody from "./transaction-body";
@@ -22,7 +22,6 @@ const BudgetContainerPaneHeaderAddTransaction = ({ budgetId }: Props) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data: TransactionForm) => {
-    // get budget-id here
     console.log(data);
     dispatch(creatorsTransaction.add({...data, budgetId: budgetId}));
   };

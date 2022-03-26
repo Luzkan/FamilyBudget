@@ -57,7 +57,8 @@ const RegisterForm = ({ setLoginForm }: Props) => {
         />,
       ]}
       handleFormSwitch={() => setLoginForm(true)}
-      buttonText={"Login"}
+      buttonText={"Register"}
+      isLoginForm={false}
     />
   );
 };

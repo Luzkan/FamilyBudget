@@ -32,6 +32,7 @@ const LoginForm = ({ setLoginForm }: Props) => {
       additionalFields={null}
       handleFormSwitch={() => setLoginForm(false)}
       buttonText={"Login"}
+      isLoginForm={true}
     />
   );
 };

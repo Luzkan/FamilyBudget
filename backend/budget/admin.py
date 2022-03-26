@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from budget.models import Budget
+from budget.models import Budget, Expense, Income
 
 
 class CustomBudgetAdmin(admin.ModelAdmin):
@@ -10,4 +10,6 @@ class CustomBudgetAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
 
+admin.site.register(Expense)
+admin.site.register(Income)
 admin.site.register(Budget, CustomBudgetAdmin)

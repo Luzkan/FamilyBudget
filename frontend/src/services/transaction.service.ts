@@ -4,13 +4,21 @@ import { TransactionForm } from "types/transaction_form";
 import api from "./api";
 
 class TransactionService {
-  async add(budgetForm: TransactionForm): Promise<AxiosResponse<any, any>> {
-    return api.post("/api/rest/expense/", {
-      budget_id: budgetForm.budgetId,
-      name: budgetForm.name,
-      amount: budgetForm.amount,
-      category: budgetForm.category,
-    });
+  async add(transactionForm: TransactionForm): Promise<AxiosResponse<any, any>> {
+    const data = {
+      budget_id: transactionForm.budgetId,
+      name: transactionForm.name,
+      amount: transactionForm.amount,
+      category: transactionForm.category,
+    }
+    switch (transactionForm.transactionType) {
+      case "expense":
+        return api.post("/api/rest/expense/", data);
+      case "income":
+        return api.post("/api/rest/income/", data);
+      default:
+        throw new Error("Invalid transaction type");
+    }
   }
 }
 

@@ -4,6 +4,27 @@ TBA. 🐈
 
 ---
 
+
+### Managing Project
+
+You can manage the project via shell scripts (that can be launched on Unix systems or w/ [git bash](https://git-scm.com/downloads) on Windows). These scripts contain some common routines that you might be interested with.
+
+#### **First-time launch:**
+
+- [**`./scripts/clean_start.sh`**](./scripts/clean_start.sh)
+    - Run the whole project from scratch. initializes, makes database migrations and starts containers.
+- [`./scripts/initialize.sh`](./scripts/initialize.sh)
+    - Created Docker Volume nad initializes the project _(no-cache)_.
+- [`./scripts/setup.sh`](./scripts/setup.sh)
+    - Builds _Frontend_ and _Backend_
+    
+#### **Developing**
+
+- [`./scripts/migration.sh`](./scripts/migration.sh)
+- [`./scripts/rebuild.sh`](./scripts/rebuild.sh)
+- [`./scripts/up.sh`](./scripts/up.sh)
+
+
 ### Database Models/Interaction Diagram:
 
 ![./docs/img/database.png](./docs/img/database.png)

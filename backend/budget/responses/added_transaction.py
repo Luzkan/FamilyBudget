@@ -7,7 +7,7 @@ from budget.serializer import BudgetSerializer
 from common.responses.abstract_response import AbstractResponse
 from rest_framework import status
 from rest_framework.response import Response
-from transaction.models import Transaction
+from budget.models import Transaction
 from users.models import User
 
 
