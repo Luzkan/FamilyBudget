@@ -21,8 +21,8 @@ class IncomeAddViewSet(viewsets.ViewSet):
     )
     def add(self, request: Request) -> Response:
         expense_request_manager = AddTransactionRequestManager(
-            _request=request,
-            _factory=AddTransactionRequest,
+            rest_request=request,
+            factory=AddTransactionRequest,
             serializer=IncomeSerializer,
             transaction_type='incomes',
         )

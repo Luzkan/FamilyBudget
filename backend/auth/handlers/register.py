@@ -13,6 +13,7 @@ from users.models import User
 
 @dataclass
 class RegisterRequestManager(RequestManager):
+    factory: type[CredentialRequest] = field(init=False, default=CredentialRequest)
     request: CredentialRequest = field(init=False)
 
     def safe_process(self) -> BadRequestResponse | UserRegisterResponse:

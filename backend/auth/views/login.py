@@ -16,8 +16,5 @@ class LoginViewSet(viewsets.ViewSet):
         url_path='auth/login',
     )
     def login(self, request: Request):
-        login_request_manager = LoginRequestManager(
-            _request=request,
-            _factory=CredentialRequest,
-        )
+        login_request_manager = LoginRequestManager(rest_request=request)
         return login_request_manager.safe_process().response()

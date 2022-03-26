@@ -18,6 +18,7 @@ LoginProcessReturnTypes = UserDoesNotExistResponse | UserUnverifiedPasswordRespo
 
 @dataclass
 class LoginRequestManager(RequestManager):
+    factory: type[CredentialRequest] = field(init=False, default=CredentialRequest)
     request: CredentialRequest = field(init=False)
 
     def safe_process(self) -> BadRequestResponse | LoginProcessReturnTypes:

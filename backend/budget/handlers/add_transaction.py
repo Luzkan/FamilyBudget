@@ -21,6 +21,7 @@ ADD_EXPENSE_REQUEST_TYPES = AddedTransactionResponse | NotPermittedToChangeRespo
 class AddTransactionRequestManager(RequestManager):
     serializer: type[serializers.ModelSerializer]
     transaction_type: str
+    factory: type[AddTransactionRequest] = field(init=True)
     request: AddTransactionRequest = field(init=False)
 
     def safe_process(self) -> ADD_EXPENSE_REQUEST_TYPES | BadRequestResponse:

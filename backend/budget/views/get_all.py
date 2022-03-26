@@ -17,8 +17,5 @@ class BudgetGetAllViewSet(viewsets.ViewSet):
         url_path='budget/all',
     )
     def get_all_budgets(self, request: Request) -> Response:
-        budget_request_manager = GetAllBudgetRequestManager(
-            _request=request,
-            _factory=EmptyRequest
-        )
+        budget_request_manager = GetAllBudgetRequestManager(rest_request=request)
         return budget_request_manager.safe_process().response()

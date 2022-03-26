@@ -17,6 +17,7 @@ CheckAuthReturnTypes = UserTokenNotExistResponse | UserUnverifiedTokenResponse |
 
 @dataclass
 class CheckAuthRequestManager(RequestManager):
+    factory: type[EmailTokenRequest] = field(init=False, default=EmailTokenRequest)
     request: EmailTokenRequest = field(init=False)
 
     def safe_process(self) -> BadRequestResponse | CheckAuthReturnTypes:

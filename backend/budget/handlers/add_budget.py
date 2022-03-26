@@ -15,6 +15,7 @@ from users.models import User
 
 @dataclass
 class AddBudgetRequestManager(RequestManager):
+    factory: type[BudgetRequest] = field(init=False, default=BudgetRequest)
     request: BudgetRequest = field(init=False)
 
     def safe_process(self) -> AddedBudgetResponse | BadRequestResponse:

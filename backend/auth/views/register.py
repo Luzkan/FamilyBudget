@@ -16,8 +16,5 @@ class RegisterViewSet(viewsets.ViewSet):
         url_path='auth/register',
     )
     def register(self, request: Request):
-        register_request_manager = RegisterRequestManager(
-            _request=request,
-            _factory=CredentialRequest,
-        )
+        register_request_manager = RegisterRequestManager(rest_request=request)
         return register_request_manager.safe_process().response()

@@ -12,6 +12,7 @@ from users.models import User
 
 @dataclass
 class GetAllBudgetRequestManager(RequestManager):
+    factory: type[EmptyRequest] = field(init=False, default=EmptyRequest)
     request: EmptyRequest = field(init=False)
 
     def safe_process(self) -> AddedBudgetResponse | BadRequestResponse:

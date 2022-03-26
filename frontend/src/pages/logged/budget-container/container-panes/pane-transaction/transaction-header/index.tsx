@@ -11,7 +11,7 @@ interface Props {
 
 const BudgetContainerPaneHeader = ({ budget }: Props) => {
   return (
-    <Row>
+    <Row className="mb-5">
       <Col xs={8}>
         <h2>{`${budget.name} (${budget.total_budget}$)`}</h2>
       </Col>

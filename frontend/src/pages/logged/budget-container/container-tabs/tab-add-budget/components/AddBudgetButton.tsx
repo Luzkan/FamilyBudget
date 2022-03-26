@@ -11,9 +11,10 @@ const AddBudgetButton = ({ showModal }: Props) => {
       as="li"
       className="d-flex justify-content-between align-items-start"
       action
+      onClick={showModal}
     >
       <div className="ms-2 me-auto">
-        <div className="fw-bold" onClick={showModal}>
+        <div className="fw-bold" >
           Add new Budget!
         </div>
       </div>

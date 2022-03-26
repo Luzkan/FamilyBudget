@@ -16,8 +16,5 @@ class CheckAuthViewSet(viewsets.ViewSet):
         url_path='auth/check',
     )
     def check_auth(self, request: Request):
-        check_auth_request_manager = CheckAuthRequestManager(
-            _request=request,
-            _factory=EmailTokenRequest
-        )
+        check_auth_request_manager = CheckAuthRequestManager(rest_request=request)
         return check_auth_request_manager.safe_process().response()

@@ -7,13 +7,13 @@ const BudgetContainerTabSearchbar = () => {
       as="li"
       className="d-flex justify-content-between align-items-start"
     >
-      <div className="ms-2 me-auto">
-        <div className="fw-bold">Search Budget...</div>
+      <div className="me-auto search-bar">
+        {/* <div className="fw-bold">Search Budget...</div> */}
         <Form className="d-flex">
           <FormControl
             type="search"
-            placeholder="Kowalsky Family"
-            className="me-2"
+            placeholder="Search Budgets..."
+            className="md-5"
             aria-label="Search"
           />
         </Form>

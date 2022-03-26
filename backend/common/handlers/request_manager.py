@@ -13,8 +13,8 @@ from users.models import User
 
 @dataclass
 class RequestManager(ABC):
-    _request: Request
-    _factory: Type[BaseRequest]
+    rest_request: Request
+    factory: Type[BaseRequest] = field(init=False)
     request: BaseRequest = field(init=False)
     init_bad_request_response: Optional[BadRequestResponse] = field(init=False, default=None)
 
@@ -24,7 +24,7 @@ class RequestManager(ABC):
 
     def __parse_request(self):
         try:
-            self.request = self._factory.init(self._request)
+            self.request = self.factory.init(self.rest_request)
         except TypeError:
             self.init_bad_request_response = BadRequestResponse()
 
