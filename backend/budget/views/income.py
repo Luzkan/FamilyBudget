@@ -15,15 +15,15 @@ class IncomeAddViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=['post'],
+        methods=["post"],
         permission_classes=[IsAuthenticated],
-        url_path='budget/income',  # TODO: Maybe change the path to budget/<int:budget_id>/income
+        url_path="budget/income",  # TODO: Maybe change the path to budget/<int:budget_id>/income
     )
     def add(self, request: Request) -> Response:
         expense_request_manager = AddNewTransactionHandler(
             rest_request=request,
             factory=AddNewTransactionRequest,
             serializer=IncomeSerializer,
-            transaction_type='incomes',
+            transaction_type="incomes",
         )
         return expense_request_manager.safe_process().response()

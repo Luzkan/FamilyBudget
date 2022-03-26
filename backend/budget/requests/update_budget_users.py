@@ -12,11 +12,11 @@ class UpdateBudgetUsersRequest(BaseRequest):
     users: list[dict]
 
     @staticmethod
-    def init(request: Request) -> 'UpdateBudgetUsersRequest':
+    def init(request: Request) -> "UpdateBudgetUsersRequest":
         request_data = dict(request.data)
         return UpdateBudgetUsersRequest(
-            budget_id=int(request_data.get('budget_id')),
-            users=request_data.get('users'),
+            budget_id=int(request_data.get("budget_id")),
+            users=request_data.get("users"),
             headers=Headers.init(request.headers),
             misc=Misc.init(request),
         )

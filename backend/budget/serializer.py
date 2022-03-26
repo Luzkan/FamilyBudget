@@ -6,13 +6,13 @@ from users.serializer import UserSerializer
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
-        fields = ['id', 'id_user', 'amount', 'name', 'category']
+        fields = ["id", "id_user", "amount", "name", "category"]
 
 
 class IncomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Income
-        fields = ['id', 'id_user', 'amount', 'name', 'category']
+        fields = ["id", "id_user", "amount", "name", "category"]
 
 
 class BudgetSerializer(serializers.ModelSerializer):
@@ -22,4 +22,4 @@ class BudgetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Budget
-        fields = ['id', 'name', 'total_budget', 'users', 'expenses', 'incomes']
+        fields = ["id", "name", "total_budget", "users", "expenses", "incomes"]

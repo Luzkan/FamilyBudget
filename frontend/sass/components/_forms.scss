@@ -12,11 +12,12 @@
         background-color: $color-background-on-top-hovered;
         box-shadow: none;
       }
-
     }
+
     span {
       background-color: $color-background-on-top;
       border-color: $color-background-on-top;
+
       svg {
         fill: $color-font-dark-bg-hint;
       }

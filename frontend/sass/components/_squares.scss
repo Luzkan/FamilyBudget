@@ -11,7 +11,7 @@
     animation: 4s pulse infinite;
     height: 300px;
     width: 300px;
-    opacity: 0.5;
+    opacity: 50%;
     left: 3%;
     top: -17%;
   }
@@ -20,7 +20,7 @@
     animation: 6s wiggle infinite;
     height: 400px;
     width: 400px;
-    opacity: 0.3;
+    opacity: 30%;
     right: -10%;
     top: -12%;
   }
@@ -29,7 +29,7 @@
     animation: 5s wiggle infinite;
     height: 200px;
     width: 200px;
-    opacity: 0.1;
+    opacity: 10%;
     left: -5%;
     bottom: 0%;
   }
@@ -38,7 +38,7 @@
     animation: 10s wiggle infinite;
     height: 100px;
     width: 100px;
-    opacity: 0.9;
+    opacity: 90%;
     right: 74%;
     top: 70%;
   }
@@ -47,7 +47,7 @@
     animation: 6s wiggle infinite;
     height: 250px;
     width: 250px;
-    opacity: 0.1;
+    opacity: 10%;
     left: 58%;
     bottom: 33%;
   }
@@ -58,7 +58,7 @@
     top: 35%;
     height: 80px;
     width: 80px;
-    opacity: 0.8;
+    opacity: 80%;
   }
 
   &.bottom-right {
@@ -67,19 +67,20 @@
     height: 300px;
     right: -5%;
     bottom: 0%;
-    opacity: 0.1;
+    opacity: 10%;
   }
 
   @keyframes wiggle {
     from {
-        transform: translate(-4%, 0%) scale(1);
+      transform: translate(-4%, 0%) scale(1);
     }
+
     50% {
-        transform: translate(0, -3%) scale(0.96);
+      transform: translate(0, -3%) scale(0.96);
     }
+
     to {
       transform: translate(-4%, 0%) scale(1);
     }
   }
-
 }

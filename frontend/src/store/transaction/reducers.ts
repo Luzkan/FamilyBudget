@@ -1,5 +1,5 @@
-import { fetchTypes } from "../utils/types";
+import { fetchTypes } from '../utils/types'
 
 export const reducersTransaction = {
 
-};
+}

@@ -14,7 +14,7 @@ class UserVerifiedResponse(AbstractResponse):
     code: Optional[int] = field(init=False, default=status.HTTP_200_OK)
 
     def __post_init__(self):
-        logging.info(f'[Response] Verified: {self.user.email}')
+        logging.info(f"[Response] Verified: {self.user.email}")
 
     def response(self) -> Response:
-        return Response({'verified': True}, status=self.code)
+        return Response({"verified": True}, status=self.code)

@@ -13,9 +13,10 @@ class BadRequestResponse(AbstractResponse):
     code: Optional[int] = field(default=status.HTTP_400_BAD_REQUEST)
 
     def response(self) -> Response:
-        return Response({
-            "text": self.text,
-            "success": self.success,
-        },
-            status=self.code
+        return Response(
+            {
+                "text": self.text,
+                "success": self.success,
+            },
+            status=self.code,
         )

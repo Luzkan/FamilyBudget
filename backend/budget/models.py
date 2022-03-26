@@ -13,10 +13,11 @@ class Transaction(IndexedTimeStampedModel):
 
 class Expense(Transaction):
     class ExpenseCategoryType(models.TextChoices):
-        FOOD = 'FOOD', _('Food')
-        GOODS = 'GOODS', _('Goods')
-        BILLS = 'BILLS', _('Bills')
-        OTHER = 'OTHER', _('Other')
+        FOOD = "FOOD", _("Food")
+        GOODS = "GOODS", _("Goods")
+        BILLS = "BILLS", _("Bills")
+        OTHER = "OTHER", _("Other")
+
     category = models.CharField(
         max_length=5,
         choices=ExpenseCategoryType.choices,
@@ -26,10 +27,11 @@ class Expense(Transaction):
 
 class Income(Transaction):
     class IncomeCategoryType(models.TextChoices):
-        JOB = 'JOB', _('Job')
-        GIFT = 'GIFT', _('Gift')
-        THEFT = 'THEFT', _('Theft')
-        OTHER = 'OTHER', _('Other')
+        JOB = "JOB", _("Job")
+        GIFT = "GIFT", _("Gift")
+        THEFT = "THEFT", _("Theft")
+        OTHER = "OTHER", _("Other")
+
     category = models.CharField(
         max_length=5,
         choices=IncomeCategoryType.choices,
@@ -40,7 +42,7 @@ class Income(Transaction):
 class Budget(IndexedTimeStampedModel):
     name = models.CharField(max_length=128)
     total_budget = models.IntegerField()
-    users = models.ManyToManyField(User, blank=True, related_name='budgets')
+    users = models.ManyToManyField(User, blank=True, related_name="budgets")
     expenses = models.ManyToManyField(Expense, blank=True)
     incomes = models.ManyToManyField(Income, blank=True)
 

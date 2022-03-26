@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -20,8 +19,10 @@ class RegisterHandler(RequestManager):
         return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> UserRegisteredResponse:
-        user: User = RegisterSerializer().create(validated_data={
-            'email': self.request.email,
-            'password': self.request.password
-        })
+        user: User = RegisterSerializer().create(
+            validated_data={
+                "email": self.request.email,
+                "password": self.request.password,
+            }
+        )
         return UserRegisteredResponse(user)

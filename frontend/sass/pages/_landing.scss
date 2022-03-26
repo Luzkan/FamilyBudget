@@ -7,20 +7,21 @@
       font-weight: 600;
       text-transform: capitalize;
     }
+
     .subtitle {
       color: $white;
       font-weight: 300;
       text-transform: capitalize;
     }
   }
-  
+
   .category-absolute {
     position: absolute;
     top: 100vh;
     margin-top: -60px;
     padding: 0 15px;
     width: 100%;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgb(255 255 255 / 50%);
   }
 
   .page-header-image {
@@ -37,8 +38,8 @@
     top: 50%;
     left: 50%;
     z-index: 2;
-    -ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
     color: $white;
@@ -59,12 +60,13 @@
   .title {
     margin-bottom: 15px;
   }
+
   .title + h4 {
     margin-top: 10px;
   }
 
-  &.header-filter:after {
-    background: rgba(0, 0, 0, 0.5);
+  &.header-filter::after {
+    background: rgb(0 0 0 / 50%);
   }
 }
 
@@ -75,7 +77,6 @@ form {
     width: 27em;
     display: inline-block;
     justify-content: center;
-
   }
 
   .switch-form {

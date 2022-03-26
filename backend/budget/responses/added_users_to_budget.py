@@ -10,4 +10,6 @@ class AddedUsersToBudgetResponse(AddedBudgetResponse):
     users: list[User]
 
     def __post_init__(self):
-        logging.info(f'[Response] Successfully {len(self.users)} added users to {self.budgets[0].name}')
+        logging.info(
+            f"[Response] Successfully {len(self.users)} added users to {self.budgets[0].name}"
+        )

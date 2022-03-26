@@ -5,4 +5,4 @@ export type Transaction = {
   name: string;
 };
 
-export type TransactionTypes = "expense" | "income";
+export type TransactionTypes = 'expense' | 'income';

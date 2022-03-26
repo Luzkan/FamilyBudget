@@ -24,7 +24,7 @@ CELERY_TASK_EAGER_PROPAGATES = True
 
 # Email settings for mailhog
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'mailhog'
+EMAIL_HOST = "mailhog"
 EMAIL_PORT = 1025
 
 

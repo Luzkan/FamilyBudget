@@ -12,7 +12,7 @@ class User(AbstractBaseUser, PermissionsMixin, IndexedTimeStampedModel):
     USERNAME_FIELD = "email"
     is_staff = models.BooleanField(
         default=False,
-        help_text=_("Designates whether the user can log into this admin site.")
+        help_text=_("Designates whether the user can log into this admin site."),
     )
     is_active = models.BooleanField(
         default=True,

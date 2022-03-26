@@ -19,6 +19,9 @@ class FullUserListResponse(AbstractResponse):
         return [UserSerializer(user).data for user in self.users]
 
     def response(self) -> Response:
-        return Response({
-            "users": self.get_users(),
-        }, status=self.code)
+        return Response(
+            {
+                "users": self.get_users(),
+            },
+            status=self.code,
+        )

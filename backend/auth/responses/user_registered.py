@@ -13,13 +13,18 @@ from users.serializer import UserSerializer
 @dataclass
 class UserRegisteredResponse(AbstractResponse):
     user: User
-    code: Optional[int] = field(init=False, default=status.HTTP_200_OK)
+    code: int = field(init=False, default=status.HTTP_201_CREATED)
 
     def __post_init__(self):
-        logging.info(f'[Response] User has just registered with email {self.user.email}!', )
+        logging.info(
+            f"[Response] User has just registered with email {self.user.email}!",
+        )
 
     def response(self) -> Response:
-        return Response({
-            "user": UserSerializer(self.user).data,
-            "token": str(Token.objects.create(user=self.user))
-        }, status=status.HTTP_200_OK)
+        return Response(
+            {
+                "user": UserSerializer(self.user).data,
+                "token": str(Token.objects.create(user=self.user)),
+            },
+            status=self.code,
+        )

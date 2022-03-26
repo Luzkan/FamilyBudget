@@ -14,7 +14,7 @@ class BaseRequest(ABC):
 
     @staticmethod
     @abstractmethod
-    def init(request: Request) -> 'BaseRequest':
+    def init(request: Request) -> "BaseRequest":
         """ """
 
 
@@ -25,12 +25,12 @@ class Misc:
     auth: Optional[str]
 
     @staticmethod
-    def init(request: Request) -> 'Misc':
+    def init(request: Request) -> "Misc":
         request_data = dict(request.data)
         return Misc(
-            user=str(request_data.get('user')),
-            content_type=str(request_data.get('user')),
-            auth=str(request_data.get('auth')),
+            user=str(request_data.get("user")),
+            content_type=str(request_data.get("user")),
+            auth=str(request_data.get("auth")),
         )
 
 
@@ -51,12 +51,12 @@ class Headers:
     def get_django_token(self) -> str | None:
         if not self.authorization:
             return None
-        return self.authorization.split(' ')[1]
+        return self.authorization.split(" ")[1]
 
     @staticmethod
-    def init(headers: dict) -> 'Headers':
+    def init(headers: dict) -> "Headers":
         return Headers(
-            content_length=headers.get('content_length', None),
+            content_length=headers.get("content_length", None),
             content_type=headers.get("content_type", None),
             authorization=headers.get("authorization", None),
             host=headers.get("host", None),

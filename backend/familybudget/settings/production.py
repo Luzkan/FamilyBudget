@@ -72,7 +72,7 @@ LOGGING = {
     "formatters": {
         "standard": {
             "format": "%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s",
-            "rich": {"datefmt": "[%X]", "rich_tracebacks": True}
+            "rich": {"datefmt": "[%X]", "rich_tracebacks": True},
         },
     },
     "handlers": {
@@ -96,8 +96,15 @@ LOGGING = {
     },
     "loggers": {
         "": {"handlers": ["console"], "level": "INFO"},
-        "django.security.DisallowedHost": {"handlers": ["null"], "propagate": False, },
-        "django.request": {"handlers": ["mail_admins"], "level": "ERROR", "propagate": True, },
+        "django.security.DisallowedHost": {
+            "handlers": ["null"],
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": ["mail_admins"],
+            "level": "ERROR",
+            "propagate": True,
+        },
         "log_request_id.middleware": {
             "handlers": ["console"],
             "level": "DEBUG",

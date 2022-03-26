@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.9.2]] - 2022-03-26
+
+###### _([diff: 0.9.1-0.9.2])_
+
+### Added
+
+- API Call Tests for ViewSets on backend
+- Introduced Mega-Linter Github Pipeline for Backend and Frontend
+
+### Changed
+
+- Automatically Linted w/ Mega-Linter what could've been automatically linted
+
+### Fixed
+
+- Some of the response codes on backend
+
+
 ## [[0.9.1]] - 2022-03-26
 
 ###### _([diff: 0.9.0-0.9.1])_
@@ -38,8 +56,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Manging Users Functionality (_[frontend](../frontend/src/pages/logged/budget-container/container-panes/pane-transaction/transaction-header/header-manage-users/_ and [_backend_](../backend/budget/views/update_budget_with_users.py))
-    - New endpoint: `/api/rest/budget/users/` _(post)_
-    - New endpoint: `/api/rest/users/all/` _(get)_
+  - New endpoint: `/api/rest/budget/users/` _(post)_
+  - New endpoint: `/api/rest/users/all/` _(get)_
 
 ### Fixed
 
@@ -56,7 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Now whole _Add new Budget!_ tab is clickable to perform the action.
-    - Previously: Just the text was opening a modal.
+  - Previously: Just the text was opening a modal.
 
 ## [[0.7.1]] - 2022-03-26
 
@@ -78,7 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Removed the **transactions** app on Backend
-    - This package was unnecessary and tightly coupled with **budgets** which is just a bad design. Transactions (`income`, `expense`) don't exist out of Budget context, thus I collapsed the hierarchy into one module to increase cohesion.
+  - This package was unnecessary and tightly coupled with **budgets** which is just a bad design. Transactions (`income`, `expense`) don't exist out of Budget context, thus I collapsed the hierarchy into one module to increase cohesion.
 
 
 ## [[0.6.3a]] - 2022-03-26
@@ -121,9 +139,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Created Form for [Transaction Creation](../frontend/src/pages/logged/budget-container/container-panes/pane-transaction/transaction-header/header-add-transaction/)
-    - The form uses values for categories based on [typed](../frontend/src/config/database/config.d.ts) [`config/database/config.json`](../frontend/src/config/database/config.json), so the potential extension of available categories for `income` and `expense` types is easy and global.
+  - The form uses values for categories based on [typed](../frontend/src/config/database/config.d.ts) [`config/database/config.json`](../frontend/src/config/database/config.json), so the potential extension of available categories for `income` and `expense` types is easy and global.
 
-#### Note:
+#### Note
 
 Lost tiny bit of sanity on the [`defaultChecked`](https://pl.reactjs.org/docs/uncontrolled-components.html) property, lol.
 
@@ -148,8 +166,8 @@ Lost tiny bit of sanity on the [`defaultChecked`](https://pl.reactjs.org/docs/un
 ### Changed
 
 - Refactorizations on backend:
-    - Created new directories `requests` and `responses`
-    
+  - Created new directories `requests` and `responses`
+
 
 ### Fixed
 
@@ -169,10 +187,10 @@ Lost tiny bit of sanity on the [`defaultChecked`](https://pl.reactjs.org/docs/un
 ### Changed
 
 - Refactorization:
-    - Commonized [Register](../frontend/src/pages/landing/credentials-form/register-form/index.tsx) and [Login](../frontend/src/pages/landing/credentials-form/login-form/index.tsx) forms
-    - Removed `components` in all directories that are not leafs in the tree hierarchy (left only in the very last sub-modules)
-    - Tweaked imports, preferring the absolute in majority of them. Relative imports are separated by `\n`
-    - Commonized model related forms with new reusable [`common/modal-form`](../frontend/src/common/modal-form/) Modal-Form component.
+  - Commonized [Register](../frontend/src/pages/landing/credentials-form/register-form/index.tsx) and [Login](../frontend/src/pages/landing/credentials-form/login-form/index.tsx) forms
+  - Removed `components` in all directories that are not leafs in the tree hierarchy (left only in the very last sub-modules)
+  - Tweaked imports, preferring the absolute in majority of them. Relative imports are separated by `\n`
+  - Commonized model related forms with new reusable [`common/modal-form`](../frontend/src/common/modal-form/) Modal-Form component.
 
 ## [[0.4.6]] - 2022-03-25
 
@@ -191,7 +209,7 @@ Lost tiny bit of sanity on the [`defaultChecked`](https://pl.reactjs.org/docs/un
 - Displaying the Budgets on frontend UI
 - Handling situation when a new `Budget` is added to currently existing _BudgetList_ (appending to current state in redux)
 
-#### Note:
+#### Note
 
 I was fighting for a long time with unexpected behaviour, and as it turns out, the quick rename betrayed me and the logic flew to different condition block, thus making me a fool 🤡.
 
@@ -202,7 +220,7 @@ I was fighting for a long time with unexpected behaviour, and as it turns out, t
 ### Added
 
 - Getting All User Budgets (dispatched via _redux_ store)
-    - New endpoint: `/rest/api/budget/all` _(get)_
+  - New endpoint: `/rest/api/budget/all` _(get)_
 
 ## [[0.4.3]] - 2022-03-25
 
@@ -212,9 +230,9 @@ I was fighting for a long time with unexpected behaviour, and as it turns out, t
 
 - Filtering & Display for `Budget` in Django Admin View
 - Adding new Budget via API Call (integrated)
-    - New endpoint: `/rest/api/budget/` _(post)_
+  - New endpoint: `/rest/api/budget/` _(post)_
 
-### To-do:
+### To-do
 
 - Handle new budget API call response on frontend.
 
@@ -231,7 +249,7 @@ I was fighting for a long time with unexpected behaviour, and as it turns out, t
 
 - Changed the backend configuration ([`tty: true`](https://docs.docker.com/engine/reference/commandline/run/) in `docker-compose` and `-e TERM=term-256color` analog in `Dockerfile`) for colorized output.
 
-#### Note:
+#### Note
 
 _Still no tests & CI pipelines 🤡_
 
@@ -252,8 +270,8 @@ _Still no tests & CI pipelines 🤡_
 - Tidied up the Reducers/Creators
 - Tidied up API Handling
 - Finished handling logged state via redux (with authorization checks on refresh)
-    - Created new djangoapp: [_auth_](../backend/auth/) and moved there the `RegistrationSerializer` and _Login/Register_ views.
-    - New endpoint: `check-auth`
+  - Created new djangoapp: [_auth_](../backend/auth/) and moved there the `RegistrationSerializer` and _Login/Register_ views.
+  - New endpoint: `check-auth`
 
 ## [[0.4.0-alpha]] - 2022-03-24
 
@@ -299,8 +317,8 @@ _Still no tests & CI pipelines 🤡_
 ### Added
 
 - Routing ([`Router.tsx`](../frontend/src/app/Router.tsx))
-    - Budgets View for `/budgets`
-    - Landing page for any other URL
+  - Budgets View for `/budgets`
+  - Landing page for any other URL
 
 ### Fixed
 
@@ -322,19 +340,19 @@ _Still no tests & CI pipelines 🤡_
 
 ### Added
 
--   Frontpage Skeleton:
-    -   Side Tabs (Paginated) for various _Budgets_
-        -   Search Bar for _Budgets_
-        -   Add New Budget Button
-            -   Opens up a Modal
-    -   Main Panels
-        -   Openable via the Side Tabs
-        -   Contains a Table with structure:
-            | #   | Type    | Amount | User    |
-            | --- | ------- | ------ | ------- |
-            | 1   | Expense | 500    | Marcel  |
-            | 2   | Income  | 400    | Justyna |
-            | 3   | Expense | 900    | Marcin  |
+- Frontpage Skeleton:
+  - Side Tabs (Paginated) for various _Budgets_
+    - Search Bar for _Budgets_
+    - Add New Budget Button
+      - Opens up a Modal
+  - Main Panels
+    - Openable via the Side Tabs
+    - Contains a Table with structure:
+            | # | Type    | Amount | User    |
+            |---|---------|--------|---------|
+            | 1 | Expense | 500    | Marcel  |
+            | 2 | Income  | 400    | Justyna |
+            | 3 | Expense | 900    | Marcin  |
 
 ## [[0.2.2]] - 2022-03-23
 
@@ -342,7 +360,7 @@ _Still no tests & CI pipelines 🤡_
 
 ### Added
 
--   Register Form on Landing Page
+- Register Form on Landing Page
 
 ## [[0.2.1]] - 2022-03-23
 
@@ -352,8 +370,8 @@ _Still no tests & CI pipelines 🤡_
 
 ### Added
 
--   [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
--   Login Form to Landing Page
+- [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
+- Login Form to Landing Page
 
 ## [[0.2.0]] - 2022-03-23
 
@@ -363,12 +381,12 @@ _Still no tests & CI pipelines 🤡_
 
 ### Added
 
--   Landing Page Background Stylizations
--   Successfully Connected Frontend/Backend via Example API Call
+- Landing Page Background Stylizations
+- Successfully Connected Frontend/Backend via Example API Call
 
 ### Fixed
 
--   Lack of type support for `history` (added `@types/history` to DevDependencies)
+- Lack of type support for `history` (added `@types/history` to DevDependencies)
 
 ## [[0.1.1]] - 2022-03-23
 
@@ -376,13 +394,13 @@ _Still no tests & CI pipelines 🤡_
 
 ### Added
 
--   Created database [models](../backend/users/models.py)
-    -   `User`
-    -   `Budget`
-    -   `Expense` _(type of `Transaction`)_
-    -   `Income` _(type of `Transaction`)_
-    -   `Transaction`
--   Created Simple UML Model, though [draw.io](https://app.diagrams.net/), available [here](./models/database.drawio)
+- Created database [models](../backend/users/models.py)
+  - `User`
+  - `Budget`
+  - `Expense` _(type of `Transaction`)_
+  - `Income` _(type of `Transaction`)_
+  - `Transaction`
+- Created Simple UML Model, though [draw.io](https://app.diagrams.net/), available [here](./models/database.drawio)
     ![](./img/database.png)
 
 ## [[0.1.0]] - 2022-03-23
@@ -393,51 +411,52 @@ _Still no tests & CI pipelines 🤡_
 
 Connected Frontend & Backend via webpack_loader.
 
-### Added:
+### Added
 
--   React
--   Bootstrap
--   Redux
--   Lodash
--   Axios/Cookie
--   Prepared [`./frontend/sass`](../frontend/sass/) directory:
-    -   `/sass/global/` for globally used styling
-    -   `/sass/components/` for common components
-    -   `/sass/pages/` for specific pages
-    -   `/sass/vendor/` for bootstrap
+- React
+- Bootstrap
+- Redux
+- Lodash
+- Axios/Cookie
+- Prepared [`./frontend/sass`](../frontend/sass/) directory:
+  - `/sass/global/` for globally used styling
+  - `/sass/components/` for common components
+  - `/sass/pages/` for specific pages
+  - `/sass/vendor/` for bootstrap
 
 ## [[0.0.0]] - 2022-03-23
 
 **Project was initialized.**
 
--   Structure:
-    -   [`/backend/`](../backend)
-        -   Based on boilerplate template, w/ my migrations:
-            -   Python~=`3.8` -> [Python~=`3.10`](https://www.python.org/downloads/)
-            -   Django~=`3` -> [Django](https://www.djangoproject.com/)~=`4.0`
-        -   [Django Rest Framework](https://www.djangoproject.com/)~=`3.13.1`
-        -   [Celery](https://github.com/celery/celery)
-    -   [`/frontend/`](../frontend)
-        -   Generated using Webpack CLI
-        -   [TypeScript](https://www.typescriptlang.org/)
-        -   [SASS](https://sass-lang.com/)
-    -   [`/scripts/`](../scripts)
-        -   Shell Files (executable on Windows via [Git Bash](https://gitforwindows.org/))
-        -   Executing via [Docker](https://www.docker.com/)
-    -   [`/docs/`](../docs)
-        -   [CHANGELOG.md](./CHANGELOG.md) based on [keep a changelog](https://keepachangelog.com/en/1.0.0/)
-    -   [`.`](./)
-        -   Linters:
-            -   Prettier (_frontend_)
-            -   Black (_backend_)
-            -   Pylint (_backend_)
-            -   PEP8 (_backend_)
-        -   Safety Checkers:
-            -   Bandit (_backend_)
--   Pipelines:
-    -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
-    -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
+- Structure:
+  - [`/backend/`](../backend)
+    - Based on boilerplate template, w/ my migrations:
+      - Python~=`3.8` -> [Python~=`3.10`](https://www.python.org/downloads/)
+      - Django~=`3` -> [Django](https://www.djangoproject.com/)~=`4.0`
+    - [Django Rest Framework](https://www.djangoproject.com/)~=`3.13.1`
+    - [Celery](https://github.com/celery/celery)
+  - [`/frontend/`](../frontend)
+    - Generated using Webpack CLI
+    - [TypeScript](https://www.typescriptlang.org/)
+    - [SASS](https://sass-lang.com/)
+  - [`/scripts/`](../scripts)
+    - Shell Files (executable on Windows via [Git Bash](https://gitforwindows.org/))
+    - Executing via [Docker](https://www.docker.com/)
+  - [`/docs/`](../docs)
+    - [CHANGELOG.md](./CHANGELOG.md) based on [keep a changelog](https://keepachangelog.com/en/1.0.0/)
+  - [`.`](./)
+    - Linters:
+      - Prettier (_frontend_)
+      - Black (_backend_)
+      - Pylint (_backend_)
+      - PEP8 (_backend_)
+    - Safety Checkers:
+      - Bandit (_backend_)
+- Pipelines:
+  - I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
+  - ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.9.1-0.9.2]: https://github.com/Luzkan/FamilyBudget/compare/0.9.1...0.9.2
 [diff: 0.9.0-0.9.1]: https://github.com/Luzkan/FamilyBudget/compare/0.9.0...0.9.1
 [diff: 0.8.0-0.9.0]: https://github.com/Luzkan/FamilyBudget/compare/0.8.0...0.9.0
 [diff: 0.7.2-0.8.0]: https://github.com/Luzkan/FamilyBudget/compare/0.7.2...0.8.0
@@ -470,6 +489,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.9.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.2
 [0.9.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.1
 [0.9.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.0
 [0.8.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.8.0

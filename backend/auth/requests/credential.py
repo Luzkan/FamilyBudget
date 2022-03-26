@@ -12,11 +12,11 @@ class CredentialRequest(BaseRequest):
     password: str
 
     @staticmethod
-    def init(request: Request) -> 'CredentialRequest':
+    def init(request: Request) -> "CredentialRequest":
         request_data = dict(request.data)
         return CredentialRequest(
-            email=str(request_data.get('email')),
-            password=str(request_data.get('password')),
+            email=str(request_data.get("email")),
+            password=str(request_data.get("password")),
             headers=Headers.init(request.headers),
-            misc=Misc.init(request)
+            misc=Misc.init(request),
         )

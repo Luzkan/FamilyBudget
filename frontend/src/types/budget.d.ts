@@ -1,6 +1,6 @@
-import { Expense } from "./expense";
-import { Income } from "./income";
-import { User } from "./user";
+import { Expense } from './expense'
+import { Income } from './income'
+import { User } from './user'
 
 export type BudgetForm = {
   name: string;

@@ -10,9 +10,9 @@ from users.handlers.get_all_users import GetAllUsersRequestManager
 class UsersViewSet(viewsets.ViewSet):
     @action(
         detail=False,
-        methods=['get'],
+        methods=["get"],
         permission_classes=[AllowAny],
-        url_path='users/all',
+        url_path="users/all",
     )
     def get_all(self, request: Request):
         check_auth_request_manager = GetAllUsersRequestManager(rest_request=request)

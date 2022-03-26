@@ -16,7 +16,9 @@ class RequestManager(ABC):
     rest_request: Request
     factory: Type[BaseRequest] = field(init=False)
     request: BaseRequest = field(init=False)
-    init_bad_request_response: Optional[BadRequestResponse] = field(init=False, default=None)
+    init_bad_request_response: Optional[BadRequestResponse] = field(
+        init=False, default=None
+    )
 
     def __post_init__(self):
         self.__parse_request()
@@ -27,7 +29,7 @@ class RequestManager(ABC):
             logging.info(self)
         except TypeError:
             self.init_bad_request_response = BadRequestResponse()
-            logging.warn('Bad Request: ', self.rest_request)
+            logging.warn("Bad Request: ", self.rest_request)
 
     def __has_failed_during_initialization(self) -> bool:
         return self.init_bad_request_response is not None

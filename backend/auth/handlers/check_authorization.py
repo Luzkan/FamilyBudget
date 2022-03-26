@@ -13,7 +13,9 @@ from rest_framework.authtoken.models import Token
 from users.models import User
 
 
-CheckAuthReturnTypes: TypeAlias = UserTokenNotExistResponse | UserUnverifiedTokenResponse | UserVerifiedResponse
+CheckAuthReturnTypes: TypeAlias = (
+    UserTokenNotExistResponse | UserUnverifiedTokenResponse | UserVerifiedResponse
+)
 
 
 @dataclass
@@ -36,7 +38,7 @@ class CheckAuthorizationHandler(RequestManager):
         return str(user.email) == str(self.request.email)
 
     def retrieve_token(self) -> Token | UserTokenNotExistResponse:
-        """ Obviously, in real world application this kind of operations are unacceptable. This is NOT safe. """
+        """Obviously, in real world application this kind of operations are unacceptable. This is NOT safe."""
         try:
             return Token.objects.get(key=self.request.token)
         except Token.DoesNotExist:

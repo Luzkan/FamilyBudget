@@ -14,13 +14,13 @@ class AddNewTransactionRequest(BaseRequest):
     category: str
 
     @staticmethod
-    def init(request: Request) -> 'AddNewTransactionRequest':
+    def init(request: Request) -> "AddNewTransactionRequest":
         request_data = dict(request.data)
         return AddNewTransactionRequest(
-            budget_id=int(request_data.get('budget_id')),
-            name=str(request_data.get('name')),
-            amount=int(request_data.get('amount')),
-            category=str(request_data.get('category')),
+            budget_id=int(request_data.get("budget_id")),
+            name=str(request_data.get("name")),
+            amount=int(request_data.get("amount")),
+            category=str(request_data.get("category")),
             headers=Headers.init(request.headers),
-            misc=Misc.init(request)
+            misc=Misc.init(request),
         )

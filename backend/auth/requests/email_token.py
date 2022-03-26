@@ -12,11 +12,11 @@ class EmailTokenRequest(BaseRequest):
     token: str
 
     @staticmethod
-    def init(request: Request) -> 'EmailTokenRequest':
+    def init(request: Request) -> "EmailTokenRequest":
         request_data = dict(request.data)
         return EmailTokenRequest(
-            email=str(request_data.get('email')),
-            token=str(request_data.get('token')),
+            email=str(request_data.get("email")),
+            token=str(request_data.get("token")),
             headers=Headers.init(request.headers),
-            misc=Misc.init(request)
+            misc=Misc.init(request),
         )

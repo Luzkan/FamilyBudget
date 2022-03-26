@@ -15,9 +15,9 @@ class BudgetViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=['post'],
+        methods=["post"],
         permission_classes=[IsAuthenticated],
-        url_path='budget',
+        url_path="budget",
     )
     def add_new_budget(self, request: Request) -> Response:
         budget_request_manager = AddNewBudgetHandler(rest_request=request)
@@ -25,9 +25,9 @@ class BudgetViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=['get'],
+        methods=["get"],
         permission_classes=[IsAuthenticated],
-        url_path='budget/all',
+        url_path="budget/all",
     )
     def get_all_budgets(self, request: Request) -> Response:
         budget_request_manager = GetAllBudgetsHandler(rest_request=request)
@@ -35,9 +35,9 @@ class BudgetViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=['post'],
+        methods=["post"],
         permission_classes=[IsAuthenticated],
-        url_path='budget/users',
+        url_path="budget/users",
     )
     def add_budget(self, request: Request) -> Response:
         budget_request_manager = UpdateBudgetUsersHandler(rest_request=request)

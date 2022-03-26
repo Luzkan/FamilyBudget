@@ -18,8 +18,9 @@ class BaseResponse(AbstractResponse):
         return status.HTTP_400_BAD_REQUEST
 
     def response(self) -> Response:
-        return Response({
-            "text": self.text if self.text else None,
-        },
-            status=self.get_status_code() if self.status is None else self.status
+        return Response(
+            {
+                "text": self.text if self.text else None,
+            },
+            status=self.get_status_code() if self.status is None else self.status,
         )

@@ -16,10 +16,15 @@ class UserLoggedResponse(AbstractResponse):
     code: Optional[int] = field(init=False, default=status.HTTP_200_OK)
 
     def __post_init__(self):
-        logging.info(f'[Response] User with email {self.user.email} logged in!', )
+        logging.info(
+            f"[Response] User with email {self.user.email} logged in!",
+        )
 
     def response(self) -> Response:
-        return Response({
-            "user": UserSerializer(self.user).data,
-            "token": str(Token.objects.get(user=self.user))
-        }, status=self.code)
+        return Response(
+            {
+                "user": UserSerializer(self.user).data,
+                "token": str(Token.objects.get(user=self.user)),
+            },
+            status=self.code,
+        )

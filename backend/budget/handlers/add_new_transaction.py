@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -20,7 +19,9 @@ class AddNewTransactionHandler(RequestManager):
     transaction_type: str
     factory: type[AddNewTransactionRequest] = field(init=True)
     request: AddNewTransactionRequest = field(init=False)
-    ADD_EXPENSE_REQUEST_TYPES: TypeAlias = AddedTransactionResponse | NotPermittedToChangeResponse
+    ADD_EXPENSE_REQUEST_TYPES: TypeAlias = (
+        AddedTransactionResponse | NotPermittedToChangeResponse
+    )
 
     def safe_process(self) -> ADD_EXPENSE_REQUEST_TYPES | BadRequestResponse:
         return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
@@ -35,15 +36,19 @@ class AddNewTransactionHandler(RequestManager):
         transaction = self.serialize(user)
         self.add_transaction_to_budget(budget, transaction)
 
-        return AddedTransactionResponse(user=user, budgets=[budget], transaction=transaction)
+        return AddedTransactionResponse(
+            user=user, budgets=[budget], transaction=transaction
+        )
 
     def serialize(self, user) -> type[Transaction]:
-        return self.serializer().create(validated_data={
-            'id_user': user,
-            'amount': self.request.amount,
-            'name': self.request.name,
-            'category': self.request.category,
-        })
+        return self.serializer().create(
+            validated_data={
+                "id_user": user,
+                "amount": self.request.amount,
+                "name": self.request.name,
+                "category": self.request.category,
+            }
+        )
 
     def add_transaction_to_budget(self, budget: Budget, transaction: type[Transaction]):
         getattr(budget, self.transaction_type).add(transaction)

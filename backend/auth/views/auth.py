@@ -12,9 +12,9 @@ from rest_framework.request import Request
 class AuthViewSet(viewsets.ViewSet):
     @action(
         detail=False,
-        methods=['post'],
+        methods=["post"],
         permission_classes=[AllowAny],
-        url_path='auth/register',
+        url_path="auth/register",
     )
     def register(self, request: Request):
         register_request_manager = RegisterHandler(rest_request=request)
@@ -22,9 +22,9 @@ class AuthViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=['post'],
+        methods=["post"],
         permission_classes=[AllowAny],
-        url_path='auth/check',
+        url_path="auth/check",
     )
     def check_auth(self, request: Request):
         check_auth_request_manager = CheckAuthorizationHandler(rest_request=request)
@@ -32,9 +32,9 @@ class AuthViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=['post'],
+        methods=["post"],
         permission_classes=[AllowAny],
-        url_path='auth/login',
+        url_path="auth/login",
     )
     def login(self, request: Request):
         login_request_manager = LoginHandler(rest_request=request)

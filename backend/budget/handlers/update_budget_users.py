@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -14,7 +13,9 @@ from users.models import User
 
 @dataclass
 class UpdateBudgetUsersHandler(RequestManager):
-    factory: type[UpdateBudgetUsersRequest] = field(init=False, default=UpdateBudgetUsersRequest)
+    factory: type[UpdateBudgetUsersRequest] = field(
+        init=False, default=UpdateBudgetUsersRequest
+    )
     request: UpdateBudgetUsersRequest = field(init=False)
 
     def safe_process(self) -> AddedBudgetResponse | BadRequestResponse:
@@ -30,4 +31,4 @@ class UpdateBudgetUsersHandler(RequestManager):
         return AddedUsersToBudgetResponse(users=users, budgets=[budget])
 
     def get_users(self) -> list[User]:
-        return [User.objects.get(id=user['id']) for user in self.request.users]
+        return [User.objects.get(id=user["id"]) for user in self.request.users]

@@ -12,11 +12,11 @@ class BudgetRequest(BaseRequest):
     total_budget: int
 
     @staticmethod
-    def init(request: Request) -> 'BudgetRequest':
+    def init(request: Request) -> "BudgetRequest":
         request_data = dict(request.data)
         return BudgetRequest(
-            name=str(request_data.get('name')),
-            total_budget=int(request_data.get('total_budget')),
+            name=str(request_data.get("name")),
+            total_budget=int(request_data.get("total_budget")),
             headers=Headers.init(request.headers),
             misc=Misc.init(request),
         )

@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -13,7 +12,9 @@ from common.responses.bad_request_response import BadRequestResponse
 from users.models import User
 
 
-LoginProcessReturnTypes = UserDoesNotExistResponse | UserUnverifiedPasswordResponse | UserLoggedResponse
+LoginProcessReturnTypes = (
+    UserDoesNotExistResponse | UserUnverifiedPasswordResponse | UserLoggedResponse
+)
 
 
 @dataclass
@@ -25,18 +26,21 @@ class LoginHandler(RequestManager):
         return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> LoginProcessReturnTypes:
-        if isinstance(user := self.retrieve_user(self.request), UserDoesNotExistResponse):
+        if isinstance(
+            user := self.retrieve_user(self.request), UserDoesNotExistResponse
+        ):
             return user
 
         if not PasswordManager.init(
-            claimed_password=self.request.password,
-            database_password=user.password
+            claimed_password=self.request.password, database_password=user.password
         ).verify():
             return UserUnverifiedPasswordResponse(user)
         return UserLoggedResponse(user)
 
-    def retrieve_user(self, request_data: CredentialRequest) -> User | UserDoesNotExistResponse:
-        """ Obviously, in real world application this kind of operations are unacceptable. This is NOT safe. """
+    def retrieve_user(
+        self, request_data: CredentialRequest
+    ) -> User | UserDoesNotExistResponse:
+        """Obviously, in real world application this kind of operations are unacceptable. This is NOT safe."""
         try:
             return User.objects.get(email=request_data.email)
         except User.DoesNotExist:

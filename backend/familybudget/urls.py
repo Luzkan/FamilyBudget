@@ -10,7 +10,7 @@ router = DefaultRouter()
 
 routes = common_routes
 for route in routes:
-    router.register(route['regex'], route['viewset'], basename=route['basename'])
+    router.register(route["regex"], route["viewset"], basename=route["basename"])
 
 urlpatterns = [
     path("", include("common.urls"), name="common"),

@@ -9,7 +9,7 @@ from rest_framework.request import Request
 @dataclass(frozen=True)
 class EmptyRequest(BaseRequest):
     @staticmethod
-    def init(request: Request) -> 'EmptyRequest':
+    def init(request: Request) -> "EmptyRequest":
         return EmptyRequest(
             headers=Headers.init(request.headers),
             misc=Misc.init(request),

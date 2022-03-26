@@ -10,4 +10,6 @@ class UserUnverifiedTokenResponse(UserUnverifiedResponse):
     token: Token
 
     def __post_init__(self):
-        logging.warn(f'[Response] Unverified: {self.user.email} (via token: {self.token.key})')
+        logging.warn(
+            f"[Response] Unverified: {self.user.email} (via token: {self.token.key})"
+        )

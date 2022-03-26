@@ -14,7 +14,7 @@ class UserUnverifiedResponse(AbstractResponse):
     code: Optional[int] = field(init=False, default=status.HTTP_401_UNAUTHORIZED)
 
     def __post_init__(self):
-        logging.warn(f'[Response] Unverified: {self.user.email}')
+        logging.warn(f"[Response] Unverified: {self.user.email}")
 
     def response(self) -> Response:
-        return Response({'verified': False}, status=self.code)
+        return Response({"verified": False}, status=self.code)

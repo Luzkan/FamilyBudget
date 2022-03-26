@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import logging
@@ -23,10 +22,14 @@ class AddNewBudgetHandler(RequestManager):
 
     def process(self) -> AddedBudgetResponse:
         user: User = self.user_via_token
-        budget: Budget = BudgetSerializer().create(validated_data={
-            'name': self.request.name,
-            'total_budget': self.request.total_budget,
-            'users': [user],
-        })
-        logging.info(f"New Budget {budget.name}, with {budget.total_budget}. Created by: {user}")
+        budget: Budget = BudgetSerializer().create(
+            validated_data={
+                "name": self.request.name,
+                "total_budget": self.request.total_budget,
+                "users": [user],
+            }
+        )
+        logging.info(
+            f"New Budget {budget.name}, with {budget.total_budget}. Created by: {user}"
+        )
         return AddedBudgetResponse(budgets=[budget])
