@@ -1,7 +1,8 @@
+# flake8: noqa
 from .base import *  # noqa
 
 
-SECRET_KEY = "test"
+SECRET_KEY = "test"  # nosec B105
 
 STATIC_ROOT = base_dir_join("staticfiles")
 STATIC_URL = "/static/"

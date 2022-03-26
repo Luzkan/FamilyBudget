@@ -6,7 +6,7 @@ from model_bakery import baker
 
 class TestCaseUtils(TestCase):
     def setUp(self):
-        self._user_password = "123456"
+        self._user_password = "123456"  # nosec B105
         self.user = baker.prepare("users.User", email="user@email.com")
         self.user.set_password(self._user_password)
         self.user.save()

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Squares = () => {
   return (
@@ -11,7 +11,7 @@ const Squares = () => {
       <div className="squares center-top-right" />
       <div className="squares bottom-right" />
     </>
-  );
-};
+  )
+}
 
-export default Squares;
+export default Squares

@@ -1,21 +1,16 @@
-import React, { useEffect } from "react";
-import { Form } from "react-bootstrap";
-import { UseFormRegister } from "react-hook-form";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { creatorsBudgets } from "store/budget/creators";
-import { creatorsUsers } from "store/users/creators";
-import { BudgetResponse } from "types/budget";
-import { User, UserGetAllResponse } from "types/user";
+import React from "react"
+import { Form } from "react-bootstrap"
+import { UseFormRegister } from "react-hook-form"
 
 export interface UserForm {
-  id: number;
-  email: string;
-  isInBudget: boolean;
+  id: number
+  email: string
+  isInBudget: boolean
 }
 
 interface Props {
-  manageUsers: UserForm[];
-  register: UseFormRegister<any>;
+  manageUsers: UserForm[]
+  register: UseFormRegister<undefined>
 }
 
 const BudgetContainerPaneHeaderManageUsersBody = ({
@@ -37,7 +32,7 @@ const BudgetContainerPaneHeaderManageUsersBody = ({
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default BudgetContainerPaneHeaderManageUsersBody;
+export default BudgetContainerPaneHeaderManageUsersBody

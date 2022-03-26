@@ -1,27 +1,31 @@
-import { ConfigDatabase } from "config/database/config";
-import React, { useState } from "react";
-import { UseFormRegister } from "react-hook-form";
-import { TransactionTypes } from "types/transaction";
-import AddTransactionBodyInputs from "./components/TransactionBodyInputs";
-import TransactionBodyRadio from "./components/TransactionBodyRadio";
-import AddTransactionBodySelects from "./components/TransactionBodySelects";
+import { ConfigDatabase } from "config/database/config"
+import React, { useState } from "react"
+import { UseFormRegister } from "react-hook-form"
+import { TransactionTypes } from "types/transaction"
+import { TransactionForm } from "types/transaction_form"
+import AddTransactionBodyInputs from "./components/TransactionBodyInputs"
+import TransactionBodyRadio from "./components/TransactionBodyRadio"
+import AddTransactionBodySelects from "./components/TransactionBodySelects"
+// import config from "config/database/config.json";
 
 interface Props {
-  register: UseFormRegister<any>;
+  register: UseFormRegister<TransactionForm>
 }
 
 const AddTransactionBody = ({ register }: Props) => {
-  const config: ConfigDatabase = require("config/database/config.json");
-  
-  const transactionTypes: TransactionTypes[] = Object.keys(config.transactionTypes) as TransactionTypes[];
+  // TODO, check the commented out import line
+  const config: ConfigDatabase = require("config/database/config.json");  // eslint-disable-line
+
+  const transactionTypes: TransactionTypes[] = Object.keys(
+    config.transactionTypes
+  ) as TransactionTypes[]
   const [transactionType, setTransactionType] = useState<TransactionTypes>(
     transactionTypes[0]
-  );
+  )
 
-  const handleRadioClick = (transactionType: TransactionTypes): void => {
-    setTransactionType(transactionType);
-    console.log(transactionType);
-  };
+  const handleRadioClick = (newTransactionTypes: TransactionTypes): void => {
+    setTransactionType(newTransactionTypes)
+  }
 
   return (
     <>
@@ -42,7 +46,7 @@ const AddTransactionBody = ({ register }: Props) => {
         }
       />
     </>
-  );
-};
+  )
+}
 
-export default AddTransactionBody;
+export default AddTransactionBody

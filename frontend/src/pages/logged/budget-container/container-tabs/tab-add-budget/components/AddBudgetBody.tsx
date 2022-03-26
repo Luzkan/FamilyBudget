@@ -1,15 +1,16 @@
-import ModalFormInputGroup from "common/modal-form/components/InputGroup";
-import React from "react";
-import { CardText, Cash } from "react-bootstrap-icons";
-import { UseFormRegister } from "react-hook-form";
+import ModalFormInputGroup from "common/modal-form/components/InputGroup"
+import React from "react"
+import { CardText, Cash } from "react-bootstrap-icons"
+import { UseFormRegister } from "react-hook-form"
+import { BudgetForm } from "types/budget"
 
 interface Props {
-  register: UseFormRegister<any>;
+  register: UseFormRegister<BudgetForm>
 }
 
 const AddBudgetBody = ({ register }: Props) => {
-  const IconCash = (): JSX.Element => <Cash />;
-  const IconCard = (): JSX.Element => <CardText />;
+  const IconCash = (): JSX.Element => <Cash />
+  const IconCard = (): JSX.Element => <CardText />
 
   return (
     <>
@@ -34,7 +35,7 @@ const AddBudgetBody = ({ register }: Props) => {
         }}
       />
     </>
-  );
-};
+  )
+}
 
-export default AddBudgetBody;
+export default AddBudgetBody

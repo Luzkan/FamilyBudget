@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, FormControl, ListGroup } from "react-bootstrap";
+import React from "react"
+import { Form, FormControl, ListGroup } from "react-bootstrap"
 
 const BudgetContainerTabSearchbar = () => {
   return (
@@ -19,7 +19,7 @@ const BudgetContainerTabSearchbar = () => {
         </Form>
       </div>
     </ListGroup.Item>
-  );
-};
+  )
+}
 
-export default BudgetContainerTabSearchbar;
+export default BudgetContainerTabSearchbar

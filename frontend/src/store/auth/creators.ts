@@ -1,17 +1,17 @@
-import AuthService from 'services/auth.service'
-import { Dispatch } from 'types/dispatch'
+import AuthService from "services/auth.service"
+import { Dispatch } from "types/dispatch"
 import {
   CredentialsData,
   LoginCredentials,
-  RegisterCredentials
-} from 'types/user'
+  RegisterCredentials,
+} from "types/user"
 
-import { fetchTypes } from '../utils/types'
+import { fetchTypes } from "../utils/types"
 
 export const creatorsAuth = {
   login: (loginCredentials: LoginCredentials) => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('login')
+      const types = fetchTypes("credentials")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await AuthService.login(loginCredentials)
@@ -25,7 +25,7 @@ export const creatorsAuth = {
   },
   checkLoggedUserAuthorized: (credentialsData: CredentialsData) => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('login')
+      const types = fetchTypes("credentials")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await AuthService.checkLoggedUserAuthorized(credentialsData)
@@ -39,7 +39,7 @@ export const creatorsAuth = {
   },
   register: (registerCredentials: RegisterCredentials) => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('register')
+      const types = fetchTypes("credentials")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await AuthService.register(registerCredentials)
@@ -50,5 +50,5 @@ export const creatorsAuth = {
           dispatch({ type: types.FETCH_ERROR, error })
         })
     }
-  }
+  },
 }

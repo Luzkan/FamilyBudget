@@ -1,3 +1,0 @@
-# FamilyBudget App - Backend
-
-TBA. 🐈

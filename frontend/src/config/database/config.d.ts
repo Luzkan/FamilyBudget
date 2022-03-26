@@ -1,5 +1,5 @@
-import { ExpenseCategory } from 'types/expense'
-import { IncomeCategory } from 'types/income'
+import { ExpenseCategory } from "types/expense"
+import { IncomeCategory } from "types/income"
 
 export type ExpenseConfig = {
   categories: ExpenseCategory[]
@@ -10,8 +10,8 @@ export type IncomeConfig = {
 }
 
 export type TransactionType = {
-  expense: ExpenseConfig;
-  income: IncomeConfig;
+  expense: ExpenseConfig
+  income: IncomeConfig
 }
 
 export type ConfigDatabase = {

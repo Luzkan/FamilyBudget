@@ -1,3 +1,4 @@
+# flake8: noqa
 import sentry_sdk
 from decouple import Csv, config
 from sentry_sdk.integrations.django import DjangoIntegration

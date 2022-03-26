@@ -1,15 +1,16 @@
-import ModalFormInputGroup from "common/modal-form/components/InputGroup";
-import React from "react";
-import { CardText, Cash } from "react-bootstrap-icons";
-import { UseFormRegister } from "react-hook-form";
+import ModalFormInputGroup from "common/modal-form/components/InputGroup"
+import React from "react"
+import { CardText, Cash } from "react-bootstrap-icons"
+import { UseFormRegister } from "react-hook-form"
+import { TransactionForm } from "types/transaction_form"
 
 interface Props {
-    handleInput: UseFormRegister<any>;
+  handleInput: UseFormRegister<TransactionForm>
 }
 
 const AddTransactionBodyInputs = ({ handleInput }: Props) => {
-  const IconCash = (): JSX.Element => <Cash />;
-  const IconCard = (): JSX.Element => <CardText />;
+  const IconCash = (): JSX.Element => <Cash />
+  const IconCard = (): JSX.Element => <CardText />
 
   return (
     <>
@@ -34,7 +35,7 @@ const AddTransactionBodyInputs = ({ handleInput }: Props) => {
         }}
       />
     </>
-  );
-};
+  )
+}
 
-export default AddTransactionBodyInputs;
+export default AddTransactionBodyInputs

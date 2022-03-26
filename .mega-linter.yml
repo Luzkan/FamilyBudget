@@ -4,9 +4,24 @@
 APPLY_FIXES: none # all, none, or list of linter keys
 DEFAULT_BRANCH: main # Usually master or main
 # ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
-# ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
+ENABLE_LINTERS:
+  - PYTHON_FLAKE8
+  - PYTHON_BANDIT
+  - PYTHON_PYLINT
+  - TYPESCRIPT_PRETTIER
+  - TYPESCRIPT_ES
+  - TSX_ESLINT
+# PYTHON_FLAKE8_ARGUMENTS:
+  # - "./backend"
+  # - " --max-line-length 140"
+PYTHON_BANDIT_ARGUMENTS:
+  - "-X */test*.py"
+PYTHON_PYLINT_ARGUMENTS:
+  - "--disable=E0611"  # No name 'TypeAlias' in module 'typing' (no-name-in-module)
+  - "--disable=E1101"  # Instance of 'Test*' has no '*' member (no-member)
+  - "--disable=E1131"  # Unsupported operand type(s) for | (unsupported-binary-operation)
 DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
   # - SPELL # Uncomment to enable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
 SHOW_ELAPSED_TIME: true
-FILEIO_REPORTER: true
+FILEIO_REPORTER: false

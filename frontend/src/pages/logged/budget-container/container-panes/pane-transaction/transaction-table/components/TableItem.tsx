@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 
 interface Props {
-  name: string;
-  amount: number;
-  type: string;
-  category: string;
-  user: number;
+  name: string
+  amount: number
+  type: string
+  category: string
+  user: number
 }
 
 const BudgetContainerPaneTableItems = ({
@@ -23,7 +23,7 @@ const BudgetContainerPaneTableItems = ({
       <td>{category}</td>
       <td>{user}</td>
     </tr>
-  );
-};
+  )
+}
 
-export default BudgetContainerPaneTableItems;
+export default BudgetContainerPaneTableItems

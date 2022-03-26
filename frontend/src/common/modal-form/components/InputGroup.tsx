@@ -1,18 +1,18 @@
-import React from "react";
-import { FormControl, InputGroup } from "react-bootstrap";
-import { UseFormRegister } from "react-hook-form";
+import React from "react"
+import { FormControl, InputGroup } from "react-bootstrap"
+import { UseFormRegister } from "react-hook-form"
 
 export interface FormControlProps {
-  placeholder: string;
-  type: string;
-  id: string;
-  name: string;
+  placeholder: string
+  type: string
+  id: string
+  name: string
 }
 
 interface Props {
-  handleInput: UseFormRegister<any>;
-  icon: () => JSX.Element;
-  formControlProps: FormControlProps;
+  handleInput: UseFormRegister<any>; // eslint-disable-line
+  icon: () => JSX.Element
+  formControlProps: FormControlProps
 }
 
 const ModalFormInputGroup = ({
@@ -22,9 +22,7 @@ const ModalFormInputGroup = ({
 }: Props) => {
   return (
     <InputGroup>
-      <InputGroup.Text>
-        {icon()}
-      </InputGroup.Text>
+      <InputGroup.Text>{icon()}</InputGroup.Text>
       <FormControl
         placeholder={formControlProps.placeholder}
         type={formControlProps.type}
@@ -37,7 +35,7 @@ const ModalFormInputGroup = ({
         })}
       />
     </InputGroup>
-  );
-};
+  )
+}
 
-export default ModalFormInputGroup;
+export default ModalFormInputGroup

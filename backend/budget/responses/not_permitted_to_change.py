@@ -1,6 +1,5 @@
 import logging
 from dataclasses import dataclass, field
-from typing import Optional
 
 from budget.models import Budget
 from common.responses.abstract_response import AbstractResponse

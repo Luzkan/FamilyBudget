@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.10.0]] - 2022-03-26
+
+###### _([diff: 0.9.2-0.10.0])_
+
+### Added
+
+- [Github Actions Workflows](https://github.com/Luzkan/FamilyBudget/actions)
+  - Mega Linter for Frontend [`backend-mega-linter.yml`](../.github/workflows/frontend-mega-linter.yml)
+    - [ESLint](https://eslint.org/)
+    - [Prettier](https://prettier.io/)
+  - Mega Linter for Backend [`frontend-mega-linter.yml`](../.github/workflows/backend-mega-linter.yml)
+    - [Bandit](https://github.com/PyCQA/bandit)
+    - [Pylint](https://pylint.org/)
+    - [Flake8](https://flake8.pycqa.org/en/latest/)
+  - Other [`other.yml`](../.github/workflows/other.yml)
+    - [Markdown Lint](https://github.com/igorshubovych/markdownlint-cli)
+  
+### Changed
+
+- Updated `README.md`
+- Removed the `login` and `register` from reducers/store, as it was made in hurry by dummy me. New key: `credentials`.
+- Abstracted out new components: [CredentialForm](../frontend/src/common/credential-form/)
+  - I dislike having **any** boolean parameters passed anywhere, so I went with polymorphism.
+- Tweaked the Mega Linter for Python and resolved issues
+
+### Fixed
+
+- All the Linter errors and warnings
+
 ## [[0.9.2]] - 2022-03-26
 
 ###### _([diff: 0.9.1-0.9.2])_
@@ -14,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - API Call Tests for ViewSets on backend
-- Introduced Mega-Linter Github Pipeline for Backend and Frontend
+- Introduced Mega-Linter Github Pipeline for Backend
 
 ### Changed
 
@@ -24,12 +53,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Some of the response codes on backend
 
-
 ## [[0.9.1]] - 2022-03-26
 
 ###### _([diff: 0.9.0-0.9.1])_
 
-![](./img/structure.png)
+![File Structure Explanation](./img/structure.png)
 
 ### Added
 
@@ -51,7 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ###### _([diff: 0.7.2-0.8.0])_
 
-![](../docs/img/v0_8_0_functionality.gif)
+![Frontend Functionality](../docs/img/v0_8_0_functionality.gif)
 
 ### Added
 
@@ -98,7 +126,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed the **transactions** app on Backend
   - This package was unnecessary and tightly coupled with **budgets** which is just a bad design. Transactions (`income`, `expense`) don't exist out of Budget context, thus I collapsed the hierarchy into one module to increase cohesion.
 
-
 ## [[0.6.3a]] - 2022-03-26
 
 ###### _([diff: 0.6.3-0.6.3a])_
@@ -107,7 +134,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Backend Imports Sorted
 - Backend Files Formatted
-
 
 ## [[0.6.3]] - 2022-03-26
 
@@ -130,7 +156,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `id` to _Budget_, _Expense_ and _Income_ serializers
 - Adding Expenses to Database for given Budgets
 - Displaying Expense Transaction on frontend
-
 
 ## [[0.6.1]] - 2022-03-26
 
@@ -168,11 +193,9 @@ Lost tiny bit of sanity on the [`defaultChecked`](https://pl.reactjs.org/docs/un
 - Refactorizations on backend:
   - Created new directories `requests` and `responses`
 
-
 ### Fixed
 
 - Hiding Modal after user finishes adding a new budget.
-
 
 ## [[0.5.0]] - 2022-03-25
 
@@ -336,7 +359,7 @@ _Still no tests & CI pipelines 🤡_
 
 ###### _([diff: 0.2.2-0.3.0])_
 
-![](./img/v0_3_0_logged_page.png)
+![Logged In Page (frontend)](./img/v0_3_0_logged_page.png)
 
 ### Added
 
@@ -366,7 +389,7 @@ _Still no tests & CI pipelines 🤡_
 
 ###### _([diff: 0.2.0-0.2.1])_
 
-![](./img/v0_2_1_login_form.png)
+![Login Form (frontend)](./img/v0_2_1_login_form.png)
 
 ### Added
 
@@ -377,7 +400,7 @@ _Still no tests & CI pipelines 🤡_
 
 ###### _([diff: 0.1.1-0.2.0])_
 
-![](./img/v0_2_0_landing_page.png)
+![Landing Page (frontend)](./img/v0_2_0_landing_page.png)
 
 ### Added
 
@@ -401,7 +424,7 @@ _Still no tests & CI pipelines 🤡_
   - `Income` _(type of `Transaction`)_
   - `Transaction`
 - Created Simple UML Model, though [draw.io](https://app.diagrams.net/), available [here](./models/database.drawio)
-    ![](./img/database.png)
+    ![Database Diagram](./img/database.png)
 
 ## [[0.1.0]] - 2022-03-23
 
@@ -456,6 +479,7 @@ Connected Frontend & Backend via webpack_loader.
   - I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
   - ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.9.2-0.10.0]: https://github.com/Luzkan/FamilyBudget/compare/0.9.2...0.10.0
 [diff: 0.9.1-0.9.2]: https://github.com/Luzkan/FamilyBudget/compare/0.9.1...0.9.2
 [diff: 0.9.0-0.9.1]: https://github.com/Luzkan/FamilyBudget/compare/0.9.0...0.9.1
 [diff: 0.8.0-0.9.0]: https://github.com/Luzkan/FamilyBudget/compare/0.8.0...0.9.0
@@ -489,6 +513,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.10.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.10.0
 [0.9.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.2
 [0.9.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.1
 [0.9.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.0

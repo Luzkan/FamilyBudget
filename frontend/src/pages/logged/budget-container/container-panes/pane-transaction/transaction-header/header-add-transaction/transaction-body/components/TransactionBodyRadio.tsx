@@ -1,29 +1,27 @@
-import React from "react";
-import { Form, InputGroup } from "react-bootstrap";
-import { UseFormRegister } from "react-hook-form";
+import React from "react"
+import { Form, InputGroup } from "react-bootstrap"
+import { UseFormRegister } from "react-hook-form"
+import { TransactionForm } from "types/transaction_form"
 
 interface Transactions {
-  types: string[];
-  onClick: (event: any) => void;
+  types: string[]
+  onClick: (type: string) => void
 }
 
 interface Props {
-  handleInput: UseFormRegister<any>;
-  transactions: Transactions;
+  handleInput: UseFormRegister<TransactionForm>
+  transactions: Transactions
 }
 
 const AddTransactionBody = ({ handleInput, transactions }: Props) => {
-
   const capitalize = (text: string) => {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+    return text.charAt(0).toUpperCase() + text.slice(1)
   }
 
   return (
-    <InputGroup
-      
-    >
+    <InputGroup>
       <div key={``} className="mb-3">
-        {transactions.types.map((transactionType, index) =>
+        {transactions.types.map((transactionType, index) => (
           <Form.Check
             inline
             key={index}
@@ -36,10 +34,10 @@ const AddTransactionBody = ({ handleInput, transactions }: Props) => {
             id={`inline-radio-${index}`}
             {...handleInput("transactionType", {})}
           />
-        )}
+        ))}
       </div>
     </InputGroup>
-  );
-};
+  )
+}
 
-export default AddTransactionBody;
+export default AddTransactionBody

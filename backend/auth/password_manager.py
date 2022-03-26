@@ -50,7 +50,7 @@ class PasswordManager:
     @staticmethod
     def generate_salt(length: int) -> str:
         return "".join(
-            random.choice(string.ascii_letters + string.digits) for _ in range(length)
+            random.choice(string.ascii_letters + string.digits) for _ in range(length)  # nosec B311
         )
 
     @staticmethod

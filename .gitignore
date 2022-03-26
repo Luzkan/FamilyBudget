@@ -48,3 +48,7 @@ tmp_email/
 .direnv
 .envrc
 .tool-versions
+
+# Mega Linters Localized Report
+report
+report/

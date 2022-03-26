@@ -1,11 +1,11 @@
+# flake8: noqa
 from .base import *  # noqa
-
 
 DEBUG = True
 
 HOST = "http://localhost:8800"
 
-SECRET_KEY = "secret"
+SECRET_KEY = "secret"    # nosec B105
 
 STATIC_ROOT = base_dir_join("staticfiles")
 STATIC_URL = "/static/"

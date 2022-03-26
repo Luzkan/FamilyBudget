@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const BudgetContainerPaneTableColumns = () => {
   return (
@@ -11,7 +11,7 @@ const BudgetContainerPaneTableColumns = () => {
         <th>User</th>
       </tr>
     </thead>
-  );
-};
+  )
+}
 
-export default BudgetContainerPaneTableColumns;
+export default BudgetContainerPaneTableColumns

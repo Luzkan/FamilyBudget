@@ -1,11 +1,11 @@
-import React from "react";
-import { Tab } from "react-bootstrap";
-import { Budget } from "types/budget";
+import React from "react"
+import { Tab } from "react-bootstrap"
+import { Budget } from "types/budget"
 
-import BudgetContainerPaneTransaction from "./pane-transaction";
+import BudgetContainerPaneTransaction from "./pane-transaction"
 
 interface Props {
-  budgets: Budget[];
+  budgets: Budget[]
 }
 
 const BudgetContainerPanes = ({ budgets }: Props) => {
@@ -19,7 +19,7 @@ const BudgetContainerPanes = ({ budgets }: Props) => {
         />
       ))}
     </Tab.Content>
-  );
-};
+  )
+}
 
-export default BudgetContainerPanes;
+export default BudgetContainerPanes

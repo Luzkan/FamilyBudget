@@ -1,19 +1,19 @@
-import React from "react";
-import { Pagination } from "react-bootstrap";
+import React from "react"
+import { Pagination } from "react-bootstrap"
 
 const BudgetContainerPagination = () => {
-  let activePaginationTab: number = 1;
-  let paginations = [];
+  const activePaginationTab = 1
+  const paginations = []
 
   for (let number = 1; number <= 5; number++) {
     paginations.push(
       <Pagination.Item key={number} active={number === activePaginationTab}>
         {number}
       </Pagination.Item>
-    );
+    )
   }
 
-  return <>{paginations}</>;
-};
+  return <>{paginations}</>
+}
 
-export default BudgetContainerPagination;
+export default BudgetContainerPagination

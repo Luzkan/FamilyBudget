@@ -1,29 +1,27 @@
-import ModalFormInputGroup from "common/modal-form/components/InputGroup";
-import { generate } from "password-hash";
-import React from "react";
-import { Lock } from "react-bootstrap-icons";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { creatorsAuth } from "store/auth/creators";
-import { RegisterCredentials } from "types/user";
-import AbstractCredentialsForm from "../components/AbstractCredentialForm";
+import CredentialsForm from "common/credential-form"
+import ModalFormInputGroup from "common/modal-form/components/InputGroup"
+import { generate } from "password-hash"
+import React from "react"
+import { Lock } from "react-bootstrap-icons"
+import { useForm } from "react-hook-form"
+import { useDispatch } from "react-redux"
+import { creatorsAuth } from "store/auth/creators"
+import { RegisterCredentials } from "types/user"
+
+import FormSwitchRegister from "./components/FormSwitch"
 
 interface Props {
-  setLoginForm: (loginForm: boolean) => void;
+  setLoginForm: (loginForm: boolean) => void
 }
 
 const RegisterForm = ({ setLoginForm }: Props) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<RegisterCredentials>();
+  const { register, handleSubmit } = useForm<RegisterCredentials>()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const onSubmit = (data: RegisterCredentials) => {
     if (data.password !== data.passwordConfirm) {
-      alert("Passwords do not match.");
-      return;
+      alert("Passwords do not match.")
+      return
     }
 
     // In real case scenario, according to OWASP, I should use Argon2id or bcrypt
@@ -34,18 +32,19 @@ const RegisterForm = ({ setLoginForm }: Props) => {
       algorithm: "SHA256",
       saltLength: 8,
       iterations: 1,
-    });
-    dispatch(creatorsAuth.register({ ...data, password: hashedPassword }));
-  };
+    })
+    dispatch(creatorsAuth.register({ ...data, password: hashedPassword }))
+  }
 
-  const IconPassword = (): JSX.Element => <Lock />;
+  const IconPassword = (): JSX.Element => <Lock />
 
   return (
-    <AbstractCredentialsForm
+    <CredentialsForm
       handleInput={register}
       onSubmit={handleSubmit(onSubmit)}
       additionalFields={[
         <ModalFormInputGroup
+          key={"confirm-password"}
           handleInput={register}
           icon={IconPassword}
           formControlProps={{
@@ -55,12 +54,14 @@ const RegisterForm = ({ setLoginForm }: Props) => {
             name: "passwordConfirm",
           }}
         />,
+        <FormSwitchRegister
+          key={"form-switch-register"}
+          handleClick={() => setLoginForm(true)}
+        />,
       ]}
-      handleFormSwitch={() => setLoginForm(true)}
       buttonText={"Register"}
-      isLoginForm={false}
     />
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm

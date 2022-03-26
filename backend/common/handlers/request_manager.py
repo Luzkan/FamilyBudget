@@ -1,7 +1,7 @@
 import logging
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Optional, Type, TypeVar
+from typing import Optional, Type
 
 from common.requests.base import BaseRequest
 from common.responses.abstract_response import AbstractResponse
@@ -29,7 +29,7 @@ class RequestManager(ABC):
             logging.info(self)
         except TypeError:
             self.init_bad_request_response = BadRequestResponse()
-            logging.warn("Bad Request: ", self.rest_request)
+            logging.warn(f"Bad Request.\n{self.rest_request.data}")
 
     def __has_failed_during_initialization(self) -> bool:
         return self.init_bad_request_response is not None

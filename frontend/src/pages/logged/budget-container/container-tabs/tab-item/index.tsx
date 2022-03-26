@@ -1,11 +1,11 @@
-import React from "react";
-import { Badge, ListGroup } from "react-bootstrap";
-import { Budget } from "types/budget";
-import { User } from "types/user";
+import React from "react"
+import { Badge, ListGroup } from "react-bootstrap"
+import { Budget } from "types/budget"
+import { User } from "types/user"
 
 interface Props {
-  budget: Budget;
-  budgetItemIndex: number;
+  budget: Budget
+  budgetItemIndex: number
 }
 
 const BudgetContainerTabItem = ({ budget, budgetItemIndex }: Props) => {
@@ -28,7 +28,7 @@ const BudgetContainerTabItem = ({ budget, budgetItemIndex }: Props) => {
         {budget.total_budget}
       </Badge>
     </ListGroup.Item>
-  );
-};
+  )
+}
 
-export default BudgetContainerTabItem;
+export default BudgetContainerTabItem

@@ -1,21 +1,21 @@
-import React from "react";
-import { Form, Modal } from "react-bootstrap";
+import React from "react"
+import { Form, Modal } from "react-bootstrap"
 
 interface FunctionalHandlers {
-  show: boolean;
-  onHide: () => void;
-  onSubmit: () => void;
+  show: boolean
+  onHide: () => void
+  onSubmit: () => void
 }
 
 interface Content {
-  headerTitle: string;
-  bodyContent: JSX.Element;
-  bodyFooter: JSX.Element[];
+  headerTitle: string
+  bodyContent: JSX.Element
+  bodyFooter: JSX.Element[]
 }
 
 interface Props {
-  functionalHandlers: FunctionalHandlers;
-  content: Content;
+  functionalHandlers: FunctionalHandlers
+  content: Content
 }
 
 const ModalFormModal = ({
@@ -40,7 +40,7 @@ const ModalFormModal = ({
         <Modal.Footer>{...content.bodyFooter}</Modal.Footer>
       </Form>
     </Modal>
-  );
-};
+  )
+}
 
-export default ModalFormModal;
+export default ModalFormModal

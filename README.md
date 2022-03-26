@@ -41,6 +41,20 @@ I didn't have any solo-dev full stack sample app in portfolio, so now I have.
       - [React Redux](https://react-redux.js.org/) 7.2
       - [React Bootstrap](https://react-bootstrap.github.io/) 2.2
     - [Webpack](https://webpack.js.org/) 5.70
+  - 📲 Communication:
+    - REST API
+      - ⚒️ Backend: [Django Rest Framework](https://www.django-rest-framework.org/)
+      - 🖌️ Frontend: [Axios](https://github.com/axios/axios)
+  - 👷 Continous Integration:
+    - ⚒️ Backend:
+      - [Bandit](https://github.com/PyCQA/bandit)
+      - [Pylint](https://pylint.org/)
+      - [Flake8](https://flake8.pycqa.org/en/latest/)
+    - 🖌️ Frontend:
+      - [Prettier](https://prettier.io/)
+      - [ESLint](https://eslint.org/)
+    - 🗒️ Docs:
+      - [Markdown Lint](https://github.com/igorshubovych/markdownlint-cli)
 - [x] Implementation Design:
   - ⚒️ Backend:
     - "Screaming" Architecture
@@ -48,27 +62,14 @@ I didn't have any solo-dev full stack sample app in portfolio, so now I have.
     - Self-Checkout Hierarchy
     - Tiny Components
     - Separation of Concerns
-  - 🗒️ Documentation:
+  - 🗒️ Docs:
     - Medium Commits
     - [Tags](https://github.com/Luzkan/FamilyBudget/tags)
     - [`CHANGELOG.md`](https://github.com/Luzkan/FamilyBudget/blob/main/docs/CHANGELOG.md)
   - 🔧 Dev-Style:
     - Deadline Driven Development
       - _(a pinch of time compared to how much there should be for such a project)_
-- [x] REST API Communication
-  - ⚒️ Backend:
-    - [Django Rest Framework](https://www.django-rest-framework.org/)
-  - 🖌️ Frontend:
-    - [Axios](https://github.com/axios/axios)
-- [x] Dockers containers w/ docker-compose:
-  - ⚒️ Backend
-  - 🔥 [Celery](https://github.com/celery/celery) (Asynchronous Tasks)
-  - 🔥 [RabbitMQ](https://www.rabbitmq.com/) (Message Broken)
-  - 🔥 [Mailhog](https://github.com/mailhog/MailHog) (E-Mail Communication)
-  - 🖌️ Frontend
-  - 🔥 [Redis](https://redis.io/) (Non-Relational Database)
-  - 🏢 [Postgresql](https://www.postgresql.org/) (Relational Database)
-- [x] Functionality
+- [x] Functionalities
   - [x] Responsiveness
   - [x] Registration / login
   - [x] Token Authorization
@@ -78,7 +79,6 @@ I didn't have any solo-dev full stack sample app in portfolio, so now I have.
   - [ ] Pagination
   - [ ] Filtering
   - [ ] Multi-language Support
-
 
 ## 🧑‍🏭 Managing Project
 
@@ -101,6 +101,14 @@ You can manage the project via [shell scripts](./scripts/backend/) (that can be 
   - Same as `clean_start.sh` but w/o Volume creating and using cache.
 - [**`./scripts/up.sh`**](./scripts/up.sh)
   - Basically `docker-compose -d up`.
+
+#### ⚙️ **Linter Settings**
+
+There are lot's of files, I know. Tl;dr, these are three rules on frontend:
+
+- No Semicolons
+- No Spaces between the methods name and parenthesis
+- Double Quotes
 
 ---
 
@@ -196,7 +204,7 @@ Aka. _Views vs ViewSets_: inter-app backend structure design.
 - After all, I've created a `RequestManagers` called `Handlers`, and those have own separate directory inside of each Django App, that can inform about the possible use-cases from the perspective of file hierarchy. This allows me to get the benefits of abstracting `Views` into `ViewSets` (commonized base paths or authentifications/other stuff that Django gives in its features).
 - It's all debatable though, but that is just my take on that. Here's the structure explanation
 
-![](./docs/img/structure.png)
+![File Structure Explained Design](./docs/img/structure.png)
 
 ### 🕌 Security
 
@@ -216,3 +224,13 @@ Aka. _Views vs ViewSets_: inter-app backend structure design.
 ### 💼 Querying
 
 - Lot's of stuff is doing on behalves of currently logged in users. A ready-made solution for such tasks would be great. There is a [django-crum](https://pypi.org/project/django-crum/) library that contains built-in tests, safe-checks and implementation, but unfortunately is not supported for Django 4.0.
+
+### Minor
+
+#### ➥ **setup.py** vs. **pyproject.toml**
+
+Here's a [PEP-0518](https://peps.python.org/pep-0518/) with answers.
+
+#### ➥ **Standardjs?**
+
+[Standardjs](https://standardjs.com/) wants single parenthesis. This ' character might be confusing with ` backtick character.

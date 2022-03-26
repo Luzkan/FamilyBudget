@@ -1,7 +1,7 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import PageLanding from "../pages/landing";
-import PageLogged from "../pages/logged";
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import PageLanding from "../pages/landing"
+import PageLogged from "../pages/logged"
 
 const Router = () => (
   <Routes>
@@ -9,6 +9,6 @@ const Router = () => (
     <Route path="budgets" element={<PageLogged />} />
     <Route path="*" element={<PageLanding />} />
   </Routes>
-);
+)
 
-export default Router;
+export default Router

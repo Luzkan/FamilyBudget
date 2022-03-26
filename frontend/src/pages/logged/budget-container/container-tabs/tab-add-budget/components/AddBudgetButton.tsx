@@ -1,8 +1,8 @@
-import React from "react";
-import { ListGroup } from "react-bootstrap";
+import React from "react"
+import { ListGroup } from "react-bootstrap"
 
 interface Props {
-  showModal: () => void;
+  showModal: () => void
 }
 
 const AddBudgetButton = ({ showModal }: Props) => {
@@ -14,12 +14,10 @@ const AddBudgetButton = ({ showModal }: Props) => {
       onClick={showModal}
     >
       <div className="ms-2 me-auto">
-        <div className="fw-bold" >
-          Add new Budget!
-        </div>
+        <div className="fw-bold">Add new Budget!</div>
       </div>
     </ListGroup.Item>
-  );
-};
+  )
+}
 
-export default AddBudgetButton;
+export default AddBudgetButton

@@ -1,7 +1,7 @@
 ---
 # Mega-Linter GitHub Action configuration file
 # More info at https://nvuillam.github.io/mega-linter
-name: Mega-Linter-Backend
+name: Backend Linters
 
 on:
   # Trigger mega-linter at every push. Action will also be visible from Pull Requests to master
@@ -26,11 +26,8 @@ jobs:
           github_token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
   build:
-    name: Mega-Linter
+    name: Bandit, Pylint, Flake8 (Mega-Linter)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
     steps:
       # Git Checkout
       - name: Checkout Code
@@ -44,7 +41,7 @@ jobs:
         id: ml
         # You can override Mega-Linter flavor used to have faster performances
         # More info at https://nvuillam.github.io/mega-linter/flavors/
-        uses: nvuillam/mega-linter/flavors/python@v5
+        uses: nvuillam/mega-linter/flavors/python@v4
         env:
           # All available variables are described in documentation
           # https://nvuillam.github.io/mega-linter/configuration/

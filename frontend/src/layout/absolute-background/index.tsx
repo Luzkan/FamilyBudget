@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
-import Squares from "./squares";
+import Squares from "./squares"
 
 const AbsoluteBackground = () => {
   return (
     <>
       <Squares />
     </>
-  );
-};
+  )
+}
 
-export default AbsoluteBackground;
+export default AbsoluteBackground

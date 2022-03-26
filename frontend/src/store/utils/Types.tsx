@@ -4,5 +4,5 @@ export const fetchTypes = (type: string) => {
     FETCH_SUCCESS: `${type}/FETCH_SUCCESS`,
     FETCH_SUCCESS_TRANSACTION: `${type}/FETCH_SUCCESS_TRANSACTION`,
     FETCH_ERROR: `${type}/FETCH_ERROR`,
-  };
-};
+  }
+}

@@ -1,15 +1,15 @@
-import BudgetService from 'services/budget.service'
-import { BudgetForm, BudgetUsersForm } from 'types/budget'
-import { Dispatch } from 'types/dispatch'
-import TransactionService from 'services/transaction.service'
-import { TransactionForm } from 'types/transaction_form'
+import BudgetService from "services/budget.service"
+import { BudgetForm, BudgetUsersForm } from "types/budget"
+import { Dispatch } from "types/dispatch"
+import TransactionService from "services/transaction.service"
+import { TransactionForm } from "types/transaction_form"
 
-import { fetchTypes } from '../utils/types'
+import { fetchTypes } from "../utils/types"
 
 export const creatorsBudgets = {
   getAll: () => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('budgets')
+      const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await BudgetService.getAll()
@@ -23,7 +23,7 @@ export const creatorsBudgets = {
   },
   add: (budgetForm: BudgetForm) => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('budgets')
+      const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await BudgetService.add(budgetForm).then((response) => {
@@ -33,27 +33,30 @@ export const creatorsBudgets = {
   },
   updateUsers: (users: BudgetUsersForm) => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('budgets')
+      const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
       await BudgetService.updateUsers(users).then((response) => {
-        dispatch({ type: types.FETCH_SUCCESS_TRANSACTION, data: response.data })
+        dispatch({
+          type: types.FETCH_SUCCESS_TRANSACTION,
+          data: response.data,
+        })
       })
     }
-  }
+  },
 }
 
 export const creatorsTransaction = {
   add: (transactionForm: TransactionForm) => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('budgets')
+      const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await TransactionService.add(transactionForm).then((response) => {
         dispatch({
           type: types.FETCH_SUCCESS_TRANSACTION,
-          data: response.data
+          data: response.data,
         })
       })
     }
-  }
+  },
 }

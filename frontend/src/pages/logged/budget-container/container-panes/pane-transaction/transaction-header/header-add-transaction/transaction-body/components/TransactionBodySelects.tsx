@@ -1,11 +1,12 @@
-import React from "react";
-import { Form, InputGroup } from "react-bootstrap";
-import { BoxSeam } from "react-bootstrap-icons";
-import { UseFormRegister } from "react-hook-form";
+import React from "react"
+import { Form, InputGroup } from "react-bootstrap"
+import { BoxSeam } from "react-bootstrap-icons"
+import { UseFormRegister } from "react-hook-form"
+import { TransactionForm } from "types/transaction_form"
 
 interface Props {
-  handleInput: UseFormRegister<any>;
-  categories: string[];
+  handleInput: UseFormRegister<TransactionForm>
+  categories: string[]
 }
 
 const AddTransactionBodySelects = ({ handleInput, categories }: Props) => {
@@ -18,7 +19,7 @@ const AddTransactionBodySelects = ({ handleInput, categories }: Props) => {
       <Form.Select
         name="category"
         defaultValue={categories[0]}
-        {...handleInput("category", {  })}
+        {...handleInput("category", {})}
       >
         {categories.map((category, index) => (
           <option key={index} value={category}>
@@ -27,7 +28,7 @@ const AddTransactionBodySelects = ({ handleInput, categories }: Props) => {
         ))}
       </Form.Select>
     </InputGroup>
-  );
-};
+  )
+}
 
-export default AddTransactionBodySelects;
+export default AddTransactionBodySelects

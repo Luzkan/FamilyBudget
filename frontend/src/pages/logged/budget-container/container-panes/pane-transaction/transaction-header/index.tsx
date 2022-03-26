@@ -1,12 +1,12 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
-import { Budget } from "types/budget";
+import React from "react"
+import { Col, Row } from "react-bootstrap"
+import { Budget } from "types/budget"
 
-import BudgetContainerPaneHeaderAddTransaction from "./header-add-transaction";
-import BudgetContainerPaneHeaderManageUsers from "./header-manage-users";
+import BudgetContainerPaneHeaderAddTransaction from "./header-add-transaction"
+import BudgetContainerPaneHeaderManageUsers from "./header-manage-users"
 
 interface Props {
-  budget: Budget;
+  budget: Budget
 }
 
 const BudgetContainerPaneHeader = ({ budget }: Props) => {
@@ -19,10 +19,13 @@ const BudgetContainerPaneHeader = ({ budget }: Props) => {
         <BudgetContainerPaneHeaderAddTransaction budgetId={budget.id} />
       </Col>
       <Col xs={2}>
-        <BudgetContainerPaneHeaderManageUsers budgetId={budget.id} budgetUsers={budget.users} />
+        <BudgetContainerPaneHeaderManageUsers
+          budgetId={budget.id}
+          budgetUsers={budget.users}
+        />
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default BudgetContainerPaneHeader;
+export default BudgetContainerPaneHeader

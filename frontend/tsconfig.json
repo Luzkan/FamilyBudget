@@ -1,18 +1,19 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "noImplicitAny": true,
-        "jsx": "react",
-        "module": "es6",
-        "target": "es5",
-        "allowJs": true,
-        "moduleResolution": "node",
-        "baseUrl": "./src",
-        "paths": {
-            "src/*": ["./src/*"]
-        }
-    },
-    "files": ["src/index.tsx"],
-    "include": ["src", "*.ts", "*.tsx"],
-    "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "resolveJsonModule": true,
+    "paths": {
+      "src/*": ["./src/*"]
+    }
+  },
+  "files": ["src/index.tsx"],
+  "include": ["src", "*.ts", "*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }

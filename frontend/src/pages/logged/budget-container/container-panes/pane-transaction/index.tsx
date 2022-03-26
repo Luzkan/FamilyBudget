@@ -1,36 +1,31 @@
-import React from "react";
-import { Tab } from "react-bootstrap";
-import { Budget } from "types/budget";
+import React from "react"
+import { Tab } from "react-bootstrap"
+import { Budget } from "types/budget"
 
-import BudgetContainerPaneHeader from "./transaction-header";
-import BudgetContainerPaneTable from "./transaction-table";
+import BudgetContainerPaneHeader from "./transaction-header"
+import BudgetContainerPaneTable from "./transaction-table"
 
 interface Props {
-  budget: Budget;
-  budgetItemIndex: number;
+  budget: Budget
+  budgetItemIndex: number
 }
 
 const BudgetContainerPaneTransaction = ({ budget, budgetItemIndex }: Props) => {
   const incomes = budget.incomes.map((income) => {
-    return { ...income, type: "Income" };
-  });
+    return { ...income, type: "Income" }
+  })
   const expenses = budget.expenses.map((expense) => {
-    return { ...expense, type: "Expense" };
-  });
+    return { ...expense, type: "Expense" }
+  })
 
-  const items = [...incomes, ...expenses];
+  const items = [...incomes, ...expenses]
 
   return (
     <Tab.Pane eventKey={`#link${budgetItemIndex}`}>
-      <BudgetContainerPaneHeader
-        budget={budget}
-      />
-      <BudgetContainerPaneTable
-        items={items}
-        budgetItemIndex={budgetItemIndex}
-      />
+      <BudgetContainerPaneHeader budget={budget} />
+      <BudgetContainerPaneTable items={items} />
     </Tab.Pane>
-  );
-};
+  )
+}
 
-export default BudgetContainerPaneTransaction;
+export default BudgetContainerPaneTransaction

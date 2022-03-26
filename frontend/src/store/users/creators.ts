@@ -1,15 +1,12 @@
-import UsersService from 'services/users.service'
-import { BudgetForm } from 'types/budget'
-import { Dispatch } from 'types/dispatch'
-import TransactionService from 'services/transaction.service'
-import { TransactionForm } from 'types/transaction_form'
+import UsersService from "services/users.service"
+import { Dispatch } from "types/dispatch"
 
-import { fetchTypes } from '../utils/types'
+import { fetchTypes } from "../utils/types"
 
 export const creatorsUsers = {
   getAll: () => {
     return async (dispatch: Dispatch) => {
-      const types = fetchTypes('users')
+      const types = fetchTypes("users")
       dispatch({ type: types.FETCH_REQUESTED })
 
       await UsersService.getAll()
@@ -21,6 +18,5 @@ export const creatorsUsers = {
           dispatch({ type: types.FETCH_ERROR, error })
         })
     }
-  }
-
+  },
 }
