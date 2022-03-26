@@ -1,0 +1,10 @@
+{
+    "transactionTypes": {
+        "expense": {
+            "categories": ["Food", "Goods", "Bills", "Other"]
+        },
+        "income": {
+            "categories": ["Job", "Gift", "Theft", "Other"]
+        }
+    }
+}

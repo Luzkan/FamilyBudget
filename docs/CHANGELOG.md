@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.6.1]] - 2022-03-26
+
+###### _([diff: 0.6.0-0.6.1])_
+
+### Added
+
+- Created Form for [Transaction Creation](../frontend/src/pages/logged/budget-container/container-panes/pane-transaction/transaction-header/header-add-transaction/)
+    - The form uses values for categories based on [typed](../frontend/src/config/database/config.d.ts) [`config/database/config.json`](../frontend/src/config/database/config.json), so the potential extension of available categories for `income` and `expense` types is easy and global.
+
+#### Note:
+
+Lost tiny bit of sanity on the [`defaultChecked`](https://pl.reactjs.org/docs/uncontrolled-components.html) property, lol.
+
 ## [[0.6.0]] - 2022-03-26
 
 ###### _([diff: 0.6.0-alpha-0.6.0])_
@@ -318,6 +331,7 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.6.0-0.6.1]: https://github.com/Luzkan/FamilyBudget/compare/0.6.0...0.6.1
 [diff: 0.6.0-alpha-0.6.0]: https://github.com/Luzkan/FamilyBudget/compare/0.6.0-alpha...0.6.0
 [diff: 0.5.0-0.6.0-alpha]: https://github.com/Luzkan/FamilyBudget/compare/0.5.0...0.6.0-alpha
 [diff: 0.4.6-0.5.0]: https://github.com/Luzkan/FamilyBudget/compare/0.4.6...0.5.0
@@ -340,6 +354,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.6.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.6.1
 [0.6.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.6.0
 [0.6.0-alpha]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.6.0-alpha
 [0.5.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.5.0

@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { ExpenseCategory, IncomeCategory } from "types/transaction";
+import { ExpenseCategory } from "types/expense";
+import { IncomeCategory } from "types/income";
 
 import BudgetContainerPaneTableColumns from "./components/TableColumns";
 import BudgetContainerPaneTableItems from "./components/TableItem";

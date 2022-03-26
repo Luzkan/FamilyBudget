@@ -2,9 +2,11 @@ import ModalForm from "common/modal-form";
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { TransactionForm } from "types/transaction";
+import { useDispatch } from "react-redux";
+import { creatorsTransaction } from "store/transaction/creators";
+import { TransactionForm } from "types/transaction_form";
 
-import AddTransactionBody from "./components/AddTransactionBody";
+import AddTransactionBody from "./transaction-body";
 
 const BudgetContainerPaneHeaderAddTransaction = () => {
   const {
@@ -13,7 +15,12 @@ const BudgetContainerPaneHeaderAddTransaction = () => {
     formState: { errors },
   } = useForm<TransactionForm>();
 
+  const dispatch = useDispatch();
+
   const onSubmit = (data: TransactionForm) => {
+    console.log(data);
+
+    // dispatch(creatorsTransaction.addTransaction(data));
     // TODO: send data to server
     throw new Error("Function not implemented.")
   };
