@@ -1,13 +1,15 @@
 import React from "react";
 
 interface Props {
+  name: string;
   amount: number;
   type: string;
   category: string;
-  user: string;
+  user: number;
 }
 
 const BudgetContainerPaneTableItems = ({
+  name,
   amount,
   type,
   category,
@@ -15,9 +17,10 @@ const BudgetContainerPaneTableItems = ({
 }: Props) => {
   return (
     <tr>
-      <td>2</td>
+      <td>{name}</td>
       <td>{amount}</td>
       <td>{type}</td>
+      <td>{category}</td>
       <td>{user}</td>
     </tr>
   );

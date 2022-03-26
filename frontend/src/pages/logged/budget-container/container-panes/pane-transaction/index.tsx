@@ -23,7 +23,7 @@ const BudgetContainerPaneTransaction = ({ budget, budgetItemIndex }: Props) => {
   return (
     <Tab.Pane eventKey={`#link${budgetItemIndex}`}>
       <BudgetContainerPaneHeader
-        title={`${budget.name} (${budget.total_budget}$)`}
+        budget={budget}
       />
       <BudgetContainerPaneTable
         items={items}

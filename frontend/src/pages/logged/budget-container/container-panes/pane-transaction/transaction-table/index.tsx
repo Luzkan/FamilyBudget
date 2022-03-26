@@ -21,9 +21,10 @@ const BudgetContainerPaneTable = ({ items, budgetItemIndex }: Props) => {
   const itemsToRender = items.map((item, index) => (
     <BudgetContainerPaneTableItems
       key={index}
+      name={item.name}
       type={item.type}
       amount={item.amount}
-      user={item.name}
+      user={item.id_user}
       category={item.category}
     />
   ));

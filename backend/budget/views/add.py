@@ -1,4 +1,5 @@
 from __future__ import annotations
+import logging
 from rest_framework import viewsets
 from rest_framework.request import Request
 from rest_framework.permissions import IsAuthenticated
@@ -23,4 +24,3 @@ class BudgetAddViewSet(viewsets.ViewSet):
             _factory=BudgetRequest
         )
         return budget_request_manager.safe_process().response()
-

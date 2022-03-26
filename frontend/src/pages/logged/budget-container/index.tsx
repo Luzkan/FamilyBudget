@@ -14,6 +14,8 @@ const BudgetContainer = () => {
     (state: RootStateOrAny) => state.budgets
   );
 
+  console.log(budgetResponse);
+
   const paginatedBudgetsMock = budgetResponse.budgets.slice(0, 6);
 
   useEffect(() => {

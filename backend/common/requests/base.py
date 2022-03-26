@@ -8,14 +8,28 @@ from rest_framework.request import Request
 @dataclass(frozen=True)
 class BaseRequest(ABC):
     headers: Headers
-    user: str
-    content_type: str
-    auth: Optional[str]
+    misc: Misc
 
     @staticmethod
     @abstractmethod
     def init(request: Request) -> 'BaseRequest':
         """ """
+
+
+@dataclass
+class Misc:
+    user: Optional[str]
+    content_type: Optional[str]
+    auth: Optional[str]
+
+    @staticmethod
+    def init(request: Request) -> 'Misc':
+        request_data = dict(request.data)
+        return Misc(
+            user=str(request_data.get('user')),
+            content_type=str(request_data.get('user')),
+            auth=str(request_data.get('auth')),
+        )
 
 
 @dataclass(frozen=True)
@@ -51,4 +65,3 @@ class Headers:
             origin=headers.get("origin", None),
             referer=headers.get("referer", None),
         )
-

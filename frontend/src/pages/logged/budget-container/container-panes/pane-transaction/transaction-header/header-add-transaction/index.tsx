@@ -8,7 +8,11 @@ import { TransactionForm } from "types/transaction_form";
 
 import AddTransactionBody from "./transaction-body";
 
-const BudgetContainerPaneHeaderAddTransaction = () => {
+interface Props {
+  budgetId: number;
+}
+
+const BudgetContainerPaneHeaderAddTransaction = ({ budgetId }: Props) => {
   const {
     register,
     handleSubmit,
@@ -18,11 +22,9 @@ const BudgetContainerPaneHeaderAddTransaction = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data: TransactionForm) => {
+    // get budget-id here
     console.log(data);
-
-    // dispatch(creatorsTransaction.addTransaction(data));
-    // TODO: send data to server
-    throw new Error("Function not implemented.")
+    dispatch(creatorsTransaction.add({...data, budgetId: budgetId}));
   };
 
   return (

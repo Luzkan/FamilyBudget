@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-from common.requests.base import BaseRequest, Headers
+from common.requests.base import BaseRequest, Headers, Misc
 
 
 @dataclass(frozen=True)  # TODO: pydantic validation
@@ -17,10 +17,8 @@ class CredentialRequest(BaseRequest):
         return CredentialRequest(
             email=str(request_data.get('email')),
             password=str(request_data.get('password')),
-            user=str(request.user),
-            content_type=str(request.content_type),
-            auth=request.auth,
             headers=Headers.init(request.headers),
+            misc=Misc.init(request)
         )
 
     @staticmethod

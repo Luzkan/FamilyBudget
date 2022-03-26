@@ -2,6 +2,7 @@
 from __future__ import annotations
 import logging
 from dataclasses import dataclass, field
+from transaction.requests.expense.add import AddExpenseRequest
 from common.responses.bad_request_response import BadRequestResponse
 from budget.models import Budget
 from budget.serializer import BudgetSerializer

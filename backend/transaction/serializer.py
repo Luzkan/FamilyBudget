@@ -5,10 +5,10 @@ from transaction.models import Expense, Income
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
-        fields = ['id_user', 'amount', 'name', 'category']
+        fields = ['id', 'id_user', 'amount', 'name', 'category']
 
 
 class IncomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Income
-        fields = ['id_user', 'amount', 'name', 'category']
+        fields = ['id', 'id_user', 'amount', 'name', 'category']

@@ -4,9 +4,10 @@ const BudgetContainerPaneTableColumns = () => {
   return (
     <thead>
       <tr>
-        <th>#</th>
-        <th>Type</th>
+        <th>Name</th>
         <th>Amount</th>
+        <th>Type</th>
+        <th>Category</th>
         <th>User</th>
       </tr>
     </thead>

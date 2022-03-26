@@ -5,16 +5,20 @@ from common.requests.base import BaseRequest, Headers, Misc
 
 
 @dataclass(frozen=True)  # TODO: pydantic validation
-class BudgetRequest(BaseRequest):
+class AddExpenseRequest(BaseRequest):
+    budget_id: int
     name: str
-    total_budget: int
+    amount: int
+    category: str
 
     @staticmethod
-    def init(request: Request) -> 'BudgetRequest':
+    def init(request: Request) -> 'AddExpenseRequest':
         request_data = dict(request.data)
-        return BudgetRequest(
+        return AddExpenseRequest(
+            budget_id=int(request_data.get('budget_id')),
             name=str(request_data.get('name')),
-            total_budget=int(request_data.get('total_budget')),
+            amount=int(request_data.get('amount')),
+            category=str(request_data.get('category')),
             headers=Headers.init(request.headers),
-            misc=Misc.init(request),
+            misc=Misc.init(request)
         )

@@ -1,4 +1,5 @@
-import { Expense, Income } from "./transaction";
+import { Expense } from "./expense";
+import { Income } from "./income";
 import { User } from "./user";
 
 export type BudgetForm = {
@@ -7,6 +8,7 @@ export type BudgetForm = {
 };
 
 export type Budget = {
+  id: number;
   name: string;
   total_budget: number;
   expenses: Expense[];
