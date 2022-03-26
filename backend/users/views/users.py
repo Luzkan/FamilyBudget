@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
 from rest_framework.request import Request
-from users.handlers.get_all import GetAllUsersRequestManager
+from users.handlers.get_all_users import GetAllUsersRequestManager
 
 
 class UsersViewSet(viewsets.ViewSet):
