@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.9.0]] - 2022-03-26
+
+###### _([diff: 0.8.0-0.9.0])_
+
+### Added
+
+- [`README.md`](../README.md) - Considerations: `Views` vs `ViewSets`
+
+### Change
+
+- Backend Structure Design Update
+
 ## [[0.8.0]] - 2022-03-26
 
 ###### _([diff: 0.7.2-0.8.0])_
@@ -416,6 +428,7 @@ Connected Frontend & Backend via webpack_loader.
     -   I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
     -   ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 0.8.0-0.9.0]: https://github.com/Luzkan/FamilyBudget/compare/0.8.0...0.9.0
 [diff: 0.7.2-0.8.0]: https://github.com/Luzkan/FamilyBudget/compare/0.7.2...0.8.0
 [diff: 0.7.1-0.7.2]: https://github.com/Luzkan/FamilyBudget/compare/0.7.1...0.7.2
 [diff: 0.7.0-0.7.1]: https://github.com/Luzkan/FamilyBudget/compare/0.7.0...0.7.1
@@ -446,6 +459,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[0.9.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.9.0
 [0.8.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.8.0
 [0.7.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.7.2
 [0.7.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.7.1

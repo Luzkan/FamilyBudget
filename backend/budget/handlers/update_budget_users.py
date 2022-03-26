@@ -1,22 +1,19 @@
 
 from __future__ import annotations
 
-import logging
 from dataclasses import dataclass, field
-from budget.responses.added_users_to_budget import AddedUsersToBudgetResponse
-from budget.requests.update_budget_users import UpdateBudgetUsersRequest
 
 from budget.models import Budget
-from budget.requests.budget import BudgetRequest
+from budget.requests.update_budget_users import UpdateBudgetUsersRequest
 from budget.responses.added_budget import AddedBudgetResponse
-from budget.serializer import BudgetSerializer
+from budget.responses.added_users_to_budget import AddedUsersToBudgetResponse
 from common.handlers.request_manager import RequestManager
 from common.responses.bad_request_response import BadRequestResponse
 from users.models import User
 
 
 @dataclass
-class UpdateBudgetWithUsersRequestManager(RequestManager):
+class UpdateBudgetUsersHandler(RequestManager):
     factory: type[UpdateBudgetUsersRequest] = field(init=False, default=UpdateBudgetUsersRequest)
     request: UpdateBudgetUsersRequest = field(init=False)
 
@@ -30,8 +27,6 @@ class UpdateBudgetWithUsersRequestManager(RequestManager):
         for user in users:
             budget.users.add(user)
 
-        logging.info("added users to budget")
-        logging.info(budget)
         return AddedUsersToBudgetResponse(users=users, budgets=[budget])
 
     def get_users(self) -> list[User]:

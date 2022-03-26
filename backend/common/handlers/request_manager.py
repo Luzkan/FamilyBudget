@@ -1,7 +1,7 @@
 import logging
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Optional, Type
+from typing import Optional, Type, TypeVar
 
 from common.requests.base import BaseRequest
 from common.responses.abstract_response import AbstractResponse

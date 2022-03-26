@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import TypeAlias
 
 from auth.requests.email_token import EmailTokenRequest
 from auth.responses.user_token_not_exist import UserTokenNotExistResponse
@@ -12,11 +13,11 @@ from rest_framework.authtoken.models import Token
 from users.models import User
 
 
-CheckAuthReturnTypes = UserTokenNotExistResponse | UserUnverifiedTokenResponse | UserVerifiedResponse
+CheckAuthReturnTypes: TypeAlias = UserTokenNotExistResponse | UserUnverifiedTokenResponse | UserVerifiedResponse
 
 
 @dataclass
-class CheckAuthRequestManager(RequestManager):
+class CheckAuthorizationHandler(RequestManager):
     factory: type[EmailTokenRequest] = field(init=False, default=EmailTokenRequest)
     request: EmailTokenRequest = field(init=False)
 

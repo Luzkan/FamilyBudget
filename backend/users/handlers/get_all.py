@@ -2,12 +2,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from users.responses.full_user import FullUserListResponse
 
 from common.handlers.request_manager import RequestManager
 from common.requests.empty import EmptyRequest
 from common.responses.bad_request_response import BadRequestResponse
 from users.models import User
+from users.responses.full_user import FullUserListResponse
 
 
 @dataclass

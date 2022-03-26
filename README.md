@@ -4,6 +4,8 @@ TBA. 🐈
 
 ---
 
+### Vie
+
 
 ### Managing Project
 
@@ -40,6 +42,13 @@ You can manage the project via shell scripts (that can be launched on Unix syste
 
 
 ## Considerations:
+
+### Views vs ViewSets (design)
+
+- At first I went with the `ViewSets` but keeping only one `View` inside of it, just for the ease of switching after making the final decision.
+- I'm highly favouring architecture which _screams_ the available use cases - it's just a good design principle.
+- After all, I've created a `RequestManagers` called `Handlers`, and those have own separate directory inside of each Django App, that can inform about the possible use-cases from the perspective of file hierarchy. This allows me to get the benefits of abstracting `Views` into `ViewSets` (commonized base paths or authentifications/other stuff that Django gives in its features).
+- It's all debatable though, but that is just my take on that.
 
 ### Security
 

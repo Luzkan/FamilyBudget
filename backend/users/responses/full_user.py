@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Optional
-from users.models import User
-from users.serializer import UserSerializer
 
 from common.responses.abstract_response import AbstractResponse
 from rest_framework import status
 from rest_framework.response import Response
+from users.models import User
+from users.serializer import UserSerializer
 
 
 @dataclass

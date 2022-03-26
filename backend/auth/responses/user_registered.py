@@ -11,7 +11,7 @@ from users.serializer import UserSerializer
 
 
 @dataclass
-class UserRegisterResponse(AbstractResponse):
+class UserRegisteredResponse(AbstractResponse):
     user: User
     code: Optional[int] = field(init=False, default=status.HTTP_200_OK)
 

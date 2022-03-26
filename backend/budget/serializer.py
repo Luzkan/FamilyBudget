@@ -1,6 +1,4 @@
-from budget.models import Income
-from budget.models import Expense
-from budget.models import Budget
+from budget.models import Budget, Expense, Income
 from rest_framework import serializers
 from users.serializer import UserSerializer
 

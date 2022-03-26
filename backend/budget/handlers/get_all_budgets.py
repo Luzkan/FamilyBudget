@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+
 from budget.models import Budget
 from budget.responses.added_budget import AddedBudgetResponse
 from common.handlers.request_manager import RequestManager
@@ -11,7 +12,7 @@ from users.models import User
 
 
 @dataclass
-class GetAllBudgetRequestManager(RequestManager):
+class GetAllBudgetsHandler(RequestManager):
     factory: type[EmptyRequest] = field(init=False, default=EmptyRequest)
     request: EmptyRequest = field(init=False)
 
@@ -22,5 +23,5 @@ class GetAllBudgetRequestManager(RequestManager):
         user: User = self.user_via_token
         budgets: list[Budget] = user.budgets.all()  # type: ignore (QuerySet)
         if not budgets:
-            raise NotImplementedError("No budgets found")
+            raise NotImplementedError("No Budgets Found")
         return AddedBudgetResponse(budgets)

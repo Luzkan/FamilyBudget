@@ -17,7 +17,7 @@ LoginProcessReturnTypes = UserDoesNotExistResponse | UserUnverifiedPasswordRespo
 
 
 @dataclass
-class LoginRequestManager(RequestManager):
+class LoginHandler(RequestManager):
     factory: type[CredentialRequest] = field(init=False, default=CredentialRequest)
     request: CredentialRequest = field(init=False)
 

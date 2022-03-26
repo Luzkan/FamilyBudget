@@ -1,23 +1,14 @@
-from auth.views.check_auth import CheckAuthViewSet
-from auth.views.login import LoginViewSet
-from auth.views.register import RegisterViewSet
-from budget.views.update_budget_with_users import UpdateBudgetWithUsersViewSet
-from budget.views.add import BudgetAddViewSet
-from budget.views.get_all import BudgetGetAllViewSet
-from common.views.rest import RestViewSet
-from budget.views.expense.add import ExpenseAddViewSet
-from budget.views.income.add import IncomeAddViewSet
-from users.views.get_all import UsersGetAllViewSet
+from auth.views.auth import AuthViewSet
+from budget.views.budget import BudgetViewSet
+from budget.views.expense import ExpenseAddViewSet
+from budget.views.income import IncomeAddViewSet
+from users.views.users import UsersViewSet
+
 
 routes = [
-    {'regex': r'rest', 'viewset': RestViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': LoginViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': RegisterViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': CheckAuthViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': BudgetAddViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': BudgetGetAllViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': ExpenseAddViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': IncomeAddViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': UsersGetAllViewSet, 'basename': 'Rest'},
-    {'regex': r'rest', 'viewset': UpdateBudgetWithUsersViewSet, 'basename': 'Rest'},
+    {'regex': r'rest', 'viewset': AuthViewSet, 'basename': 'auth'},
+    {'regex': r'rest', 'viewset': BudgetViewSet, 'basename': 'budget'},
+    {'regex': r'rest', 'viewset': ExpenseAddViewSet, 'basename': 'expense'},
+    {'regex': r'rest', 'viewset': IncomeAddViewSet, 'basename': 'income'},
+    {'regex': r'rest', 'viewset': UsersViewSet, 'basename': 'users'},
 ]

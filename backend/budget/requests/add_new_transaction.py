@@ -7,16 +7,16 @@ from rest_framework.request import Request
 
 
 @dataclass(frozen=True)  # TODO: pydantic validation
-class AddTransactionRequest(BaseRequest):
+class AddNewTransactionRequest(BaseRequest):
     budget_id: int
     name: str
     amount: int
     category: str
 
     @staticmethod
-    def init(request: Request) -> 'AddTransactionRequest':
+    def init(request: Request) -> 'AddNewTransactionRequest':
         request_data = dict(request.data)
-        return AddTransactionRequest(
+        return AddNewTransactionRequest(
             budget_id=int(request_data.get('budget_id')),
             name=str(request_data.get('name')),
             amount=int(request_data.get('amount')),

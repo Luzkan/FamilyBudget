@@ -13,9 +13,9 @@ class TransactionService {
     }
     switch (transactionForm.transactionType) {
       case "expense":
-        return api.post("/api/rest/expense/", data);
+        return api.post("/api/rest/budget/expense/", data);
       case "income":
-        return api.post("/api/rest/income/", data);
+        return api.post("/api/rest/budget/income/", data);
       default:
         throw new Error("Invalid transaction type");
     }

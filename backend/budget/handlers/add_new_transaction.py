@@ -2,27 +2,25 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import TypeAlias
 
-from budget.models import Budget
+from budget.models import Budget, Transaction
+from budget.requests.add_new_transaction import AddNewTransactionRequest
+from budget.responses.added_transaction import AddedTransactionResponse
+from budget.responses.not_permitted_to_change import NotPermittedToChangeResponse
 from common.handlers.request_manager import RequestManager
 from common.responses.bad_request_response import BadRequestResponse
 from rest_framework import serializers
-from budget.models import Transaction
-from budget.requests.add_transaction import AddTransactionRequest
-from budget.responses.added_transaction import AddedTransactionResponse
-from budget.responses.not_permitted_to_change import NotPermittedToChangeResponse
 from users.models import User
 
 
-ADD_EXPENSE_REQUEST_TYPES = AddedTransactionResponse | NotPermittedToChangeResponse
-
-
 @dataclass
-class AddTransactionRequestManager(RequestManager):
+class AddNewTransactionHandler(RequestManager):
     serializer: type[serializers.ModelSerializer]
     transaction_type: str
-    factory: type[AddTransactionRequest] = field(init=True)
-    request: AddTransactionRequest = field(init=False)
+    factory: type[AddNewTransactionRequest] = field(init=True)
+    request: AddNewTransactionRequest = field(init=False)
+    ADD_EXPENSE_REQUEST_TYPES: TypeAlias = AddedTransactionResponse | NotPermittedToChangeResponse
 
     def safe_process(self) -> ADD_EXPENSE_REQUEST_TYPES | BadRequestResponse:
         return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)

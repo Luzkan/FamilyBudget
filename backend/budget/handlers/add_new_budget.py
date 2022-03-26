@@ -5,7 +5,7 @@ import logging
 from dataclasses import dataclass, field
 
 from budget.models import Budget
-from budget.requests.budget import BudgetRequest
+from budget.requests.add_new_budget import BudgetRequest
 from budget.responses.added_budget import AddedBudgetResponse
 from budget.serializer import BudgetSerializer
 from common.handlers.request_manager import RequestManager
@@ -14,12 +14,12 @@ from users.models import User
 
 
 @dataclass
-class AddBudgetRequestManager(RequestManager):
+class AddNewBudgetHandler(RequestManager):
     factory: type[BudgetRequest] = field(init=False, default=BudgetRequest)
     request: BudgetRequest = field(init=False)
 
     def safe_process(self) -> AddedBudgetResponse | BadRequestResponse:
-        return super().safe_process()  # type: ignore (fixed in P3.11; https://peps.python.org/pep-0673/)
+        return super().safe_process()  # type: ignore (fix in P3.11; https://peps.python.org/pep-0673/)
 
     def process(self) -> AddedBudgetResponse:
         user: User = self.user_via_token

@@ -1,5 +1,6 @@
 import logging
 from dataclasses import dataclass
+
 from budget.responses.added_budget import AddedBudgetResponse
 from users.models import User
 
