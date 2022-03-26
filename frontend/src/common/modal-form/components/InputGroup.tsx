@@ -29,6 +29,7 @@ const ModalFormInputGroup = ({
         placeholder={formControlProps.placeholder}
         type={formControlProps.type}
         id={formControlProps.id}
+        autoComplete="on"
         name={formControlProps.name}
         {...handleInput(formControlProps.name, {
           required: true,

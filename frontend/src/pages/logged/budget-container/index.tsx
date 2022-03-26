@@ -14,9 +14,7 @@ const BudgetContainer = () => {
     (state: RootStateOrAny) => state.budgets
   );
 
-  console.log(budgetResponse);
-
-  const paginatedBudgetsMock = budgetResponse.budgets.slice(0, 6);
+  const paginatedBudgets = budgetResponse.budgets ? budgetResponse.budgets.slice(0, 6) : [];
 
   useEffect(() => {
     dispatch(creatorsBudgets.getAll());
@@ -27,12 +25,12 @@ const BudgetContainer = () => {
       <Row>
         <Col sm={3}>
           <BudgetContainerTabs
-            budgets={paginatedBudgetsMock}
+            budgets={paginatedBudgets}
             paginations={<BudgetContainerPagination />}
           />
         </Col>
         <Col sm={9} className="budget-pane">
-          <BudgetContainerPanes budgets={paginatedBudgetsMock} />
+          <BudgetContainerPanes budgets={paginatedBudgets} />
         </Col>
       </Row>
     </Tab.Container>

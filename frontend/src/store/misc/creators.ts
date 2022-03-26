@@ -23,7 +23,7 @@ export const creators = {
       dispatch({ type: types.FETCH_REQUESTED });
       try {
         const res = await api.post("/api/rest/expense/", { expense: number });
-        dispatch({ type: types.FETCH_SUCCESS_APPEND, data: res.data });
+        dispatch({ type: types.FETCH_SUCCESS_NEW, data: res.data });
       } catch (error) {
         dispatch({ type: types.FETCH_ERROR, error });
       }

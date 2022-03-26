@@ -3,7 +3,7 @@ import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import configureStore, { history } from "../store";
-import Router from "./router";
+import Router from "./Router";
 
 const store = configureStore({});
 

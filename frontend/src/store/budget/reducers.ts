@@ -10,12 +10,14 @@ export const reducersBudgets = {
     const types = fetchTypes("budgets");
     switch (action.type) {
       case types.FETCH_SUCCESS_NEW:
-        return action.data;
-      case types.FETCH_SUCCESS_APPEND:
-        return {
-          budgets: [...state.budgets, action.data.budgets[0]],
-        };
+        return action.data.budgets.length === 0
+          ? action.data
+          : {
+              budgets: [...state.budgets, action.data.budgets[0]],
+            };
       case types.FETCH_SUCCESS_TRANSACTION:
+        console.log(action.data);
+        console.log(state.budgets);
         return {
           budgets: state.budgets.map((budget) =>
             budget.id === action.data.budgets[0].id
@@ -26,5 +28,5 @@ export const reducersBudgets = {
       default:
         return state;
     }
-  }
+  },
 };

@@ -51,7 +51,7 @@ const RegisterForm = ({ setLoginForm }: Props) => {
           formControlProps={{
             placeholder: "Confirm Password",
             type: "password",
-            id: "password",
+            id: "confirm-password",
             name: "passwordConfirm",
           }}
         />,

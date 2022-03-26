@@ -36,7 +36,7 @@ class AddTransactionRequestManager(RequestManager):
         transaction = self.serialize(user)
         self.add_transaction_to_budget(budget, transaction)
 
-        return AddedTransactionResponse(user=user, budget=budget, transaction=transaction)
+        return AddedTransactionResponse(user=user, budgets=[budget], transaction=transaction)
 
     def serialize(self, user) -> type[Transaction]:
         return self.serializer().create(validated_data={
