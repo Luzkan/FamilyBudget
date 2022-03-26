@@ -47,10 +47,15 @@ LOGGING = {
             "class": "rich.logging.RichHandler",
             "formatter": "rich",
         },
+        "rich_console2": {
+            "level": "ERROR",
+            "class": "rich.logging.RichHandler",
+            "formatter": "rich",
+        },
     },
     "loggers": {
         "": {"handlers": ["rich_console"], "level": "INFO"},
-        "django": {"handlers": ["rich_console"], "level": "INFO"},
+        "django": {"handlers": ["rich_console2"], "level": "ERROR"},
         "celery": {"handlers": ["console"], "level": "INFO"},
     },
 }

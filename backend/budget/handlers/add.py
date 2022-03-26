@@ -1,8 +1,8 @@
 
 from __future__ import annotations
-from dataclasses import dataclass, field
 import logging
-from typing import Optional
+from dataclasses import dataclass, field
+from common.responses.bad_request_response import BadRequestResponse
 from budget.models import Budget
 from budget.serializer import BudgetSerializer
 from budget.responses.budget import BudgetResponse
@@ -12,14 +12,13 @@ from users.models import User
 
 
 @dataclass
-class GetBudgetRequestManager(RequestManager):
+class AddBudgetRequestManager(RequestManager):
     request: BudgetRequest = field(init=False)
-    response: Optional[BudgetResponse] = field(init=False, default=None)
 
-    def safe_process(self) -> BudgetResponse:
-        if self.response:
-            return self.response
-        
+    def safe_process(self) -> BudgetResponse | BadRequestResponse:
+        return super().safe_process()  # type: ignore
+
+    def process(self) -> BudgetResponse:
         user: User = self.user_via_token
         budget: Budget = BudgetSerializer().create(validated_data={
             'name': self.request.name,
