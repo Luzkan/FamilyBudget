@@ -14,7 +14,7 @@ from common.responses.abstract_response import AbstractResponse
 class AddedTransactionResponse(AbstractResponse):
     user: User
     budget: Budget
-    transaction: Transaction
+    transaction: type[Transaction]
     code: Optional[int] = field(init=False, default=status.HTTP_200_OK)
 
     def __post_init__(self):

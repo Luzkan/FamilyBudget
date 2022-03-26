@@ -4,7 +4,7 @@ from rest_framework.request import Request
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from transaction.serializer import ExpenseSerializer
+from transaction.serializer import IncomeSerializer
 from transaction.handlers.add_transaction import AddTransactionRequestManager
 from transaction.requests.add_transaction import AddTransactionRequest
 
@@ -16,13 +16,13 @@ class ExpenseAddViewSet(viewsets.ViewSet):
         detail=False,
         methods=['post'],
         permission_classes=[IsAuthenticated],
-        url_path='expense',  # TODO: Maybe change the path to budget/<int:budget_id>/expense
+        url_path='income',  # TODO: Maybe change the path to budget/<int:budget_id>/income
     )
     def add(self, request: Request) -> Response:
         expense_request_manager = AddTransactionRequestManager(
             _request=request,
             _factory=AddTransactionRequest,
-            serializer=ExpenseSerializer,
-            transaction_type='expenses',
+            serializer=IncomeSerializer,
+            transaction_type='incomes',
         )
         return expense_request_manager.safe_process().response()
