@@ -80,9 +80,9 @@ I didn't have any solo-dev full stack sample app in portfolio, so now I have. Th
   - [x] Users can create budgets
   - [x] Users can manage users assigned to a given budget
   - [ ] Tests
-  - [ ] Pagination
+  - [x] Pagination
   - [x] Filtering
-  - [ ] Multi-language Support
+  - [x] Multi-language Support
 
 ## 🧑‍🏭 Managing Project
 
@@ -90,7 +90,7 @@ You can manage the project via [shell scripts](./scripts/backend/) (that can be 
 
 #### 🏗️ **First-time launch:**
 
-- [**`./scripts/clean_start.sh`**](./scripts/clean_start.sh)
+- [**`./scripts/one_script_wonder.sh`**](./scripts/one_script_wonder.sh)
   - Run the whole project from scratch. initializes, makes database migrations and starts containers.
 - [**`./scripts/initialize.sh`**](./scripts/initialize.sh)
   - Created Docker Volume nad initializes the project _(no-cache)_.
@@ -102,7 +102,7 @@ You can manage the project via [shell scripts](./scripts/backend/) (that can be 
 - [**`./scripts/migration.sh`**](./scripts/migration.sh)
   - Does the `python manage.py makemigrations` && `python manage.py migrate` on docker container.
 - [**`./scripts/rebuild.sh`**](./scripts/rebuild.sh)
-  - Same as `clean_start.sh` but w/o Volume creating and using cache.
+  - Same as `one_script_wonder.sh` but w/o Volume creating and using cache.
 - [**`./scripts/up.sh`**](./scripts/up.sh)
   - Basically `docker-compose -d up`.
 
@@ -163,9 +163,9 @@ All endpoints start with `/api/rest/`.
   - Creates a new budget
   - _requires auth token_
   - _handled by: [/backend/budget/handlers/add_new_budget](./backend/budget/handlers/add_new_budget.py)_
-- `/budget/?searchQuery=<str>` (_get_)
-  - Parametrized: `{searchQuery: str}`
-  - Gets all budgets (or budgets whose title match _search query_) of currently logged in user.
+- `/budget/?searchQuery=<str>?page=<int>` (_get_)
+  - Parametrized: `{searchQuery: str, page: int}`
+  - Gets all budgets (or budgets whose title match _search query_) of currently logged in user paged by index page.
   - _requires auth token_
   - _handled by: [/backend/budget/handlers/get_all_budgets](./backend/budget/handlers/get_all_budgets.py)_
 - `/budget/users` (_post_)
@@ -250,7 +250,7 @@ Thus, the DOM Tree and domain implementation perspective is fully preserved.
 - Budget-User optimizations:
   - Each `user` can have `(0..*)` items of `budget`
   - Each `budget` can have `(1..*)` items of `user`
-  - At this moment, when a user queries for his `budgets`, it is solved by the reverse query functionality built in Django.
+  - At this moment, when a user queries for his `budgets`, it is solved by the reverse query functionality built into Django.
   - I never had the chance to benchmark how does Django handle this situation, but depending on the most frequent use case scenario _(`select` for sure)_, there could be other solutions, like a new _Model_ with columns for foreign keys of `User` and `Budget` or giving `User` an extra column containing `Budgets`.
     - If the underline implementation handles the situation like `Budget.objects.filter(users=user.id)` in disguise, then there are for sure better solutions in large scale system. If there is a new table containing two columns for primary keys, then maybe it's fine. I can just guess how Django handles the many-to-many relations and I'm under super-heavy deadline.
 

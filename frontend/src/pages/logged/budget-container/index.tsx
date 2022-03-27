@@ -19,22 +19,29 @@ const BudgetContainer = () => {
     ? budgetResponse.budgets.slice(0, 6)
     : []
 
-  const [search, setSearch] = React.useState("")
+  const [searchValue, setSearch] = React.useState("")
+  const [currentPage, setPage] = React.useState(1)
 
+  // https://ux.stackexchange.com/questions/95336/how-long-should-the-debounce-timeout-be
   const debouncedChangeHandler = useCallback(
-    _.debounce((searchQuery: string) => {
-      dispatch(creatorsBudgets.get(searchQuery))
-    }, 500),
+    _.debounce((searchQuery, pageNumber) => {
+      dispatch(creatorsBudgets.get(searchQuery, pageNumber))
+    }, 50),
     []
   )
 
+  const handlePagination = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setPage(Number(e.currentTarget.text))
+    debouncedChangeHandler(searchValue, Number(e.currentTarget.text))
+  }
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
-    debouncedChangeHandler(e.target.value)
+    debouncedChangeHandler(e.target.value, 1) // always redirect to first page
   }
 
   useEffect(() => {
-    dispatch(creatorsBudgets.get(search))
+    dispatch(creatorsBudgets.get(searchValue, currentPage))
   }, [dispatch])
 
   return (
@@ -44,10 +51,15 @@ const BudgetContainer = () => {
           <BudgetContainerTabs
             budgets={paginatedBudgets}
             search={{
-              value: search,
+              value: searchValue,
               onSearch: handleSearch,
             }}
-            paginations={<BudgetContainerPagination />}
+            paginations={
+              <BudgetContainerPagination
+                activePaginationTab={currentPage}
+                handlePagination={handlePagination}
+              />
+            }
           />
         </Col>
         <Col sm={9} className="budget-pane">

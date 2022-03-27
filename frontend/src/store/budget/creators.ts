@@ -7,17 +7,13 @@ import { TransactionForm } from "types/transactions/transaction"
 import { fetchTypes } from "../utils/types"
 
 export const creatorsBudgets = {
-  get: (searchQuery: string) => {
+  get: (searchQuery: string, currentPage: number) => {
     return async (dispatch: Dispatch) => {
       const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
-      await BudgetService.get(searchQuery)
+      await BudgetService.get(searchQuery, currentPage)
         .then((response) => {
-          if (searchQuery === "") {
-            dispatch({ type: types.FETCH_SUCCESS, data: response.data })
-          } else {
-            dispatch({ type: types.FETCH_SUCCESS_SEARCH, data: response.data })
-          }
+          dispatch({ type: types.FETCH_SUCCESS, data: response.data })
         })
         .catch((error) => {
           dispatch({ type: types.FETCH_ERROR, error })

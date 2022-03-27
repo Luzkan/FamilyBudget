@@ -2,21 +2,23 @@ import { BudgetResponse } from "types/budget"
 
 import { fetchTypes } from "../utils/types"
 
+type Action = { type: string; data: BudgetResponse }
+
+const isInitialized = (state: BudgetResponse) => state.budgets == null
+const isOnPageWithoutBudgets = (action: Action) => action.data.budgets == null
+const hasJustAddedBudget = (action: Action) => action.data.budgets.length === 1
+
 export const reducersBudgets = {
-  budgets: (
-    state: BudgetResponse = { budgets: [] },
-    action: { type: string; data: BudgetResponse }
-  ) => {
+  budgets: (state: BudgetResponse = { budgets: [] }, action: Action) => {
     const types = fetchTypes("budgets")
     switch (action.type) {
       case types.FETCH_SUCCESS:
-        if (state.budgets == null) return action.data
-        return state.budgets.length === 0
-          ? action.data
-          : {
-              budgets: [...state.budgets, action.data.budgets[0]],
-            }
-      case types.FETCH_SUCCESS_SEARCH:
+        if (isInitialized(state)) return action.data
+        if (isOnPageWithoutBudgets(action)) return { budgets: null }
+        if (hasJustAddedBudget(action))
+          return { budgets: [...state.budgets, action.data.budgets[0]] }
+        return action.data
+      case types.FETCH_SUCCESS_NULL:
         return action.data
       case types.FETCH_SUCCESS_TRANSACTION:
         return {

@@ -28,9 +28,12 @@ class BudgetService {
     })
   }
 
-  async get(searchQuery: string): Promise<AxiosResponse<BudgetResponse>> {
+  async get(
+    searchQuery: string,
+    currentPage: number
+  ): Promise<AxiosResponse<BudgetResponse>> {
     return api.get("/api/rest/budget/", {
-      params: { searchQuery: searchQuery },
+      params: { searchQuery: searchQuery, page: currentPage },
     })
   }
 }

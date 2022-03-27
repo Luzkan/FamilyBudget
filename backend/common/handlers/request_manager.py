@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Optional, Type
 
+from django.core.paginator import EmptyPage, Paginator
+
 from common.requests.base import BaseRequest
 from common.responses.abstract_response import AbstractResponse
 from common.responses.bad_request_response import BadRequestResponse
@@ -38,6 +40,12 @@ class RequestManager(ABC):
         if self.__has_failed_during_initialization():
             return self.init_bad_request_response  # type: ignore
         return self.process()
+
+    def get_page(self, objects, page_size: int, page: int) -> list:
+        try:
+            return Paginator(objects, page_size).page(page).object_list  # type: ignore (QuerySet)
+        except EmptyPage:
+            return []
 
     @abstractmethod
     def process(self) -> type[AbstractResponse]:

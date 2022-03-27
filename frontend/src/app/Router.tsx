@@ -1,7 +1,7 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
-import PageLanding from "../pages/landing"
-import PageLogged from "../pages/logged"
+import PageLanding from "pages/landing"
+import PageLogged from "pages/logged"
 
 const Router = () => (
   <Routes>

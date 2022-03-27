@@ -1,0 +1,87 @@
+{
+  "landing": {
+    "title": "Family Budget",
+    "subTitle": "Gather Your Spending",
+    "credentialForms": {
+      "common": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "loginForm": {
+        "switchform": {
+          "pre-text": "New? Click",
+          "link": "here",
+          "post-text": "to create an account."
+        },
+        "buttonText": "Login"
+      },
+      "registerForm": {
+        "confirmPassword": "Confirm Password",
+        "switchform": {
+          "pre-text": "Already registered? Click",
+          "link": "here",
+          "post-text": "to login."
+        },
+        "buttonText": "Login"
+      }
+    }
+  },
+  "logged": {
+    "budget": {
+      "prompt": {
+        "button": "Add new Budget!",
+        "modal": {
+          "title": "Add new Budget",
+          "inputTitleHint": "Budget Name",
+          "inputAmountHint": "Total Budget",
+          "button": {
+            "confirm": "Add Budget",
+            "close": "Close"
+          }
+        }
+      },
+      "searchbar": {
+        "placeholderHint": "Search Budget"
+      }
+    },
+    "transaction": {
+      "prompt": {
+        "button": "Transaction",
+        "modal": {
+          "title": "Add new Transaction",
+          "inputTransactionTypes": {
+            "income": "Income",
+            "expense": "Expense"
+          },
+          "inputTitleHint": "Transaction Name",
+          "inputAmountHint": "Amount",
+          "button": {
+            "confirm": "Confirm",
+            "close": "Close"
+          }
+        }
+      },
+      "table": {
+        "header": {
+          "name": "Name",
+          "amount": "Amount",
+          "type": "Type",
+          "category": "Category",
+          "user": "User"
+        }
+      }
+    },
+    "manageUsers": {
+      "prompt": {
+        "button": "Manage Users",
+        "modal": {
+          "title": "Manage Users",
+          "button": {
+            "confirm": "Confirm",
+            "close": "Close"
+          }
+        }
+      }
+    }
+  }
+}
