@@ -1,7 +1,7 @@
 import React from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import { UseFormRegister } from "react-hook-form"
-import { TransactionForm } from "types/transaction_form"
+import { TransactionForm } from "types/transactions/transaction"
 
 interface Transactions {
   types: string[]

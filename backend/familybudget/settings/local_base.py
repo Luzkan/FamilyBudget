@@ -1,6 +1,7 @@
 # flake8: noqa
 from .base import *  # noqa
 
+
 DEBUG = True
 
 HOST = "http://localhost:8800"

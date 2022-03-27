@@ -19,4 +19,5 @@ class UpdateBudgetUsersRequest(BaseRequest):
             users=request_data.get("users"),
             headers=Headers.init(request.headers),
             misc=Misc.init(request),
+            query_parameters=dict(request.query_params),
         )

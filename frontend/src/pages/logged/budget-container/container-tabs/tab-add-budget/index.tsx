@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { creatorsBudgets } from "store/budget/creators"
-import { BudgetForm } from "types/budget"
+import { AddNewBudgetForm } from "types/budget"
 
 import AddBudgetBody from "./components/AddBudgetBody"
 import AddBudgetButton from "./components/AddBudgetButton"
@@ -14,9 +14,9 @@ const BudgetContainerTabAddBudget = () => {
   const onHide = () => setModalShow(false)
   const dispatch = useDispatch()
 
-  const { register, handleSubmit } = useForm<BudgetForm>()
+  const { register, handleSubmit } = useForm<AddNewBudgetForm>()
 
-  const onSubmit = (data: BudgetForm) => {
+  const onSubmit = (data: AddNewBudgetForm) => {
     // To refresh I could make yet another call to the server
     // but I can just receive the added budget in response and
     // handle it client side.

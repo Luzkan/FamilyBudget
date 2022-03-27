@@ -19,4 +19,5 @@ class EmailTokenRequest(BaseRequest):
             token=str(request_data.get("token")),
             headers=Headers.init(request.headers),
             misc=Misc.init(request),
+            query_parameters=dict(request.query_params),
         )

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Any, Optional
 
 from rest_framework.request import Request
 
@@ -11,6 +11,7 @@ from rest_framework.request import Request
 class BaseRequest(ABC):
     headers: Headers
     misc: Misc
+    query_parameters: dict[Any, Any]
 
     @staticmethod
     @abstractmethod

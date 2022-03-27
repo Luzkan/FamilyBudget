@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios"
 import { BudgetResponse } from "types/budget"
-import { TransactionForm } from "types/transaction_form"
+import { TransactionForm } from "types/transactions/transaction"
 
 import api from "./api"
 

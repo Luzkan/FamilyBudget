@@ -2,7 +2,7 @@ import React from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import { BoxSeam } from "react-bootstrap-icons"
 import { UseFormRegister } from "react-hook-form"
-import { TransactionForm } from "types/transaction_form"
+import { TransactionForm } from "types/transactions/transaction"
 
 interface Props {
   handleInput: UseFormRegister<TransactionForm>

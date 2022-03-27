@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import logging
+
 from budget.handlers.add_new_budget import AddNewBudgetHandler
-from budget.handlers.get_all_budgets import GetAllBudgetsHandler
+from budget.handlers.get_budgets import GetBudgetsHandler
 from budget.handlers.update_budget_users import UpdateBudgetUsersHandler
 from rest_framework import viewsets
 from rest_framework.decorators import action
@@ -15,23 +17,17 @@ class BudgetViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=["post"],
+        methods=["get", "post"],
         permission_classes=[IsAuthenticated],
         url_path="budget",
     )
-    def add_new_budget(self, request: Request) -> Response:
-        budget_request_manager = AddNewBudgetHandler(rest_request=request)
-        return budget_request_manager.safe_process().response()
-
-    @action(
-        detail=False,
-        methods=["get"],
-        permission_classes=[IsAuthenticated],
-        url_path="budget/all",
-    )
     def get_all_budgets(self, request: Request) -> Response:
-        budget_request_manager = GetAllBudgetsHandler(rest_request=request)
-        return budget_request_manager.safe_process().response()
+        logging.info(request.query_params)
+        if request.method == "GET":
+            return GetBudgetsHandler(rest_request=request).safe_process().response()
+
+        # POST
+        return AddNewBudgetHandler(rest_request=request).safe_process().response()
 
     @action(
         detail=False,
@@ -40,5 +36,4 @@ class BudgetViewSet(viewsets.ViewSet):
         url_path="budget/users",
     )
     def add_budget(self, request: Request) -> Response:
-        budget_request_manager = UpdateBudgetUsersHandler(rest_request=request)
-        return budget_request_manager.safe_process().response()
+        return UpdateBudgetUsersHandler(rest_request=request).safe_process().response()

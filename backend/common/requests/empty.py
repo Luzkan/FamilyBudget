@@ -13,4 +13,5 @@ class EmptyRequest(BaseRequest):
         return EmptyRequest(
             headers=Headers.init(request.headers),
             misc=Misc.init(request),
+            query_parameters=dict(request.query_params),
         )

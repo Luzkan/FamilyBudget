@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { creatorsTransaction } from "store/budget/creators"
-import { TransactionForm } from "types/transaction_form"
+import { TransactionForm } from "types/transactions/transaction"
 
 import AddTransactionBody from "./transaction-body"
 

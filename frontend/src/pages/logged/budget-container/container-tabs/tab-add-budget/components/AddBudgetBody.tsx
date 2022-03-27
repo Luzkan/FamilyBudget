@@ -2,10 +2,10 @@ import ModalFormInputGroup from "common/modal-form/components/InputGroup"
 import React from "react"
 import { CardText, Cash } from "react-bootstrap-icons"
 import { UseFormRegister } from "react-hook-form"
-import { BudgetForm } from "types/budget"
+import { AddNewBudgetForm } from "types/budget"
 
 interface Props {
-  register: UseFormRegister<BudgetForm>
+  register: UseFormRegister<AddNewBudgetForm>
 }
 
 const AddBudgetBody = ({ register }: Props) => {

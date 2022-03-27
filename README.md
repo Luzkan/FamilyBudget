@@ -13,16 +13,20 @@
 
 Hey. 🐈
 
-I didn't have any solo-dev full stack sample app in portfolio, so now I have.
+I didn't have any solo-dev full stack sample app in portfolio, so now I have. This project was done in 4 days for a one of the recruitment process steps.
+
+![Full Functionality Overview (.gif)](./docs/img/v0_11_0_full_functionality_overview.gif)
 
 ## Table of Contents
 
 - [Features](#features)
 - [Managing Project](#managing-project)
 - [Database](#database)
+- [Database](#database)
 - [API Communication](#api-communication)
 - [Considerations](#considerations)
   - [Backend Structure Design](#backend-structure-design)
+  - [Frontend Structure Design](#frontend-structure-design)
   - [Security](#security)
   - [Database](#database)
   - [Querying](#querying)
@@ -45,7 +49,7 @@ I didn't have any solo-dev full stack sample app in portfolio, so now I have.
     - REST API
       - ⚒️ Backend: [Django Rest Framework](https://www.django-rest-framework.org/)
       - 🖌️ Frontend: [Axios](https://github.com/axios/axios)
-  - 👷 Continous Integration:
+  - 👷 Continuous Integration:
     - ⚒️ Backend:
       - [Bandit](https://github.com/PyCQA/bandit)
       - [Pylint](https://pylint.org/)
@@ -77,7 +81,7 @@ I didn't have any solo-dev full stack sample app in portfolio, so now I have.
   - [x] Users can manage users assigned to a given budget
   - [ ] Tests
   - [ ] Pagination
-  - [ ] Filtering
+  - [x] Filtering
   - [ ] Multi-language Support
 
 ## 🧑‍🏭 Managing Project
@@ -159,15 +163,16 @@ All endpoints start with `/api/rest/`.
   - Creates a new budget
   - _requires auth token_
   - _handled by: [/backend/budget/handlers/add_new_budget](./backend/budget/handlers/add_new_budget.py)_
+- `/budget/?searchQuery=<str>` (_get_)
+  - Parametrized: `{searchQuery: str}`
+  - Gets all budgets (or budgets whose title match _search query_) of currently logged in user.
+  - _requires auth token_
+  - _handled by: [/backend/budget/handlers/get_all_budgets](./backend/budget/handlers/get_all_budgets.py)_
 - `/budget/users` (_post_)
   - Data: `{budget_id: str, users: list[{id: int, email: str}]}`
   - Updates the given budget with a new user list.
   - _requires auth token_
   - _handled by: [/backend/budget/handlers/update_budget_users](./backend/budget/handlers/update_budget_users.py)_
-- `/budget/all` (_get_)
-  - Gets all budgets of currently logged in user.
-  - _requires auth token_
-  - _handled by: [/backend/budget/handlers/get_all_budgets](./backend/budget/handlers/get_all_budgets.py)_
 
 #### [_`transaction.service.ts`_](./frontend/src/services/transaction.service.ts)
 
@@ -205,6 +210,34 @@ Aka. _Views vs ViewSets_: inter-app backend structure design.
 - It's all debatable though, but that is just my take on that. Here's the structure explanation
 
 ![File Structure Explained Design](./docs/img/structure.png)
+
+### 🗂️ Frontend Structure Design
+
+#### **Pages**
+
+This is the directory tree hierarchy of `pages`:
+
+- `landing`
+  - `credentials-form`
+    - `login-form`
+    - `register-form`
+- `logged`
+  - `budget-container`
+    - `container-tabs`
+      - `tab-searchbar`
+      - `tab-add-budget`
+      - `tab-item-budget`
+    - `container-panes`
+      - `pane-transaction`
+        - `transaction-header`
+          - `header-add-transaction`
+          - `header-manage-users`
+        - `transaction-table`
+    - `container-pagination`
+
+As you can read, there are two pages: the **landing** page and **logged** page. Landing page contains a **credential form** that can be either login or register form. The logged page contains a **budget-container** that consists of tabs and panes. Tabs have **budgets items** and a  _searchbar_ functionality, alogn with _add budget_ functionality . The pane has **transactions**, which are made out of _transaction header_ (containing _add transaction_ functionality and _manage users_ functionality) along with the table content.
+
+Thus, the DOM Tree and domain implementation perspective is fully preserved.
 
 ### 🕌 Security
 

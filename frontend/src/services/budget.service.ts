@@ -1,12 +1,16 @@
 import { AxiosResponse } from "axios"
 
-import { BudgetForm, BudgetResponse, BudgetUsersForm } from "types/budget"
+import {
+  AddNewBudgetForm,
+  BudgetResponse,
+  UpdateBudgetUsers,
+} from "types/budget"
 import { UserGetAllResponse } from "types/user"
 import api from "./api"
 
 class BudgetService {
   async add(
-    budgetForm: BudgetForm
+    budgetForm: AddNewBudgetForm
   ): Promise<AxiosResponse<BudgetResponse>> {
     return api.post("/api/rest/budget/", {
       name: budgetForm.name,
@@ -15,7 +19,7 @@ class BudgetService {
   }
 
   async updateUsers(
-    budgetUsersForm: BudgetUsersForm
+    budgetUsersForm: UpdateBudgetUsers
   ): Promise<AxiosResponse<UserGetAllResponse>> {
     return api.post("/api/rest/budget/users/", {
       // TODO: budget/<int:budget_id>/users/
@@ -24,8 +28,10 @@ class BudgetService {
     })
   }
 
-  async getAll(): Promise<AxiosResponse<BudgetResponse>> {
-    return api.get("/api/rest/budget/all")
+  async get(searchQuery: string): Promise<AxiosResponse<BudgetResponse>> {
+    return api.get("/api/rest/budget/", {
+      params: { searchQuery: searchQuery },
+    })
   }
 }
 

@@ -11,7 +11,6 @@ export const creatorsUsers = {
 
       await UsersService.getAll()
         .then((response) => {
-          console.log(response)
           dispatch({ type: types.FETCH_SUCCESS, data: response.data })
         })
         .catch((error) => {

@@ -10,14 +10,17 @@ export const reducersBudgets = {
     const types = fetchTypes("budgets")
     switch (action.type) {
       case types.FETCH_SUCCESS:
-        return action.data.budgets.length === 0
+        if (state.budgets == null) return action.data
+        return state.budgets.length === 0
           ? action.data
           : {
               budgets: [...state.budgets, action.data.budgets[0]],
             }
+      case types.FETCH_SUCCESS_SEARCH:
+        return action.data
       case types.FETCH_SUCCESS_TRANSACTION:
         return {
-          budgets: state.budgets.map((budget) =>
+          budgets: state.budgets.map((budget: { id: number }) =>
             budget.id === action.data.budgets[0].id
               ? action.data.budgets[0]
               : budget

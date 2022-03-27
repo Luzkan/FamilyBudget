@@ -24,10 +24,7 @@ class UpdateBudgetUsersHandler(RequestManager):
     def process(self) -> AddedBudgetResponse:
         budget: Budget = Budget.objects.get(id=self.request.budget_id)
         users: list[User] = self.get_users()
-
-        for user in users:
-            budget.users.add(user)
-
+        budget.users.set(users)
         return AddedUsersToBudgetResponse(users=users, budgets=[budget])
 
     def get_users(self) -> list[User]:

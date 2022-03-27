@@ -1,8 +1,9 @@
-import React, { useEffect } from "react"
+import React, { useCallback, useEffect } from "react"
 import { Col, Row, Tab } from "react-bootstrap"
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux"
 import { creatorsBudgets } from "store/budget/creators"
 import { Budget, BudgetResponse } from "types/budget"
+import _ from "lodash"
 
 import BudgetContainerPanes from "./container-panes"
 import BudgetContainerTabs from "./container-tabs"
@@ -18,8 +19,22 @@ const BudgetContainer = () => {
     ? budgetResponse.budgets.slice(0, 6)
     : []
 
+  const [search, setSearch] = React.useState("")
+
+  const debouncedChangeHandler = useCallback(
+    _.debounce((searchQuery: string) => {
+      dispatch(creatorsBudgets.get(searchQuery))
+    }, 500),
+    []
+  )
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+    debouncedChangeHandler(e.target.value)
+  }
+
   useEffect(() => {
-    dispatch(creatorsBudgets.getAll())
+    dispatch(creatorsBudgets.get(search))
   }, [dispatch])
 
   return (
@@ -28,6 +43,10 @@ const BudgetContainer = () => {
         <Col sm={3}>
           <BudgetContainerTabs
             budgets={paginatedBudgets}
+            search={{
+              value: search,
+              onSearch: handleSearch,
+            }}
             paginations={<BudgetContainerPagination />}
           />
         </Col>

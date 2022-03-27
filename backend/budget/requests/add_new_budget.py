@@ -19,4 +19,5 @@ class BudgetRequest(BaseRequest):
             total_budget=int(request_data.get("total_budget")),
             headers=Headers.init(request.headers),
             misc=Misc.init(request),
+            query_parameters=dict(request.query_params),
         )

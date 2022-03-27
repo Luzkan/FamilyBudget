@@ -1,11 +1,15 @@
 import { ConfigDatabase } from "config/database/config"
 import React, { useState } from "react"
 import { UseFormRegister } from "react-hook-form"
-import { TransactionTypes } from "types/transaction"
-import { TransactionForm } from "types/transaction_form"
+import {
+  TransactionForm,
+  TransactionTypes,
+} from "types/transactions/transaction"
+
 import AddTransactionBodyInputs from "./components/TransactionBodyInputs"
 import TransactionBodyRadio from "./components/TransactionBodyRadio"
 import AddTransactionBodySelects from "./components/TransactionBodySelects"
+
 // import config from "config/database/config.json";
 
 interface Props {
@@ -14,7 +18,7 @@ interface Props {
 
 const AddTransactionBody = ({ register }: Props) => {
   // TODO, check the commented out import line
-  const config: ConfigDatabase = require("config/database/config.json");  // eslint-disable-line
+  const config: ConfigDatabase = require("config/database/config.json") // eslint-disable-line
 
   const transactionTypes: TransactionTypes[] = Object.keys(
     config.transactionTypes

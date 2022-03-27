@@ -1,27 +1,30 @@
 import BudgetService from "services/budget.service"
-import { BudgetForm, BudgetUsersForm } from "types/budget"
+import { AddNewBudgetForm, UpdateBudgetUsers } from "types/budget"
 import { Dispatch } from "types/dispatch"
 import TransactionService from "services/transaction.service"
-import { TransactionForm } from "types/transaction_form"
+import { TransactionForm } from "types/transactions/transaction"
 
 import { fetchTypes } from "../utils/types"
 
 export const creatorsBudgets = {
-  getAll: () => {
+  get: (searchQuery: string) => {
     return async (dispatch: Dispatch) => {
       const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
-
-      await BudgetService.getAll()
+      await BudgetService.get(searchQuery)
         .then((response) => {
-          dispatch({ type: types.FETCH_SUCCESS, data: response.data })
+          if (searchQuery === "") {
+            dispatch({ type: types.FETCH_SUCCESS, data: response.data })
+          } else {
+            dispatch({ type: types.FETCH_SUCCESS_SEARCH, data: response.data })
+          }
         })
         .catch((error) => {
           dispatch({ type: types.FETCH_ERROR, error })
         })
     }
   },
-  add: (budgetForm: BudgetForm) => {
+  add: (budgetForm: AddNewBudgetForm) => {
     return async (dispatch: Dispatch) => {
       const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })
@@ -31,7 +34,7 @@ export const creatorsBudgets = {
       })
     }
   },
-  updateUsers: (users: BudgetUsersForm) => {
+  updateUsers: (users: UpdateBudgetUsers) => {
     return async (dispatch: Dispatch) => {
       const types = fetchTypes("budgets")
       dispatch({ type: types.FETCH_REQUESTED })

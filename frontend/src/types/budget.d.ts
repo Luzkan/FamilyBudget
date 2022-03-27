@@ -1,11 +1,6 @@
-import { Expense } from "./expense"
-import { Income } from "./income"
+import { Expense } from "./transactions/expense"
+import { Income } from "./transactions/income"
 import { User } from "./user"
-
-export type BudgetForm = {
-  name: string
-  totalBudget: number
-}
 
 export type Budget = {
   id: number
@@ -16,12 +11,23 @@ export type Budget = {
   users: User[]
 }
 
+// ------------
+// API Request
+
+export type AddNewBudgetForm = {
+  name: string
+  totalBudget: number
+}
+
+export type UpdateBudgetUsers = {
+  budgetId: number
+  users: User[]
+}
+
+// ------------
+// API Response
+
 export type BudgetResponse = {
   budgets: Budget[]
   success?: boolean
-}
-
-export type BudgetUsersForm = {
-  budgetId: number
-  users: User[]
 }

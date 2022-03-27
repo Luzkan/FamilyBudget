@@ -3,14 +3,8 @@ export type User = {
   email: string
 }
 
-export type UserGetAllResponse = {
-  users: User[]
-}
-
-export type CredentialsData = {
-  token: string
-  user: User
-}
+// ------------
+// API Request
 
 export type LoginCredentials = {
   email: string
@@ -21,4 +15,16 @@ export type RegisterCredentials = {
   email: string
   password: string
   passwordConfirm: string
+}
+
+// ------------
+// API Response
+
+export type CredentialsData = {
+  token: string
+  user: User
+}
+
+export type UserGetAllResponse = {
+  users: User[]
 }

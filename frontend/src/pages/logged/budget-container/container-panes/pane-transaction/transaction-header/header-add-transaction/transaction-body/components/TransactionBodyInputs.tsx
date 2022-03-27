@@ -2,7 +2,7 @@ import ModalFormInputGroup from "common/modal-form/components/InputGroup"
 import React from "react"
 import { CardText, Cash } from "react-bootstrap-icons"
 import { UseFormRegister } from "react-hook-form"
-import { TransactionForm } from "types/transaction_form"
+import { TransactionForm } from "types/transactions/transaction"
 
 interface Props {
   handleInput: UseFormRegister<TransactionForm>
