@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 import logging
 
 from budget.handlers.add_new_budget import AddNewBudgetHandler
@@ -21,7 +20,7 @@ class BudgetViewSet(viewsets.ViewSet):
         permission_classes=[IsAuthenticated],
         url_path="budget",
     )
-    def get_all_budgets(self, request: Request) -> Response:
+    def budget(self, request: Request) -> Response:
         logging.info(request.query_params)
         if request.method == "GET":
             return GetBudgetsHandler(rest_request=request).safe_process().response()
@@ -35,5 +34,5 @@ class BudgetViewSet(viewsets.ViewSet):
         permission_classes=[IsAuthenticated],
         url_path="budget/users",
     )
-    def add_budget(self, request: Request) -> Response:
+    def add_users(self, request: Request) -> Response:
         return UpdateBudgetUsersHandler(rest_request=request).safe_process().response()

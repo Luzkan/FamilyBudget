@@ -20,6 +20,8 @@ PYTHON_PYLINT_ARGUMENTS:
   - "--disable=E0611"  # No name 'TypeAlias' in module 'typing' (no-name-in-module)
   - "--disable=E1101"  # Instance of 'Test*' has no '*' member (no-member)
   - "--disable=E1131"  # Unsupported operand type(s) for | (unsupported-binary-operation)
+EXCLUDED_DIRECTORIES:
+  - "./scripts/fix/history_module/"
 DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
   # - SPELL # Uncomment to enable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes

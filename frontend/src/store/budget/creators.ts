@@ -4,7 +4,7 @@ import { Dispatch } from "types/dispatch"
 import TransactionService from "services/transaction.service"
 import { TransactionForm } from "types/transactions/transaction"
 
-import { fetchTypes } from "../utils/types"
+import { fetchTypes } from "../utils/fetch_types"
 
 export const creatorsBudgets = {
   get: (searchQuery: string, currentPage: number) => {

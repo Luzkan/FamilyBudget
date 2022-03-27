@@ -1,6 +1,6 @@
 import { BudgetResponse } from "types/budget"
 
-import { fetchTypes } from "../utils/types"
+import { fetchTypes } from "../utils/fetch_types"
 
 type Action = { type: string; data: BudgetResponse }
 

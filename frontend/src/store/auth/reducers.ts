@@ -1,5 +1,5 @@
 import { CredentialsData } from "types/user"
-import { fetchTypes } from "../utils/types"
+import { fetchTypes } from "../utils/fetch_types"
 
 export const reducersAuth = {
   credentials: (

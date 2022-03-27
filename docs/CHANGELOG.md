@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[1.0.2]] - 2022-03-27
+
+###### _([diff: 1.0.1-1.0.2])_
+
+![One Script Wonder Installation](./img/v1_0_2_one_script_wonder.gif)
+
+### Fixed
+
+- [`.env`](../backend/.env) was missing in the public repository, passwords are exposed anyway so whatever 😵
+- Docker Frontend Container was not bind to address accessible by Backend Container.
+- Missing webpack installations required on a wiped-clean environment in order to run frontend docker container successfully.
+- History module type declaration fix via [shell script](../scripts/fix/history_module/injects_types.sh) (injecting type definitions manually, as it seems to be broken).
+
 ## [[1.0.1]] - 2022-03-27
 
 ###### _([diff: 1.0.0-1.0.1])_
@@ -536,6 +549,7 @@ Connected Frontend & Backend via webpack_loader.
   - I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
   - ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 1.0.1-1.0.2]: https://github.com/Luzkan/FamilyBudget/compare/1.0.1...1.0.2
 [diff: 1.0.0-1.0.1]: https://github.com/Luzkan/FamilyBudget/compare/1.0.0...1.0.1
 [diff: 0.11.0-1.0.0]: https://github.com/Luzkan/FamilyBudget/compare/0.11.0...1.0.0
 [diff: 0.10.0-0.11.0]: https://github.com/Luzkan/FamilyBudget/compare/0.10.0...0.11.0
@@ -573,6 +587,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[1.0.2]: https://github.com/Luzkan/FamilyBudget/releases/tag/1.0.2
 [1.0.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/1.0.1
 [1.0.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/1.0.0
 [0.11.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.11.0

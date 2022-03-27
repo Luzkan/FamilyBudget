@@ -6,7 +6,7 @@ import {
   RegisterCredentials,
 } from "types/user"
 
-import { fetchTypes } from "../utils/types"
+import { fetchTypes } from "../utils/fetch_types"
 
 export const creatorsAuth = {
   login: (loginCredentials: LoginCredentials) => {

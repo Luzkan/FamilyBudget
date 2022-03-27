@@ -1,7 +1,7 @@
 import UsersService from "services/users.service"
 import { Dispatch } from "types/dispatch"
 
-import { fetchTypes } from "../utils/types"
+import { fetchTypes } from "../utils/fetch_types"
 
 export const creatorsUsers = {
   getAll: () => {

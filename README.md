@@ -1,13 +1,10 @@
 <h1 align="center">FamilyBudget App</h1>
-  <h4 align="center"> </h4>
   <p align="center">
-    <a href="https://github.com/Luzkan/FamilyBudget#Table-of-Contents" align="center"><strong>Explore the App »</strong></a>
-    <br />
-    <a href="https://github.com/Luzkan/FamilyBudget/docs/CHANGELOG.md">CHANGELOG.md</a>
+    <a href="https://github.com/Luzkan/FamilyBudget/blob/main/docs/CHANGELOG.md">CHANGELOG.md</a>
     ·
-    <a href="https://github.com/Luzkan/FamilyBudget/frontend">Frontend (React/TypeScript)</a>
+    <a href="https://github.dev/Luzkan/FamilyBudget/tree/main/backend">Frontend (React/TypeScript)</a>
     ·
-    <a href="https://github.com/Luzkan/FamilyBudget/backend">Backend (Django/Python)</a>
+    <a href="https://github.com/Luzkan/FamilyBudget/tree/main/backend">Backend (Django/Python)</a>
   </p>
 </p>
 
@@ -19,21 +16,33 @@ I didn't have any solo-dev full-stack sample app in my portfolio, so now I have.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Managing Project](#managing-project)
-- [Database](#database)
-- [Database](#database)
-- [API Communication](#api-communication)
-- [Considerations](#considerations)
-  - [Backend Structure Design](#backend-structure-design)
-  - [Frontend Structure Design](#frontend-structure-design)
-  - [Security](#security)
-  - [Database](#database)
-  - [Querying](#querying)
+- [Quick Start](#quick-start)
+- [Features](#-features)
+- [Managing Project](#-managing-project)
+- [Database](#%EF%B8%8F-database)
+- [API Communication](#-api-communication)
+- [Considerations](#-considerations)
+  - [Backend Structure Design](#%EF%B8%8F-backend-structure-design)
+  - [Frontend Structure Design](#%EF%B8%8F-frontend-structure-design)
+  - [Security](#-security)
+  - [Database](#-database)
+  - [Querying](#-querying)
 
 ---
 
-## 🚀 Features
+## 🚀 **Quick Start**
+
+_Launch bash and type in..._
+
+```cmd
+./scripts/one_script_wonder.sh
+```
+
+_...website available at [localhost:8000](http://localhost:8000/)!_
+
+---
+
+## ✨ Features
 
 - [x] Implementation Technologies:
   - ⚒️ Backend:
@@ -211,6 +220,8 @@ Aka. _Views vs ViewSets_: inter-app backend structure design.
 
 ![File Structure Explained Design](./docs/img/structure.png)
 
+The Django implicit way of working using the benefits of mixins and inheritance by just providing class-level attributes for serializing models and stuff is definitely solid primary solution.
+
 ### 🗂️ Frontend Structure Design
 
 #### **Pages**
@@ -244,15 +255,6 @@ Thus, the DOM Tree and domain implementation perspective is fully preserved.
 - I would advocate to **never** send the password in plaintext via API, even when SSL is used. The best solution would be to generate a unique [salt](<https://en.wikipedia.org/wiki/Salt_(cryptography)>) on the client-side, store it in the database, and then perform proper encryption before sending a request with a password. More good practices on REST API Communication [here](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html).
 - The very same issue is with the Token authorization that I've implemented - it is **not** safe, especially because I keep it in [localStorage](https://developer.mozilla.org/pl/docs/Web/API/Window/localStorage). I would suggest changing the implementation from the Django token (about which I don't know, much and thus I definitely don't trust the mechanism) to something that has a viable reputation like the [JWT Tokens](https://jwt.io/). The very best solution would be to handle authentication by 3rd party system in which they know what they are doing.
 - Currently, the passwords are encrypted via random salt and sha-256. This is **not** safe. Preferably use the [AES](https://pl.wikipedia.org/wiki/Advanced_Encryption_Standard) or [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)>). Generally, if this `README.md` is already "dated" compared to the time you are reading this, refer to [OWASP](https://owasp.org/) for newest cybersecurity recommendations ([password cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)).
-
-### 📈 Database
-
-- Budget-User optimizations:
-  - Each `user` can have `(0..*)` items of `budget`
-  - Each `budget` can have `(1..*)` items of `user`
-  - At this moment, when a user queries for his `budgets`, it is solved by the reverse query functionality built into Django.
-  - I never had the chance to benchmark how does Django handle this situation, but depending on the most frequent use case scenario _(`select` for sure)_, there could be other solutions, like a new _Model_ with columns for foreign keys of `User` and `Budget` or giving `User` an extra column containing `Budgets`.
-    - If the underline implementation handles the situation like `Budget.objects.filter(users=user.id)` in disguise, then there are for sure better solutions in a large-scale system. If there is a new table containing two columns for primary keys, then maybe it's fine. I can just guess how Django handles the many-to-many relations and I'm under super-heavy deadline.
 
 ### 💼 Querying
 
