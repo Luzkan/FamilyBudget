@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[1.0.1]] - 2022-03-27
+
+###### _([diff: 1.0.0-1.0.1])_
+
+![Visual Tweaks](./img/v1_0_1_tweaks.png)
+
+### Changed
+
+- Modal Buttons sizing and text coloring.
+- Badge sizes
+
+### Fixed
+
+- Case when result would append if only one Budget was found.
+
 ## [[1.0.0]] - 2022-03-27
 
 ###### _([diff: 0.11.0-1.0.0])_
@@ -521,6 +536,7 @@ Connected Frontend & Backend via webpack_loader.
   - I know I should implement them right away and have all of that sort of things already done, but I _really_ want to start some dev coding 🐈
   - ... still got to setup frontend-backend, so I'll prioritize that at this moment.
 
+[diff: 1.0.0-1.0.1]: https://github.com/Luzkan/FamilyBudget/compare/1.0.0...1.0.1
 [diff: 0.11.0-1.0.0]: https://github.com/Luzkan/FamilyBudget/compare/0.11.0...1.0.0
 [diff: 0.10.0-0.11.0]: https://github.com/Luzkan/FamilyBudget/compare/0.10.0...0.11.0
 [diff: 0.9.2-0.10.0]: https://github.com/Luzkan/FamilyBudget/compare/0.9.2...0.10.0
@@ -557,6 +573,7 @@ Connected Frontend & Backend via webpack_loader.
 [diff: 0.1.1-0.2.0]: https://github.com/Luzkan/FamilyBudget/compare/0.1.1...0.2.0
 [diff: 0.1.0-0.1.1]: https://github.com/Luzkan/FamilyBudget/compare/0.1.0...0.1.1
 [diff: 0.0.0-0.1.0]: https://github.com/Luzkan/FamilyBudget/compare/0.0.0...0.1.0
+[1.0.1]: https://github.com/Luzkan/FamilyBudget/releases/tag/1.0.1
 [1.0.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/1.0.0
 [0.11.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.11.0
 [0.10.0]: https://github.com/Luzkan/FamilyBudget/releases/tag/0.10.0

@@ -7,7 +7,11 @@ interface Props {
 }
 
 const ModalFormButton = ({ showModal, buttonText }: Props) => {
-  return <Button onClick={showModal}>{buttonText}</Button>
+  return (
+    <Button onClick={showModal} size="lg">
+      {buttonText}
+    </Button>
+  )
 }
 
 export default ModalFormButton

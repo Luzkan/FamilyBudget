@@ -29,5 +29,5 @@ export type UpdateBudgetUsers = {
 
 export type BudgetResponse = {
   budgets: Budget[]
-  success?: boolean
+  created?: boolean
 }

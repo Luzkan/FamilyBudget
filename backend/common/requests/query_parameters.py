@@ -22,7 +22,9 @@ class QueryParameters:
         if not isinstance(query_parameters[parameter_name], str) or query_parameters[parameter_name] == "":
             return None
         try:
-            return cast_type(query_parameters[parameter_name][0])
+            if cast_type == int:
+                return cast_type(query_parameters[parameter_name][0])
+            return cast_type(query_parameters[parameter_name])
         except ValueError:
             logging.warn(f"Could not cast query parameter '{parameter_name}' to type '{cast_type}'")
             return bad_type_return

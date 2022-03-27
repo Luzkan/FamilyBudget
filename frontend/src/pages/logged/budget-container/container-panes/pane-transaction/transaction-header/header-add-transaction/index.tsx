@@ -25,7 +25,7 @@ const BudgetContainerPaneHeaderAddTransaction = ({ budgetId }: Props) => {
     <>
       <ModalForm
         button={{
-          text: "Transaction",
+          text: "Add Transaction",
         }}
         modal={{
           headerTitle: "Add Transaction",

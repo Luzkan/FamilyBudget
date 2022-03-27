@@ -19,14 +19,18 @@ const BudgetContainerTabItem = ({ budget, budgetItemIndex }: Props) => {
       <div className="ms-2 me-auto">
         <div className="fw-bold">{budget.name}</div>
         {budget.users.map((user: User, index: number) => (
-          <Badge pill className="mr-1" key={index}>
-            {user.email}
-          </Badge>
+          <div className="email-badge" key={index}>
+            <Badge pill className="mr-1">
+              {user.email}
+            </Badge>
+          </div>
         ))}
       </div>
-      <Badge bg="primary" pill>
-        {budget.total_budget}
-      </Badge>
+      <div className="total-budget-badge">
+        <Badge bg="primary" pill>
+          {budget.total_budget}$
+        </Badge>
+      </div>
     </ListGroup.Item>
   )
 }
