@@ -16,7 +16,7 @@ I didn't have any solo-dev full-stack sample app in my portfolio, so now I have.
 
 ## Table of Contents
 
-- [Quick Start](#quick-start)
+- [Quick Start](#-quick-start)
 - [Features](#-features)
 - [Managing Project](#-managing-project)
 - [Database](#%EF%B8%8F-database)
@@ -95,12 +95,12 @@ _...website available at [localhost:8000](http://localhost:8000/)!_
 
 ## 🧑‍🏭 Managing Project
 
-You can manage the project via [shell scripts](./scripts/backend/) (that can be launched on Unix systems or w/ [git bash](https://git-scm.com/downloads) on Windows). These scripts contain some common routines that you might be interested in.
+You can manage the project via [shell scripts](./scripts/) (that can be launched on Unix systems or w/ [git bash](https://git-scm.com/downloads) on Windows). These scripts contain some common routines that you might be interested in.
 
 #### 🏗️ **First-time launch:**
 
 - [**`./scripts/one_script_wonder.sh`**](./scripts/one_script_wonder.sh)
-  - Run the whole project from scratch. initializes, makes database migrations and starts containers.
+  - Runs the whole project from scratch. Initializes, makes database migrations and starts containers.
 - [**`./scripts/initialize.sh`**](./scripts/initialize.sh)
   - Created Docker Volume nad initializes the project _(no-cache)_.
 - [**`./scripts/setup.sh`**](./scripts/setup.sh)
@@ -151,59 +151,48 @@ All endpoints start with `/api/rest/`.
 
 #### [_`auth.service.ts`_](./frontend/src/services/auth.service.ts)
 
-- `/auth/login/` (_post_)
+- [`/auth/login/`](./backend/auth/handlers/login.py) (_post_)
   - Data: `{email: str, password: str}`
   - Logins the user with credentials if registered
-  - _handled by: [/backend/auth/handlers/login](./backend/budget/handlers/login.py)_
-- `/auth/register/` (_post_)
+- [`/auth/register/`](./backend/auth/handlers/register.py) (_post_)
   - Data `{email: str, password: str}`
   - Registers a new account with given credentials
   - _Note_: Password string confronts `algorithm$salt$iterations$hashed_password`
-  - _handled by: [/backend/auth/handlers/register](./backend/budget/handlers/register.py)_
-- `/auth/check/` (_post_)
+- [`/auth/check/`](./backend/auth/handlers/check_authorization.py) (_post_)
   - Data `{email: str}`
   - Safety-check: is the user holding his own valid token?
-  - _handled by: [/backend/auth/handlers/check_authorization](./backend/budget/handlers/check_authorization.py)_
 
 #### [_`budget.service.ts`_](./frontend/src/services/budget.service.ts)
 
-- `/budget/` (_post_)
+- [`/budget/`](./backend/budget/handlers/add_new_budget.py) (_post_)
   - Data: `{name: str, total_budget: int}`
   - Creates a new budget
   - _requires auth token_
-  - _handled by: [/backend/budget/handlers/add_new_budget](./backend/budget/handlers/add_new_budget.py)_
-- `/budget/?searchQuery=<str>?page=<int>` (_get_)
+- [`/budget/?searchQuery=<str>?page=<int>`](./backend/budget/handlers/get_budgets.py) (_get_)
   - Parametrized: `{searchQuery: str, page: int}`
   - Gets all budgets (or budgets whose title match _search query_) of currently logged in user paged by index page.
   - _requires auth token_
-  - _handled by: [/backend/budget/handlers/get_all_budgets](./backend/budget/handlers/get_all_budgets.py)_
-- `/budget/users` (_post_)
+- [`/budget/users`](./backend/budget/handlers/update_budget_users.py) (_post_)
   - Data: `{budget_id: str, users: list[{id: int, email: str}]}`
   - Updates the given budget with a new user list.
   - _requires auth token_
-  - _handled by: [/backend/budget/handlers/update_budget_users](./backend/budget/handlers/update_budget_users.py)_
 
 #### [_`transaction.service.ts`_](./frontend/src/services/transaction.service.ts)
 
-- `/budget/expense` (_post_)
-
+- [`/budget/expense`](./backend/budget/handlers/add_new_transaction.py) (_post_)
   - Data: `{budget_id: int, name: str, amount: int, category: str}`
   - Creates a new Expense item for given budget.
   - _requires auth token_
-  - _handled by: [/backend/budget/handlers/add_new_transaction](./backend/budget/handlers/add_new_transaction.py)_
-
-- `/budget/income` (_post_)
+- [`/budget/income`](./backend/budget/handlers/add_new_transaction.py) (_post_)
   - Data: `{budget_id: int, name: str, amount: int, category: str}`
   - Creates a new Income item for given budget.
   - _requires auth token_
-  - _handled by: [/backend/budget/handlers/add_new_transaction](./backend/budget/handlers/add_new_transaction.py)_
 
 #### [_`users.service.ts`_](./frontend/src/services/transaction.service.ts)
 
-- `/users/all/` (_get_)
+- [`/users/all/`](./backend/users/handlers/get_all_users.py) (_get_)
   - Queries all users from database.
   - _requires auth token_
-  - _handled by: [/backend/users/handlers/get_all_users](./backend/users/handlers/get_all_users.py)_
 
 ---
 
@@ -268,4 +257,4 @@ Here's a [PEP-0518](https://peps.python.org/pep-0518/) with answers.
 
 #### ➥ **Standardjs?**
 
-[Standardjs](https://standardjs.com/) wants single parenthesis. This ' character might be confusing with ` backtick character.
+[Standardjs](https://standardjs.com/) wants single parenthesis. This ' character might be confusing with ` backtick character. For this reason, I gave up the [ts-standard](https://github.com/standard/ts-standard) library.
